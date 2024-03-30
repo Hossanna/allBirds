@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.accountCreation {
+  margin: 0;
+  padding: 80px;
+  background-color: #f1ebe7;
+  height: auto;
+}
+
+#accountCreationBannerSection {
+  margin: auto;
+  padding-left: 50px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#accountCreationBannerSection input {
+  width: 350px;
+  margin: 0 0 19px;
+  padding: 19px 20px;
+  border: 1px solid #fff;
+}
+
+#accountCreationBannerSection #checkbox{
+  margin: 5px;
+  width: 4%;
+}
+
+.register {
+  margin-left: 150px;
+}
+
+#accountCreationBannerSection button {
+  background-color: #000000;
+  color: #f1ebe7;
+  width: 390px;
+  padding: 23px 0;
+  margin: 0 0 19px;
+  cursor: pointer;
+}
+#accountCreationBannerSection button:hover {
+  background-color: #f1ebe7;
+  color: #000000;
+}
+
+#accountCreationBannerSection a{
+  color: #000000;
+  font-size: 13px;
+}
+
+.registerInput p a{
+  font-size: 11px;
+}
+
+.registerInput p {
+  font-size: 11px;
+}
+
+.loginInput a{
+  text-align: center;
+}
+
+.registerInput a{
+  text-align: center;
+}
+
+
