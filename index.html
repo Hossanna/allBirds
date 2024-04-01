@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>allbirds</title>
 </head>
 <body>
@@ -15,9 +16,9 @@
         <nav class="flex">
             <ul class="ul1 flex">
                 <li>MEN </li>
-                <a href="">
-                    <li>WOMEN</li>
-                </a>
+                <!-- <a href=""> -->
+                    <li onclick={showMenu()}>WOMEN</li>
+                <!-- </a> -->
                 <li>KIDS</li>
                 <li>SOCKS</li>
                 <li class="red">SALE</li>
@@ -42,7 +43,59 @@
         </nav>
     </header> 
 
-    <main>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="flex">
+            <div class="flex drop-ul">
+                <ul>
+                    <li class="li">SHOES</li>
+                    <li>Everyday Sneakers</li>
+                    <li>Flats</li>
+                    <li>Active Shoes</li>
+                    <li>Water-Repellent Sneakers</li>
+                    <li>Slip-Ons</li>
+                    <li>Hiking</li>
+                    <li>High Tops</li>
+                    <li>Sale</li>
+                    <li>Shop all</li>
+    
+                </ul>
+                <ul>
+                    <li class="li">BEST SELLERS</li>
+                    <li>Tree Runner</li>
+                    <li>Tree Dasher 2</li>
+                    <li>Wool Runner 2</li>
+                    <li>Tree Breezer</li>
+                    <li>SuperLight Tree Runner</li>
+                    <li>Wool Runner</li>
+                    <a href="./shop.html">
+                        <li>Shop all</li>
+                    </a>
+                </ul>
+                <ul>
+                    <li class="li">APPAREL AND MORE</li>
+                    <li>Socks</li>
+                    <li> Underwear</li>
+                    <li> Tees</li>
+                    <li>Hats & Scarves</li>
+                    <li>Hats</li>
+                    <li> Insoles</li>
+                    <li>Lace Kits</li>
+                    <li> Gift Cards</li>
+                    <li>Sale</li>
+                
+                </ul>
+            </div>
+
+
+            <div class="picture-div">
+                <p class="li">FEATURED</p>
+                <img src="./images/newArrivals.avif" alt="">
+                <img src="./images/superlight.avif" alt="">
+            </div>
+        </div>
+    </div>
+
+    <main id="fullpage">
         <section class="flex hero-section">
             <div class="white flex">
                 <h3>FEATURED</h3>
@@ -323,5 +376,8 @@
             <a href="">Do Not Sell My Personal Information</a>
         </div>
     </footer>
+
+    <script src="./script.js"></script>
+
 </body>
 </html>

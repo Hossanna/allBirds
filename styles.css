@@ -341,9 +341,6 @@ button:hover, .section11 button:hover{
     margin-left: 0 !important;
 }
 
-
-
-
 footer{
     padding: 5% 5% 2%;
     color: #fff;
@@ -419,4 +416,48 @@ footer .corp{
 }
 footer a{
     color: #fff;
+}
+
+
+.dropdown-menu{
+    display: none;
+    width: 100%;
+    height: 65vh;
+    padding: 10% 8% 0;
+    font-size: .9em;
+    z-index: 3;
+    position: absolute;
+    background-color: #fff;
+}
+ 
+.drop-ul{
+    width: 70%;
+    justify-content: space-between;
+}
+
+.dropdown-menu ul{
+    margin-right: 8%;
+    margin-bottom: 5%;
+}
+.dropdown-menu .li{
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+.dropdown-menu li{
+    margin-bottom: 15px;
+}
+
+.dropdown-menu .picture-div{
+    width: 32%;
+}
+.dropdown-menu .picture-div img{
+    width: 100%;
+    margin-bottom: 5%;
+    height: 16vh;
+}
+.dark-background{
+    transition: .2s;
+    background-color: rgba(0, 0, 0, 0.5);
 }
