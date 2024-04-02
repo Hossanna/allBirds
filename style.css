@@ -121,3 +121,46 @@
   color: #212a2f;
   padding: 8px;
 }
+
+.breezySneaker img{
+  margin: 5% 2%;
+  width: 96%;
+  padding-bottom: 50px;
+}
+
+.flexItems{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 90%;
+  color: #212a2f;
+  padding-left: 150px;
+}
+
+.texts{
+  padding-top: 90px;
+}
+
+.texts h1{
+  font-size: 28px;
+  margin: 0 0 16px;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+
+.texts h3{
+  font-size: 19px;
+  margin: 0 0 16px;
+  font-weight: 800;
+}
+
+.texts p{
+  font-size: 17px;
+  margin: 0 0 24px;
+} 
+
+.flexItems img{
+ width: 48em;
+ height: 80vh;
+ /* margin-left: -100px; */
+}
