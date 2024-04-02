@@ -1,6 +1,9 @@
 * {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <between 300 to 700>;
+  font-style: normal;
 }
 
 .accountCreation {
@@ -61,7 +64,7 @@
   font-size: 11px;
 }
 
-.loginInput p{
+.loginInput p {
   text-align: center;
 }
 
@@ -81,7 +84,7 @@
   width: 100%;
 }
 
-.birdsApproachtexts >div{
+.birdsApproachtexts > div {
   max-width: 40%;
 }
 
@@ -99,10 +102,10 @@
   padding-left: 8px;
 }
 
-.registerInput h5{
+.registerInput h5 {
   display: flex;
-   justify-content: center;
-   padding-top: 5px;
+  justify-content: center;
+  padding-top: 5px;
 }
 
 .birdsApproachtexts p {
