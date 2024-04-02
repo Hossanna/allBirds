@@ -135,6 +135,7 @@
   max-width: 90%;
   color: #212a2f;
   padding-left: 150px;
+  padding-right: 30px;
 }
 
 .texts{
@@ -162,5 +163,28 @@
 .flexItems img{
  width: 48em;
  height: 80vh;
- /* margin-left: -100px; */
 }
+
+/* .flexItems2 , .flexItems3{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 90%;
+  color: #212a2f;
+} */
+
+.flexItems2{
+  padding-left: 2px;
+  margin-left: 30px;
+  padding-top: 120px;
+}
+
+.flexItems3{  
+  padding-top: 150px;
+}
+
+
+.flexItems3 img{
+  width: 48em;
+}
+
