@@ -122,13 +122,13 @@
   padding: 8px;
 }
 
-.breezySneaker img{
+.breezySneaker img {
   margin: 5% 2%;
   width: 96%;
   padding-bottom: 50px;
 }
 
-.flexItems{
+.flexItems {
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -138,31 +138,31 @@
   padding-right: 30px;
 }
 
-.texts{
+.texts {
   padding-top: 90px;
 }
 
-.texts h1{
+.texts h1 {
   font-size: 28px;
   margin: 0 0 16px;
   font-weight: bolder;
   text-transform: capitalize;
 }
 
-.texts h3{
+.texts h3 {
   font-size: 19px;
   margin: 0 0 16px;
   font-weight: 800;
 }
 
-.texts p{
+.texts p {
   font-size: 17px;
   margin: 0 0 24px;
-} 
+}
 
-.flexItems img{
- width: 48em;
- height: 80vh;
+.flexItems img {
+  width: 48em;
+  height: 80vh;
 }
 
 /* .flexItems2 , .flexItems3{
@@ -173,18 +173,64 @@
   color: #212a2f;
 } */
 
-.flexItems2{
+.flexItems2 {
   padding-left: 2px;
   margin-left: 30px;
   padding-top: 120px;
 }
 
-.flexItems3{  
+.flexItems3 {
   padding-top: 150px;
 }
 
-
-.flexItems3 img{
+.flexItems3 img {
   width: 48em;
 }
 
+.flexed h2 {
+  text-transform: capitalize;
+  font-weight: bolder;
+  padding-top: 150px;
+  padding-bottom: 20px;
+  padding-left: 2px;
+}
+
+/* .flexed >div{
+  margin-right: 30px;
+} */
+
+.flexedImages {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 30px;
+  overflow: auto;
+}
+
+.flexedImages::-webkit-scrollbar {
+  display: none;
+}
+
+.flexedImages img {
+  height: 56vh;
+  cursor: grab;
+}
+
+.flexedImages img:last-of-type{
+  padding-right: 50px;
+}
+
+.scrollBar{
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.scrollBar img{
+  width: 10px;
+  height: 15px;
+  position: absolute;
+  right: 1px;
+  top: 2920px;
+  /* bottom: 10px; */
+  z-index: 1;
+}
