@@ -362,3 +362,203 @@ select {
 .moreReviews {
   border-bottom: 1px solid gray;
 }
+
+
+
+
+
+.flex{
+    display: flex;
+}
+.chat{
+    width: fit-content;
+    color: white;
+    background-color: #0176d3;
+    border: none;
+    padding: 1% 3%;
+    font-weight: 600;
+    border-radius: 35px;
+    font-size: 1.1em;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    text-decoration: underline;
+}
+a{
+    color: #000;
+}
+
+li:hover, a:hover{
+    text-decoration: underline !important;
+}
+
+nav{
+    justify-content: space-between;
+    padding: 8px 3%;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    font-size: .85em;
+    z-index: 5;
+    box-shadow: 2px -4px 11px 0px #8080809c;
+}
+nav .ul1{
+    width: 25%;
+    justify-content: space-between;
+}
+
+nav .ul2{
+    width: 35%;
+    justify-content: space-between;
+}
+
+nav li{
+    line-height: 3;
+    font-weight: 600;
+    list-style-type: none;
+}
+
+nav a, .white a{
+    text-decoration: none;
+}
+
+.logo{
+    width: 10%;
+    margin-top: -15px;
+}
+.logo img{
+    width: 100%;
+    padding: -5px;
+}
+.ul2 img{
+    width: 25%;
+    padding: 1% 5%;
+}
+.nav-icons{
+    width: 30%;
+}
+.red{
+    color: red;
+}
+
+
+footer{
+    padding: 5% 5% 2%;
+    color: #fff;
+    font-size: .9em;
+    background-color: #212a2f;
+}
+footer button{ 
+    /* width: 10%; */
+    background-color: rgb(77, 85, 89);
+    padding: 1% 2%;
+    border: none;
+    color: #fff;
+    margin-bottom: 5%;
+    margin-top: 1%;
+    border-radius: 2px;
+
+}
+footer input{
+    border-bottom: 2px solid white !important;
+    border: none;
+    padding: 1% 2%;
+    width: 25%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    background-color: rgb(77, 85, 89);
+    border-radius: 2px;
+}
+footer ul{
+    margin-right: 15%;
+    margin-bottom: 5%;
+}
+footer .li{
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+footer li{
+    margin-bottom: 15px;
+}
+
+.footer-onediv{
+    width: 25%;
+}
+.footer-onediv p{
+    margin: 5% 0;
+}
+
+.footer-logo img{
+    width: 6%;
+    height: 18px;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+.footer-divtwo{
+    text-align: center;
+    margin: 5% auto
+}
+.footer-divtwo p{
+    margin-bottom: 2%;
+}
+footer .corp{
+    width: 22%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.footer-countries img{
+    width: 15%;
+    height: 25px;
+    margin: 0 2%;
+}
+footer a{
+    color: #fff;
+}
+
+
+.dropdown-menu{
+    display: none;
+    width: 100%;
+    height: 65vh;
+    padding: 10% 8% 0;
+    font-size: .9em;
+    z-index: 3;
+    position: absolute;
+    background-color: #fff;
+}
+ 
+.drop-ul{
+    width: 70%;
+    justify-content: space-between;
+}
+
+.dropdown-menu ul{
+    margin-right: 8%;
+    margin-bottom: 5%;
+}
+.dropdown-menu .li{
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+.dropdown-menu li{
+    margin-bottom: 15px;
+}
+
+.dropdown-menu .picture-div{
+    width: 32%;
+}
+.dropdown-menu .picture-div img{
+    width: 100%;
+    margin-bottom: 5%;
+    height: 16vh;
+}
+.dark-background{
+    transition: .2s;
+    background-color: rgba(0, 0, 0, 0.5);
+}
