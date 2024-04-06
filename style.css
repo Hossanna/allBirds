@@ -78,6 +78,13 @@
   padding: 20px;
 }
 
+.allBirdsApproroachsection2 {
+  background-color: #f5f5f5;
+  margin: auto;
+  padding: 40px;
+  height: 50vh;
+}
+
 .birdsApproachtexts {
   display: flex;
   justify-content: space-between;
@@ -93,6 +100,18 @@
   color: #212a2f;
   padding-bottom: 30px;
   font-weight: 600;
+}
+
+.allBirdsApproroachsection2 h2 {
+  font-size: 30px;
+  color: #212a2f;
+  padding-bottom: 30px;
+  font-weight: 600;
+}
+
+.allBirdsApproroachsection2 h4 {
+  color: #212a2f;
+  font-weight: 800;
 }
 
 .birdsApproachtexts h4 {
@@ -220,9 +239,19 @@
 }
 
 .scrollBar {
-  background-color: white;
+  background-color: blue;
   border-radius: 50%;
   padding: 5px;
+}
+
+.flexedImages .fa{
+  font-size: 30px;
+  position: relative;
+  background-color: #0176d3;
+  top: 150px;
+  padding: 5px;
+  border-radius: 50%;
+  color: red;
 }
 
 .scrollBar img {
@@ -352,16 +381,115 @@ select {
   margin: auto;
   justify-content: center;
   padding-bottom: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .moreReviews h2 {
   font-weight: 600;
+  padding-bottom: 30px;
 }
 
 .moreReviews {
-  border-bottom: 1px solid #d3d4d5;
+  padding-top: 30px;
 }
+
+.reviewstexts{
+  border-top: 1px solid #d3d4d5;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 5px;
+}
+
+.rightreviews{
+  max-width: 600px;
+}
+
+.starRatings{
+  padding-bottom: 20px;
+}
+
+.rightreviews h3{
+  font-weight: 800;
+}
+
+.rightreviews p{
+  font-size: 17px;
+  padding-bottom: 20px;
+}
+
+.rightreviews p:first-of-type{
+  padding-top: 10px;
+}
+
+.rightreviews p:last-of-type{
+  font-size: 15px;
+}
+
+.leftReviews{
+  background-color: #f5f5f5;
+  padding: 40px;
+  max-width: 245px;
+}
+
+.leftReviews h3{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 1px solid #d3d4d5;
+  padding-bottom: 13px;
+  margin-bottom: 13px;
+}
+
+.leftReviews span{
+  font-size: 15px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.leftReviews h3 span{
+  font-style: italic;
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+.leftReviews p{
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.reviewsOrder{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.reviewsOrder li{
+  list-style-type: none;
+  padding: 15px;
+  color: #b7babb;
+  cursor: pointer;
+}
+
+.reviewsOrder li:nth-child(1){
+  padding: none !important;
+  color: #212a2f;
+  cursor:default;
+}
+
+.reviewsOrder li:nth-child(5){
+  padding: none !important;
+}
+
+.reviewsOrder li:nth-child(6){
+  padding: none !important;
+  color: #212a2f;
+}
+
+/* 
+.reviewsOrder li:hover{
+  text-decoration: none;
+  color: red;
+} */
 
 .flex {
   display: flex;
