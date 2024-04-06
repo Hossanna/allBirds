@@ -138,7 +138,7 @@ main{
 .hero-div button:hover{
     transition: .2s;
     background-color: rgb(33, 42, 47);
-    border-color: rgb(33, 42, 47);
+    border: none;
     color: rgb(255, 255, 255);
 }
 
@@ -426,7 +426,7 @@ footer a{
     padding: 10% 8% 0;
     font-size: .9em;
     z-index: 3;
-    position: absolute;
+    position: fixed;
     background-color: #fff;
 }
  
@@ -460,4 +460,250 @@ footer a{
 .dark-background{
     transition: .2s;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.shop_main{
+    padding: 8% 4%;
+}
+
+.shop_main aside{
+    width: 28%;
+    /* position: sticky; */
+    /* border: 1px solid #000; */
+}
+
+.aside_one, .aside_two, .aside_three, .aside_four, .aside_five{
+    margin-bottom: 5%;
+    width: 90%;
+    
+}
+.aside_two p{
+    font-size: .9em;
+    padding: 0% 0 5%;
+}
+
+.shop_main .aside_one span{
+    font-size: .7em;
+    font-weight: 600;
+}
+.shop_main .aside_one h2{
+    margin: 2% 0 3%;
+}
+.shop_main .aside_one li, .shop_main .aside_three .flex, .shop_main .aside_four .flex, .shop_main .aside_five .flex{
+    padding: 2% 0 3%;
+}
+.shop_main aside{
+    font-size: .9em;
+}
+.shop_main aside h3{
+    padding: 5% 0;
+}
+
+.size_buttons{
+    width: 90%;
+}
+
+.size_buttons button{
+    width: 16%;
+    height: 40px;
+    /* padding: 3% 5%; */
+    margin: 1%;
+    border: 1px solid #000;
+    background-color: white;
+}
+.size_buttons button:hover{
+    background-color: rgb(183 181 181 / 36%);
+}
+
+.product_size_buttons{
+    width: 100%;
+}
+/* .product_size_buttons button{
+    padding: 3% 5%;
+    margin: 1% 1% 1% 0;
+    border: 1px solid #000;
+    background-color: white;
+} */
+
+.aside_two .filter{
+    border-bottom: 1px solid rgb(190, 190, 190);
+
+}
+
+.aside_three, .aside_four, .aside_five{
+    border-top: 1px solid rgb(190, 190, 190);
+    padding: 5% 0;
+}
+.aside_five .color_circles{
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(190 190 190);
+    border-radius: 50%;
+    margin-right: 5%;
+}
+.aside_three p, .aside_four p{
+    margin-left: 5%;
+}
+
+.flex .main_section{
+    width: 72vw;
+    /* border: 1px solid red; */
+}
+
+.main_section .flex{
+    margin: 2% 0;
+}
+
+.product_div{
+    width: 32%;
+    margin: 2% 1%;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+
+}
+
+.product_div:hover{
+    transform: scale(1.13);
+    box-shadow: rgb(0 0 0 / 31%) 0px 8px 24px 0px;
+    background-color: white;
+    z-index: 2;
+    padding: 2%;
+}
+.product_div:hover .quick_add{
+    display: block;
+}
+
+.product_div .img{
+    width: 100%;
+    margin-bottom: 2%;
+    background-color: rgb(233 233 233 / 36%);
+}
+
+.shop_main h4, .shop_main h3, .shop_main h2{
+    font-weight: 800;
+}
+
+.product_div p{
+    padding: 3% 0;
+}
+
+.tinyImg_div{
+    justify-content: space-between;
+
+}
+.product_div .tinyImg{
+    width: 15%;
+    background-color: rgb(233 233 233 / 36%);
+    border: none;
+
+}
+.tinyImg_div .first{
+    border: 2px solid rgb(190, 190, 190);
+    transform: scale(1.1);
+}
+
+.product_div .tinyImg:hover{
+    border: 2px solid rgb(190, 190, 190);
+    transform: scale(1.1);
+}
+
+.quick_add{
+    display: none;
+}
+
+.quick_add h4{
+    margin: 5% 0;
+}
+
+.shop_flats{
+    background-image: url(./images/3.avif);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.breezy{
+    background-image: url(./images/12.avif);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.special:hover{
+    transform: scale(1) !important;
+    box-shadow: none !important;
+    background-color: white;
+    z-index: 2;
+    padding: 0% !important;
+}
+ .special div{
+    color: white;
+    margin-top: 85%;
+    text-align: center;
+}
+
+.special .flex button{
+    width: fit-content;
+
+}
+.special button{
+    width: 90%;
+    margin: 2% auto;
+    padding: 3%;
+    font-size: 1em;
+    border: none;
+    text-transform: uppercase;
+}
+.special button:hover{
+    background-color: rgb(33, 42, 47);
+    color: #fff;
+    border: none;
+}
+
+.black{
+    background-color: black;
+}
+.beige{
+    background-color: beige;
+}
+.green{
+    background-color: green;
+}
+.purple{
+    background-color: purple;
+}
+.orange{
+    background-color: orange;
+}
+.blue{
+    background-color: blue;
+}
+.brown{
+    background-color: brown;
+}
+.grey{
+    background-color: grey;
+}
+.aside_five .red{
+    background-color: red;
+}
+.pink{
+    background-color: pink;
+}
+
+.men{
+    width: 17%;
+    padding: 1px 10px 1px 4px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 35px;
+    border: 1px solid black;
+    font-size: .9em;
+    margin-left: 82% !important;
+}
+.women{
+    width: 60%;
+    padding: 2% 3%;
+    justify-content: center;
+    border-radius: 35px;
+    border: 1px solid black;
+    color: white;
+    background-color: #000;
 }
