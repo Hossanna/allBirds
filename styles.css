@@ -246,7 +246,7 @@ button:hover, .section11 button:hover{
 
 .section10{
     width: 85%;
-    height: 600px;
+    height: max-content;
     margin: 5% auto;
 }
 .section10 .flex, .section12 .flex{
@@ -254,11 +254,33 @@ button:hover, .section11 button:hover{
     
 }
 
+.scroll_section{
+    width: fit-content;
+    margin-left: 6%;
+    padding-left: 1%;
+    margin-bottom: 5% ;
+    /* border: 1px solid; */
+}
+
+.scroll_container {
+    display: flex;
+    overflow: auto;
+    width: 100%;
+    z-index: 3;
+
+}
+
+div.scroll_container::-webkit-scrollbar{
+    display: none;
+  }
+
+
 .section10 .div{
     box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 24px 0px;
-    width: 32%;
+    min-width: 30%;
+    margin: 0 2% 2% 0;
     overflow: hidden;
-
+    height: auto;
 }
 .h1{
     font-size: 2.5em;
