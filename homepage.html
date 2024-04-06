@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>allbirds</title>
+</head>
+<body>
+    <header>
+        <nav class="flex">
+            <ul class="ul1 flex">
+                <li>MEN </li>
+                <!-- <a href=""> -->
+                    <li onclick={showMenu()}>WOMEN</li>
+                <!-- </a> -->
+                <li>KIDS</li>
+                <li>SOCKS</li>
+                <li class="red">SALE</li>
+            </ul>
+
+            <a href="./homepage.html" class="logo">
+                <img src="./images/logo_with_padding_(1).png" alt="" />
+            </a>
+
+            <ul class="ul2 flex">
+                <li>SUSTAINABILITY</li>
+                <li>RERUN+</li>
+                <li>STORES</li>
+                <div class="flex nav-icons">
+                    <img src="./images/download (18).svg" alt="">
+                    <img src="./images/download (17).svg" alt="">
+                    <img src="./images/download (13).svg" alt="">
+                    <img src="./images/download (16).svg" alt="">
+           
+                </div>
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="flex">
+            <div class="flex drop-ul">
+                <ul>
+                    <li class="li">SHOES</li>
+                    <li>Everyday Sneakers</li>
+                    <li>Flats</li>
+                    <li>Active Shoes</li>
+                    <li>Water-Repellent Sneakers</li>
+                    <li>Slip-Ons</li>
+                    <li>Hiking</li>
+                    <li>High Tops</li>
+                    <li>Sale</li>
+                    <li>Shop all</li>
+    
+                </ul>
+                <ul>
+                    <li class="li">BEST SELLERS</li>
+                    <li>Tree Runner</li>
+                    <li>Tree Dasher 2</li>
+                    <li>Wool Runner 2</li>
+                    <li>Tree Breezer</li>
+                    <li>SuperLight Tree Runner</li>
+                    <li>Wool Runner</li>
+                    <a href="./shop.html">
+                        <li>Shop all</li>
+                    </a>
+                </ul>
+                <ul>
+                    <li class="li">APPAREL AND MORE</li>
+                    <li>Socks</li>
+                    <li> Underwear</li>
+                    <li> Tees</li>
+                    <li>Hats & Scarves</li>
+                    <li>Hats</li>
+                    <li> Insoles</li>
+                    <li>Lace Kits</li>
+                    <li> Gift Cards</li>
+                    <li>Sale</li>
+                
+                </ul>
+            </div>
+
+
+            <div class="picture-div">
+                <p class="li">FEATURED</p>
+                <img src="./images/newArrivals.avif" alt="">
+                <img src="./images/superlight.avif" alt="">
+            </div>
+        </div>
+    </div>
+
+    <main id="fullpage">
+        <section class="flex hero-section">
+            <div class="white flex">
+                <h3>FEATURED</h3>
+                <a href="">Men's Shoes</a> <br>
+                <a href="">Women's Shoes</a> <br>
+                <a href="">New Arrivals</a>
+                
+            </div>
+            <div class="hero-div">
+                <h1>It’s White Sneaker Season</h1>
+                <p>Lightweight and machine washable styles? Yes please.</p>
+                <button>SHOP MEN</button>
+                <button>SHOP WOMEN</button>
+            </div>
+        </section>
+
+        <section class="section1 section10">
+            <h1 class="h1">Our Favourites</h1>
+            <div class="flex div_subtitles">
+                <p class="everyday">FOR EVERYDAY</p>
+                <p>FOR TRAVEL</p>
+                <p>FOR ACTIVITY</p>
+            </div>
+            <div class="flex">
+                <div class="div">
+                    <img class="img" src="./images/leg1.png" alt="">
+                    <h1>Tree Runner</h1>
+                    <button class="hover-show">SHOP NOW</button>
+                    <p><img class="tiny-img" src="./images/Tree (1).png" alt=""> Breezy, Everyday Sneaker</p>
+                </div>
+                <div class="div">
+                    <img class="img" src="./images/leg2.png" alt="">
+                    <h1>Tree Breezer</h1>
+                    <p><img class="tiny-img" src="./images/Tree (1).png" alt=""> Breezy Flat</p>
+                </div>
+                <div class="div">
+                    <img class="img" src="./images/leg3.png" alt="">
+                    <h1>SuperLight Tree Runner</h1>
+                    <p><img class="tiny-img" src="./images/Tree (1).png" alt=""> Ultralight Sneaker</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section2 flex">
+            <div class="div1"></div>
+            <div class="div2"></div>
+        </section>
+
+        <section class="section3">
+            <div>
+                <h1 class="h1">Shoes In Bloom</h1>
+                <p>
+                    Meet our new super subtle floral print—guaranteed to put a spring in your step.
+                </p>
+                <button>SHOP NOW</button>
+        
+            </div> 
+        </section>
+
+        <section class="section10 scroll_section">
+            <h1 class="h1"> New Arrivals</h1>
+            <div class="flex scroll_container">
+                <div class="div">
+                    <img src="./images/shoe1.png" alt="">
+                    <h1>Women's Golf Dashers</h1>
+                    <p>Classic Color, Blizzard/Natural Black</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe2.png" alt="">
+                    <h1>Men's Golf Dashers</h1>
+                    <p>Limited Edition Color, Deep Navy/Rugged Beige</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe3.png" alt="">
+                    <h1>Women's Tree Flyer 2</h1>
+                    <p>Limited Edition Color, Afterglow Orange</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe1.png" alt="">
+                    <h1>Women's Golf Dashers</h1>
+                    <p>Classic Color, Blizzard/Natural Black</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe2.png" alt="">
+                    <h1>Men's Golf Dashers</h1>
+                    <p>Limited Edition Color, Deep Navy/Rugged Beige</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe3.png" alt="">
+                    <h1>Women's Tree Flyer 2</h1>
+                    <p>Limited Edition Color, Afterglow Orange</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe1.png" alt="">
+                    <h1>Women's Golf Dashers</h1>
+                    <p>Classic Color, Blizzard/Natural Black</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe2.png" alt="">
+                    <h1>Men's Golf Dashers</h1>
+                    <p>Limited Edition Color, Deep Navy/Rugged Beige</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe3.png" alt="">
+                    <h1>Women's Tree Flyer 2</h1>
+                    <p>Limited Edition Color, Afterglow Orange</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section5 flex">
+            <div class="div1"></div>
+            <div class="div2"></div>
+        </section>
+
+        <section class="section6">
+            <div>
+                <h1 class="h1">Lighten Up</h1>
+                <p>
+                    Warmer temps mean new hues in our SuperLight styles.
+                </p>
+                <div class="flex">
+                    <button>SHOP MEN</button>
+                    <button>SHOP WOMEN</button>
+                </div>
+            </div> 
+        </section>
+
+
+        <section class="section10 scroll_section">
+            <h1 class="h1">Shop The Collections</h1>
+            <div class="flex scroll_container">
+                <div class="div">
+                    <img src="./images/shoe4.png" alt="">
+                    <h1>New Arrivals</h1>
+                    <p>The latest styles and limited edition colors that you can only find here (while they last, that is).</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe5.png" alt="">
+                    <h1>The SuperLight Collection</h1>
+                    <p>Barely-there feel. Light-as-air fit. Meet our lightest and lowest carbon footprint to date.</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe6.png" alt="">
+                    <h1>Travel Essentials</h1>
+                    <p>Easygoing. Super packable. The only hard part will be figuring out where you’re taking them…</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe4.png" alt="">
+                    <h1>New Arrivals</h1>
+                    <p>The latest styles and limited edition colors that you can only find here (while they last, that is).</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe5.png" alt="">
+                    <h1>The SuperLight Collection</h1>
+                    <p>Barely-there feel. Light-as-air fit. Meet our lightest and lowest carbon footprint to date.</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe6.png" alt="">
+                    <h1>Travel Essentials</h1>
+                    <p>Easygoing. Super packable. The only hard part will be figuring out where you’re taking them…</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe4.png" alt="">
+                    <h1>New Arrivals</h1>
+                    <p>The latest styles and limited edition colors that you can only find here (while they last, that is).</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe5.png" alt="">
+                    <h1>The SuperLight Collection</h1>
+                    <p>Barely-there feel. Light-as-air fit. Meet our lightest and lowest carbon footprint to date.</p>
+                </div>
+                <div class="div">
+                    <img src="./images/shoe6.png" alt="">
+                    <h1>Travel Essentials</h1>
+                    <p>Easygoing. Super packable. The only hard part will be figuring out where you’re taking them…</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section8"></section>
+
+        <section class="section9">
+            <div>
+                <h1 class="h1">More Updates About Less Carbon</h1>
+                <p>
+                    Reducing the carbon footprint of our products is at the heart of everything we do. And we’ve got good news: we continue to make headway. Read about our progress from 2022 in our latest Flight Status report.
+                </p>
+                <button>OUR SUSTAINABILITY STRATEGY</button>
+        
+            </div> 
+        </section>
+
+        <section class="section10">
+            <h1 class="h1">Allbirds Sustainability Initiatives</h1>
+            <div class="flex">
+                <div class="div">
+                    <img src="./images/shoe.png" alt="">
+                    <h1>Allbirds ReRun™</h1>
+                    <p>Introducing our resale marketplace where you can shop slightly imperfect and gently used products, extending their life and lowering our impact on the planet.</p>
+                </div>
+                <div class="div">
+                    <img src="./images/year.png" alt="">
+                    <h1>2022 Flight Status Report</h1>
+                    <p>Our version of a sustainability report is here, highlighting our progress across a variety of areas in 2022.</p>
+                </div>
+                <div class="div">
+                    <img src="./images/sheep.png" alt="">
+                    <h1>We're A Certified B Corp</h1>
+                    <p>From the very beginning, the environment has been a stakeholder here.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section11">
+            <div class="flex div">
+                <h1 class="h1">Want First Dibs?</h1>
+                <p class="p">Join our email list and be the first to know about new limited edition products, material innovations, and lots of other fun updates.</p>
+                <div class="flex">
+                    <input type="text" placeholder="Enter your email address">
+                    <button>SIGN UP</button>
+                </div>
+                <p>Note: You can opt-out at any time. See our <a href="">Privacy Policy</a> and <a href="">Terms</a>.</p>
+            </div>
+        </section>
+
+        <section class="section12">
+            <h1 class="h1">The Allbirds Approach</h1>
+            <div class="flex">
+                <div class="div">
+                    <h1 class="diff">Wear-All-Day Comfort</h1>
+                    <p class="diff">Lightweight, bouncy, and wildly comfortable, Allbirds shoes make any outing feel effortless. Slip in, lace up, or slide them on and enjoy the comfy support.</p>
+                    <a href="">Learn More</a>
+                </div>
+                <div class="div">
+                    <h1 class="diff">Sustainability In Every Step</h1>
+                    <p class="diff">From materials to transport, we’re working to reduce our carbon footprint to near zero. Holding ourselves accountable and striving for climate goals isn’t a 30-year goal—it’s now.</p>
+                    <a href="">Learn More</a>
+                </div>
+                <div class="div">
+                    <h1 class="diff">Materials From The Earth</h1>
+                    <p class="diff">We replace petroleum-based synthetics with natural alternatives wherever we can. Like using wool, tree fiber, and sugar cane. They’re soft, breathable, and better for the planet—win, win, win.</p>
+                    <a href="">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer>
+        <div>
+            <p>Enter your email to stay in touch!</p>
+            <input type="text">
+            <button>SIGN UP</button>
+        </div>
+
+        <div class="flex">
+            <ul>
+                <li class="li">HELP</li>
+                <li>1-888-963-8944</li>
+                <li>1-814-251-9966 (Text)</li>
+                <li>help@allbirds.com</li>
+                <li>Returns/Exchanges</li>
+                <li>FAQ/Contact Us</li>
+                <li>Afterpay</li>
+            </ul>
+            <ul>
+                <li class="li">SHOP</li>
+                <li>Men's Shoes</li>
+                <li>Women's Shoes</li>
+                <li>Men's Apparel</li>
+                <li>Women's Apparel</li>
+                <li>Socks</li>
+                <li>Shoe Finder</li>
+                <li>Gift Cards</li>
+                <li>Refer a Friend</li>
+                <li>Download Our App</li>
+
+            </ul>
+            <ul>
+                <li class="li">COMPANY</li>
+                <li>Our Stores</li>
+                <li>Our Story</li>
+                <li>Our Materials</li>
+                <li>Sustainability</li>
+                <li>Investors</li>
+                <li>Shoe Care</li>
+                <li>Partnerships</li>
+                <li>Product Testing</li>
+                <li>Affiliates</li>
+                <li>Bulk Orders</li>
+                <li>Careers</li>
+                <li>Press</li>
+                <li>Allbirds Responsible Disclosure Program</li>
+                <li>California Transparency Act</li>
+                <li>Community Offers</li>
+                <li>The Perch</li>
+
+            </ul>
+        </div>
+        <div class="flex">
+            
+            <div class="footer-onediv">
+                <h3>FOLLOW THE FLOCK</h3>
+                <p>Exclusive offers, a heads up on new things, and sightings of Allbirds in the wild. Oh, we have cute sheep, too. #allbirds</p>
+                <div class="footer-logo">
+                    <img src="./images/social-instagram.svg" alt="">
+                    <img src="./images/Tiktok-50x50.png" alt="">
+                    <img src="./images/logo.svg" alt="">
+                    <img src="./images/social-facebook.svg" alt="">
+                    <img src="./images/Youtube-50x50.png" alt="">
+                    <img src="./images/Pinterest-50x50.png" alt="">
+                </div>
+            </div>
+            <div class="corp">
+                <img src="https://cdn.allbirds.com/image/upload/f_auto,q_auto/cms/1X4EOQF1JJOjMbo48vDUzB/c249da5825f9ae39f1f53bdb90d65285/icon-b-corp.svg" alt="">
+            </div>
+            <div class="flex footer-countries">
+                <img src="./images/flag-us.svg" alt="">
+                <img src="./images/flag-ca.svg" alt="">
+                <img src="./images/flag-nz.svg" alt="">
+                <img src="./images/flag-au.svg" alt="">
+                <img src="./images/flag-uk.svg" alt="">
+                <img src="./images/flag-cn.svg" alt="">
+                <img src="./images/method-draw-image.svg" alt="">
+                <img src="./images/Japan-Flag.svg" alt="">
+                <img src="./images/South-Korea-Flag.svg" alt="">
+                
+            </div>
+        </div>
+        <div class="footer-divtwo">
+            <p>© 2024 Allbirds, Inc. All Rights Reserved. <a href="">Terms,</a> <a href="">Privacy</a> & <a href="">Accessibility</a></p>
+            <a href="">Do Not Sell My Personal Information</a>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>
