@@ -142,6 +142,25 @@ main{
     color: rgb(255, 255, 255);
 }
 
+.div_subtitles{
+    width: 98%;
+    margin: 2% 0;
+    border-bottom: 2px solid rgb(128 128 128 / 46%);
+    padding: 0 22%;
+    justify-content: space-between;
+}
+.div_subtitles p{
+    color: grey;
+    padding: 2% 5%;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+.everyday{
+    border-bottom: 2px solid #000;
+    color: #000 !important;
+    font-weight: 900;
+}
+
 .section1 .h1{
     text-align: center;
 }
