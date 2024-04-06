@@ -351,16 +351,16 @@ select {
   max-width: 1150px;
   margin: auto;
   justify-content: center;
-  padding-bottom: 17px;
+  padding-bottom: 20px;
   margin-bottom: 40px;
 }
 
-.moreReviews h1 {
+.moreReviews h2 {
   font-weight: 600;
 }
 
 .moreReviews {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #d3d4d5;
 }
 
 .flex {
