@@ -4,3 +4,7 @@ function showMenu(){
     womenMenu.fadeToggle(200)
     fullPage.toggleClass("dark-background");
 }
+
+function showProduct(){
+    window.location.href = "./product.html"
+}
