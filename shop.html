@@ -39,11 +39,34 @@
             <img src="./images/download (18).svg" alt="" />
             <img src="./images/download (17).svg" alt="" />
             <img src="./images/download (13).svg" alt="" />
-            <img src="./images/download (16).svg" alt="" />
+            <img onclick={showCartPage()} src="./images/download (16).svg" alt="" />
           </div>
         </ul>
       </nav>
     </header>
+
+    <div class="cart_page" id="cart_page">
+
+      <div class="flex one">
+          <div class="icon_div">
+              <img id="close" onclick={closeCartPage()} src="./images/xmark-solid.svg" alt="">
+          </div>
+  
+          <div class="div">
+              <img src="./images/download (16).svg" alt="">
+              <p>You're $75 away from free shipping!</p>
+          </div>
+      </div>
+
+      <div class="two flex">
+          <h3>Your Cart is Empty</h3>
+          <button>SHOP MEN'S</button>
+          <button>SHOP WOMEN'S</button>
+          <button>SHOP SOCKS</button>
+          <button>SHOP MEN'S SALE</button>
+          <button>SHOP WOMEN'S SALE</button>
+      </div>
+  </div>
 
     <div class="dropdown-menu" id="dropdown-menu">
       <div class="flex">
