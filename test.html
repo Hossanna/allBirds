@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>allbirds</title>
+</head>
+<body id="fullpage">
+    <header>
+        <nav class="flex">
+            <ul class="ul1 flex">
+                <li>MEN </li>
+                <!-- <a href=""> -->
+                    <li onclick={showMenu()}>WOMEN</li>
+                <!-- </a> -->
+                <li>KIDS</li>
+                <li>SOCKS</li>
+                <li class="red">SALE</li>
+            </ul>
+
+            <a href="./homepage.html" class="logo">
+                <img src="./images/logo_with_padding_(1).png" alt="" />
+            </a>
+
+            <ul class="ul2 flex">
+                <li>SUSTAINABILITY</li>
+                <li>RERUN+</li>
+                <li>STORES</li>
+                <div class="flex nav-icons">
+                    <img src="./images/download (18).svg" alt="">
+                    <img src="./images/download (17).svg" alt="">
+                    <img src="./images/download (13).svg" alt="">
+                    <img onclick={showCartPage()} src="./images/download (16).svg" alt="">
+           
+                </div>
+            </ul>
+        </nav>
+    </header> 
+
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="flex">
+            <div class="flex drop-ul">
+                <ul>
+                    <li class="li">SHOES</li>
+                    <li>Everyday Sneakers</li>
+                    <li>Flats</li>
+                    <li>Active Shoes</li>
+                    <li>Water-Repellent Sneakers</li>
+                    <li>Slip-Ons</li>
+                    <li>Hiking</li>
+                    <li>High Tops</li>
+                    <li>Sale</li>
+                    <li>Shop all</li>
+    
+                </ul>
+                <ul>
+                    <li class="li">BEST SELLERS</li>
+                    <li>Tree Runner</li>
+                    <li>Tree Dasher 2</li>
+                    <li>Wool Runner 2</li>
+                    <li>Tree Breezer</li>
+                    <li>SuperLight Tree Runner</li>
+                    <li>Wool Runner</li>
+                    <a href="./shop.html">
+                        <li>Shop all</li>
+                    </a>
+                </ul>
+                <ul>
+                    <li class="li">APPAREL AND MORE</li>
+                    <li>Socks</li>
+                    <li> Underwear</li>
+                    <li> Tees</li>
+                    <li>Hats & Scarves</li>
+                    <li>Hats</li>
+                    <li> Insoles</li>
+                    <li>Lace Kits</li>
+                    <li> Gift Cards</li>
+                    <li>Sale</li>
+                
+                </ul>
+            </div>
+
+
+            <div class="picture-div">
+                <p class="li">FEATURED</p>
+                <img src="./images/newArrivals.avif" alt="">
+                <img src="./images/superlight.avif" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="cart_page" id="cart_page">
+
+        <div class="flex one">
+            <div class="icon_div">
+                <img id="close" onclick={closeCartPage()} src="./images/xmark-solid.svg" alt="">
+            </div>
+    
+            <div class="div">
+                <img src="./images/download (16).svg" alt="">
+                <p>You're $75 away from free shipping!</p>
+            </div>
+        </div>
+
+        <div class="two flex">
+            <h3>Your Cart is Empty</h3>
+            <button>SHOP MEN'S</button>
+            <button>SHOP WOMEN'S</button>
+            <button>SHOP SOCKS</button>
+            <button>SHOP MEN'S SALE</button>
+            <button>SHOP WOMEN'S SALE</button>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
