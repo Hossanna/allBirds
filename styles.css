@@ -813,3 +813,10 @@ footer a{
 .cart_page .two h3{
     margin-bottom: 3%;
 }
+
+.fixed_position{
+    position: fixed
+}
+.overflow{
+    overflow-y: hidden;
+}
