@@ -184,6 +184,7 @@
 .dropdownContent1 {
   line-height: 2.5;
   padding-bottom: 35px;
+  display: none;
 }
 
 .dropdownContent1 p {
@@ -195,6 +196,18 @@
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 1.5;
+}
+
+.dropdownContent2 {
+  display: none;
+}
+
+.dropdownContent3 {
+  display: none;
+}
+
+.dropdownContent4 {
+  display: none;
 }
 
 .dropdownContent2 p:nth-last-child(2) {
@@ -341,6 +354,14 @@
   display: inline-block;
   margin: 5px;
   text-wrap: wrap;
+  background: linear-gradient(
+    -45deg,
+    blue,
+    blue 49%,
+    white 49%,
+    white 51%,
+    red 51%
+  );
 }
 
 .limitedEdition {
@@ -365,6 +386,149 @@
   font-weight: 600;
   padding-left: 5px;
   text-transform: uppercase;
+}
+
+.sizes p:nth-child(1) {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.sizes ul {
+  display: flex;
+  padding-left: 6px;
+}
+
+.sizes li {
+  list-style-type: none;
+  padding: 23px 27px;
+  border: 1px solid black;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.sizes li:hover {
+  text-decoration: none !important;
+  cursor: pointer;
+  background-color: #cacfd1;
+}
+
+.sizes p:nth-child(3) {
+  font-size: 13px;
+  padding: 15px 10px;
+  line-height: 1.5;
+  color: rgb(74, 74, 74);
+}
+
+.sizes a:nth-child(1) {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.sizes button {
+  background-color: #d3d4d5;
+  width: 96%;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.sizes p:last-of-type {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 13px;
+  font-weight: normal;
+  color: rgb(74, 74, 74);
+}
+
+.find h4 {
+  font-weight: 900;
+  font-size: 13px;
+  padding-bottom: 15px;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.storeDropdown {
+  display: none;
+}
+
+.storeDropdown p {
+  font-weight: normal;
+  font-size: 15px;
+  padding-bottom: 30px;
+}
+
+.find_dropdown {
+  margin-top: 10px;
+  padding: 20px 0px;
+  padding-bottom: 0;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+}
+
+.find {
+  display: flex;
+  justify-content: space-between;
+}
+
+.moreOptions h3 {
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.moreWomenOptions {
+  display: flex;
+  /* width: 50%; */
+}
+
+.moreWomenOptions1 {
+  box-shadow: 5px 5px 5px 5px #f1ebe7;
+  margin: 3px;
+}
+
+.moreWomenOptions2 {
+  box-shadow: 5px 5px 5px 5px #f1ebe7;
+  margin: 3px;
+}
+
+.moreWomenOptions img {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 0;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.moreWomenOptions img:hover {
+  transform: scale(1.1);
+}
+
+.moreWomenOptions2 img {
+  margin-left: 3px;
+}
+
+.moreWomenOptions p {
+  background-color: #ffffff;
+  padding: 20px 15px;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
 .allBirdsApproroachsection {
