@@ -292,7 +292,7 @@ button:hover, .section11 button:hover{
 
 div.scroll_container::-webkit-scrollbar{
     display: none;
-  }
+}
 
 
 .section10 .div{
@@ -751,7 +751,7 @@ footer a{
 }
 
 .cart_page{
-    width: 30%;
+    width: 35%;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -819,4 +819,76 @@ footer a{
 }
 .overflow{
     overflow-y: hidden;
+}
+
+.cart_page .twoo{
+    flex-direction: column;
+    text-align: center;
+    /* justify-content: center; */
+    max-height: 50vh;
+    /* max-height: 70vh; */
+    overflow: scroll;
+    /* padding: 2% 0; */
+
+}
+
+.cart_page .twoo .cart_items{
+    width: 90%;
+    margin: 0% auto;
+    text-align: left;
+    padding: 5% 0;
+    border-bottom: 1px solid rgb(221, 221, 221);
+
+}
+
+.cart_page .twoo .cart_items .item_img{
+    width: 25%;
+    margin-right: 4%;
+}
+.cart_page .twoo .cart_items .close_cart_item{
+    width: 3%;
+    margin-top: -20%;
+    
+}
+.cart_page .twoo .cart_items .cart_item_info{
+    width: 70%;
+}
+.cart_page .twoo .cart_items .flex{
+    justify-content: space-between;
+}
+.cart_page h3{
+    font-weight: 800;
+}
+.cart_page .twoo .cart_items p{
+    font-size: .8em;
+    margin-top: 1%;
+}
+.cart_page .twoo .cart_items .addItem{
+    font-size: 1em ;
+    width: 30%;
+    height: fit-content;
+    border: 2px solid rgb(179, 179, 179);
+    padding: 2% 3%;
+    justify-content: space-between;
+    color: rgb(131, 130, 130);
+    margin-top: 5%;
+}
+.cart_page .twoo .cart_items .addItem .item_num{
+    color: #000;
+}
+.cart_page .twoo .cart_items .price{
+    margin-top: 15%;
+}
+
+.cart_page .three .flex{
+    justify-content: space-between;
+    
+    margin: 1% auto;
+}
+
+.cart_page .three{
+    border-top: 1px solid rgb(221, 221, 221);
+    width: 90%;
+    margin: 30% auto;
+
 }
