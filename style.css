@@ -364,6 +364,112 @@
   );
 }
 
+.cc span:nth-child(1) {
+  background: linear-gradient(-45deg, #fff 51%, #e4e5e6, #e4e5e6 49%);
+  border: 1px solid #e4e5e6;
+}
+
+.cc span:nth-child(2) {
+  background: linear-gradient(-45deg, #fff 51%, #888688, #888688 49%);
+  border: 1px solid #7e7e7e;
+}
+
+.cc span:nth-child(3) {
+  background: linear-gradient(-45deg, #fff 51%, #2c333e, #2c333e 49%);
+  border: 1px solid #9a9999;
+}
+
+.cc span:nth-child(4) {
+  background: linear-gradient(-45deg, #fff 51%, #414c60, #414c60 49%);
+  border: 1px solid #9a9999;
+}
+
+.cc span:nth-child(5) {
+  background: linear-gradient(-45deg, #fff 51%, #231f20, #231f20 49%);
+  border: 1px solid #9a9999;
+}
+
+.cc span:nth-child(6) {
+  background: linear-gradient(-45deg, #5c5d60 51%, #231f20, #231f20 49%);
+  border: 1px solid #9a9999;
+}
+
+.cc span:nth-child(7) {
+  background: linear-gradient(-45deg, #242729 51%, #e0e2dc, #e0e2dc 49%);
+  border: 1px solid #9a9999;
+}
+
+.cc2 span:nth-child(1) {
+  background: linear-gradient(-45deg, #e7e4d3 51%, #b4a897, #b4a897 49%);
+  border: none;
+}
+
+.cc2 span:nth-child(2) {
+  background: #b4b6ba;
+  border: none;
+}
+
+.cc2 span:nth-child(3) {
+  background: linear-gradient(-45deg, #e0e2dc 51%, #707360, #707360 49%);
+  border: none;
+}
+
+.cc2 span:nth-child(4) {
+  /* background: linear-gradient(-90deg, #dae7ec 50%, #1c386c 30%,#e0e2dc 30% );
+   */
+   background: linear-gradient(-90deg,
+    #dae7ec 30%,
+    #1c386c 49%,
+    #e0e2dc 70%);
+  border: none;
+}
+
+
+.cc2 span:nth-child(5) {
+  background: linear-gradient(-45deg, #cbeaf7 51%, #e0e2dc 49%);
+  border: none;
+}
+
+.cc2 span:nth-child(6) {
+  /* background: linear-gradient(-90deg, #dae7ec 50%, #1c386c 30%,#e0e2dc 30% );
+   */
+   background: linear-gradient(-90deg,
+    #e7e4d3 30%,
+    #232d3b 49%,
+    #e0e2dc 70%);
+  border: none;
+}
+
+.cc2 span:nth-child(7) {
+  background: linear-gradient(-45deg, #786355 49%, #e5dcc2 51%);
+  border: none;
+}
+
+.cc2 span:nth-child(8) {
+  background: linear-gradient(-45deg, #d5cbb8 49%, #978466 51%);
+  border: none;
+}
+
+.cc2 span:nth-child(9) {
+  background: linear-gradient(-45deg, #6d7e8f 49%, #2c333e 51%);
+  border: none;
+}
+
+.cc2 span:nth-child(10) {
+  background: linear-gradient(-45deg, #e0e2dc 51% ,#404a60 49%);
+  border: none;
+}
+
+.cc3 span:nth-child(1) {
+  background: linear-gradient(-45deg, #e0e2dc 51% ,#c5a090 49%);
+  border: none;
+}
+
+.cc3 span:nth-child(2) {
+  background: linear-gradient(-45deg, #e0e2dc 51% ,#637054 49%);
+  border: none;
+}
+
 .limitedEdition {
   padding-top: 20px;
   padding-left: 5px;
