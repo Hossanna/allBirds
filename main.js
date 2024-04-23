@@ -54,22 +54,10 @@ $(document).ready(function () {
   $("#login_button").click(function () {
     let emailValidated = validateNotEmpty("email");
     let passwordValidated = validateNotEmpty("password");
-    let passwordLengthValidated = validateLength("password", 8);
 
     function validateNotEmpty(className) {
       if (!$("#" + className).val()) {
         $("#" + className).addClass("error");
-        return false;
-      } else {
-        $("#" + className).removeClass("error");
-        return true;
-      }
-    }
-
-    function validateLength(className, length) {
-      if ($("#" + className).val().length < length) {
-        $("#" + className).addClass("error");
-        alert(className + " must be at least " + length + "characters");
         return false;
       } else {
         $("#" + className).removeClass("error");
