@@ -19,6 +19,39 @@ $(document).ready(function () {
     $(".dropdownContent4").toggle(".visible");
   });
 
+  function validateNotEmpty(className) {
+    if (!$("#" + className).val()) {
+      $("#" + className).addClass("error");
+      return false;
+    } else {
+      $("#" + className).removeClass("error");
+      return true;
+    }
+  }
+
+  function validateLength(className, length) {
+    if ($("#" + className).val() != "") {
+      if ($("#" + className).val().length < length) {
+        $("#" + className).addClass("error");
+        alert("password" + " must be at least " + length + " characters");
+        return false;
+      } else {
+        $("#" + className).removeClass("error");
+        return true;
+      }
+    }
+  }
+
+  function validateConfirmPassword() {
+    if (
+      $("#confirmPassword").val() != $("#regPassword").val() &&
+      $("#confirmPassword").val() != ""
+    ) {
+      $("#confirmPassword").addClass("error");
+      alert("confirm password must correspond with password");
+    }
+  }
+
   $("#register_button").click(function () {
     let nameValidated = validateNotEmpty("name");
     let lastnameValidated = validateNotEmpty("last_name");
@@ -26,31 +59,9 @@ $(document).ready(function () {
     let registrationpasswordValidated = validateNotEmpty("regPassword");
     let confirmpasswordValidated = validateNotEmpty("confirmPassword");
     let registrationpasswordLengthValidated = validateLength("regPassword", 8);
-    let confirmpasswordLengthValidated = validateLength("confirmPassword", 8);
-
-    function validateNotEmpty(className) {
-      if (!$("#" + className).val()) {
-        $("#" + className).addClass("error");
-        return false;
-      } else {
-        $("#" + className).removeClass("error");
-        return true;
-      }
-    }
-
-    function validateLength(className, length) {
-      if ($("#" + className).val().length < length) {
-        $("#" + className).addClass("error");
-        alert(className + " must be at least " + length + "characters");
-        return false;
-      } else {
-        $("#" + className).removeClass("error");
-        return true;
-      }
-    }
+    let validateconfirmPassword = validateConfirmPassword("confirmPassword");
   });
 
-  
   $("#login_button").click(function () {
     let emailValidated = validateNotEmpty("email");
     let passwordValidated = validateNotEmpty("password");
