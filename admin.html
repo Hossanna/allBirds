@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <title>Account Creation</title>
+    <title>Admin Account Creation</title>
   </head>
   <body>
     <header>
@@ -21,7 +21,7 @@
         <ul class="ul1 flex">
           <li>MEN</li>
           <!-- <a href=""> -->
-          <li onclick="">WOMEN</li>
+          <li onclick="{showMenu()}">WOMEN</li>
           <!-- </a> -->
           <li>KIDS</li>
           <li>SOCKS</li>
@@ -46,66 +46,18 @@
       </nav>
     </header>
 
-    <div class="dropdown-menu" id="dropdown-menu">
-      <div class="flex">
-        <div class="flex drop-ul">
-          <ul>
-            <li class="li">SHOES</li>
-            <li>Everyday Sneakers</li>
-            <li>Flats</li>
-            <li>Active Shoes</li>
-            <li>Water-Repellent Sneakers</li>
-            <li>Slip-Ons</li>
-            <li>Hiking</li>
-            <li>High Tops</li>
-            <li>Sale</li>
-            <li>Shop all</li>
-          </ul>
-          <ul>
-            <li class="li">BEST SELLERS</li>
-            <li>Tree Runner</li>
-            <li>Tree Dasher 2</li>
-            <li>Wool Runner 2</li>
-            <li>Tree Breezer</li>
-            <li>SuperLight Tree Runner</li>
-            <li>Wool Runner</li>
-            <a href="./shop.html">
-              <li>Shop all</li>
-            </a>
-          </ul>
-          <ul>
-            <li class="li">APPAREL AND MORE</li>
-            <li>Socks</li>
-            <li>Underwear</li>
-            <li>Tees</li>
-            <li>Hats & Scarves</li>
-            <li>Hats</li>
-            <li>Insoles</li>
-            <li>Lace Kits</li>
-            <li>Gift Cards</li>
-            <li>Sale</li>
-          </ul>
-        </div>
-
-        <div class="picture-div">
-          <p class="li">FEATURED</p>
-          <img src="./images/newArrivals.avif" alt="" />
-          <img src="./images/superlight.avif" alt="" />
-        </div>
-      </div>
-    </div>
-
     <main class="accountCreation">
+     <h1>FOR ADMIN USERS ONLY</h1>
       <div id="accountCreationBannerSection">
         <div class="logIn">
           <h3>LOGIN</h3>
           <br /><br />
           <div class="loginInput">
             <label for="">EMAIL</label><br />
-            <input type="email" id="email" /><br />
+            <input type="email" id="email"/><br />
 
             <label for="">PASSWORD</label><br />
-            <input type="password" id="password" /><br />
+            <input type="password" id="password"/><br />
 
             <button type="button" id="login_button">SIGN IN</button><br />
             <p><a href="">FORGOT PASSWORD</a></p>
@@ -123,22 +75,22 @@
           <br /><br />
           <div class="registerInput">
             <label for="">FIRST NAME</label><br />
-            <input type="text" id="name" /> <br />
+            <input type="text"  id="name"/> <br />
 
             <label for="">LAST NAME</label><br />
             <input type="text" id="last_name" />
             <br />
 
             <label for="">EMAIL*</label><br />
-            <input type="email" id="reg_email" />
+            <input type="email" id="reg_email"/>
             <br />
 
             <label for="">PASSWORD*</label><br />
-            <input type="password" id="regPassword" />
+            <input type="password" id="regPassword"/>
             <br />
 
             <label for="">CONFIRM PASSWORD*</label><br />
-            <input type="password" id="confirmPassword" /><br />
+            <input type="password" id="confirmPassword"/><br />
 
             <input type="checkbox" name="" id="checkbox" />
             <label for="">Email me with news and offers</label> <br />
@@ -281,8 +233,10 @@
       </div>
     </footer>
 
+
     <script src="./script.js"></script>
 
     <script src="./main.js"></script>
+
   </body>
 </html>
