@@ -13,7 +13,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <title>Account Creation</title>
+    <title>Update User Account</title>
   </head>
   <body>
     <header>
@@ -46,81 +46,9 @@
       </nav>
     </header>
 
-    <div class="dropdown-menu" id="dropdown-menu">
-      <div class="flex">
-        <div class="flex drop-ul">
-          <ul>
-            <li class="li">SHOES</li>
-            <li>Everyday Sneakers</li>
-            <li>Flats</li>
-            <li>Active Shoes</li>
-            <li>Water-Repellent Sneakers</li>
-            <li>Slip-Ons</li>
-            <li>Hiking</li>
-            <li>High Tops</li>
-            <li>Sale</li>
-            <li>Shop all</li>
-          </ul>
-          <ul>
-            <li class="li">BEST SELLERS</li>
-            <li>Tree Runner</li>
-            <li>Tree Dasher 2</li>
-            <li>Wool Runner 2</li>
-            <li>Tree Breezer</li>
-            <li>SuperLight Tree Runner</li>
-            <li>Wool Runner</li>
-            <a href="./shop.html">
-              <li>Shop all</li>
-            </a>
-          </ul>
-          <ul>
-            <li class="li">APPAREL AND MORE</li>
-            <li>Socks</li>
-            <li>Underwear</li>
-            <li>Tees</li>
-            <li>Hats & Scarves</li>
-            <li>Hats</li>
-            <li>Insoles</li>
-            <li>Lace Kits</li>
-            <li>Gift Cards</li>
-            <li>Sale</li>
-          </ul>
-        </div>
-
-        <div class="picture-div">
-          <p class="li">FEATURED</p>
-          <img src="./images/newArrivals.avif" alt="" />
-          <img src="./images/superlight.avif" alt="" />
-        </div>
-      </div>
-    </div>
-
     <main class="accountCreation">
       <div id="accountCreationBannerSection">
-        <div class="logIn">
-          <h3>LOGIN</h3>
-          <br /><br />
-          <div class="loginInput">
-            <label for="">EMAIL</label><br />
-            <input type="email" id="email" /><br />
-
-            <label for="">PASSWORD</label><br />
-            <input type="password" id="password" /><br />
-
-            <button type="button" id="login_button" onclick="handleUserLogin()">SIGN IN</button><br />
-            <p><a href="">FORGOT PASSWORD</a></p>
-          </div>
-        </div>
         <div class="register">
-          <h3>CREATE AN ACCOUNT</h3>
-          <br />
-          <p>We never save credit card information.</p>
-          <br />
-          <p>
-            Registering makes checkout fast and easy and saves <br />
-            your order information in your account.
-          </p>
-          <br /><br />
           <div class="registerInput">
             <label for="">FIRST NAME</label><br />
             <input type="text" id="name" /> <br />
@@ -133,29 +61,20 @@
             <input type="email" id="reg_email" />
             <br />
 
-            <label for="">PASSWORD*</label><br />
-            <input type="password" id="regPassword" />
+            <label for="">PHONE*</label><br />
+            <input type="number" id="phone" />
             <br />
-
-            <label for="">CONFIRM PASSWORD*</label><br />
-            <input type="password" id="confirmPassword" /><br />
-
-            <input type="checkbox" name="" id="checkbox" />
-            <label for="">Email me with news and offers</label> <br />
-
             <button
               type="button"
               id="register_button"
-              onclick="handleUserSignup()"
+              onclick="handleUpdateUser()"
             >
-              REGISTER
+              UPDATE USER
             </button>
             <br />
-            <p>
-              By creating an account, you agree to our
-              <a href="">terms of use</a> and <a href="">Privacy Policy</a>
+            <p style="font-size:20px;text-align:center;">
+              <a href="./updateAdmin.html">UPDATE ADMIN DETAILS</a>
             </p>
-            <h5>*Required fields</h5>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@
         <ul class="ul1 flex">
           <li>MEN</li>
           <!-- <a href=""> -->
-          <li onclick="{showMenu()}">WOMEN</li>
+          <li onclick="">WOMEN</li>
           <!-- </a> -->
           <li>KIDS</li>
           <li>SOCKS</li>
@@ -107,8 +107,8 @@
             <label for="">PASSWORD</label><br />
             <input type="password" id="password" /><br />
 
-            <button type="button" id="login_button">SIGN IN</button><br />
-            <p><a href="">FORGOT PASSWORD</a></p>
+            <button type="button" id="login_button" onclick="handleUserLogin()">SIGN IN</button><br />
+            <p><a href="" onclick="">FORGOT PASSWORD</a></p>
           </div>
         </div>
         <div class="register">
@@ -143,7 +143,14 @@
             <input type="checkbox" name="" id="checkbox" />
             <label for="">Email me with news and offers</label> <br />
 
-            <button type="button" id="register_button">REGISTER</button> <br />
+            <button
+              type="button"
+              id="register_button"
+              onclick="handleUserSignup()"
+            >
+              REGISTER
+            </button>
+            <br />
             <p>
               By creating an account, you agree to our
               <a href="">terms of use</a> and <a href="">Privacy Policy</a>
