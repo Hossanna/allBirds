@@ -152,7 +152,7 @@ function getUserIdFromLocalStorage() {
 userId = getUserIdFromLocalStorage();
 console.log(userId);
 
-// Update a user
+// Update a user Information
 
 function handleUpdateUser() {
   console.log(userId);
@@ -177,6 +177,28 @@ function handleUpdateUser() {
   });
 }
 
-
-
 // How do I make sure that the update also takes effect during login (Override the previous info)?
+
+// Getting just the first user id from the LS
+
+// Change User password
+
+function handleUpdateUserPassword() {
+  formObj = {
+    old_password:  $("#oldPassword").val(),
+    new_password: $("#newPassword").val(),
+  };
+
+  $.ajax({
+    url: `${api}/users/${userId}/change-passwd`,
+    type: "put",
+    data: formObj,
+    success: function (res) {
+      console.log(res.id);
+      console.log(res);
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+}
