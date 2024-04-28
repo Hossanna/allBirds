@@ -100,6 +100,10 @@ function handleUserSignup() {
     data: formObj,
     success: function (res) {
       console.log(res.id);
+      $("#name").val("");
+      $("#last_name").val("");
+      $("#reg_email").val("");
+      $("#regPassword").val("");
       window.location.href = "./homepage.html";
 
       localStorage.setItem("usersId", res.id);
@@ -170,6 +174,10 @@ function handleUpdateUser() {
     success: function (res) {
       console.log(res.id);
       console.log(res);
+      $("#name").val("");
+      $("#last_name").val("");
+      $("#reg_email").val("");
+      $("#phone").val("");
     },
     error: function (err) {
       console.log(err);
@@ -185,7 +193,7 @@ function handleUpdateUser() {
 
 function handleUpdateUserPassword() {
   formObj = {
-    old_password:  $("#oldPassword").val(),
+    old_password: $("#oldPassword").val(),
     new_password: $("#newPassword").val(),
   };
 
@@ -196,6 +204,8 @@ function handleUpdateUserPassword() {
     success: function (res) {
       console.log(res.id);
       console.log(res);
+      $("#oldPassword").val("");
+      $("#newPassword").val("");
     },
     error: function (err) {
       console.log(err);
