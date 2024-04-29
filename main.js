@@ -104,7 +104,9 @@ function handleUserSignup() {
       $("#last_name").val("");
       $("#reg_email").val("");
       $("#regPassword").val("");
-      window.location.href = "./homepage.html";
+      $("#confirmPassword").val("");
+      alert("User singned up successfully! \n Login!");
+      // window.location.href = "./homepage.html";
 
       localStorage.setItem("usersId", res.id);
       userId = localStorage.getItem("usersId");
