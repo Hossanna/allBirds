@@ -83,7 +83,7 @@ $("#login_button").click(function (e) {
           storeMerchantId(response.id);
           $("#email").val(""),
           $("#password").val("")
-          window.location.href = "./shopMerchant.html";
+          window.location.href = "./MerchantDashboard.html";
         }
       },
       error: function (err) {
@@ -203,10 +203,10 @@ $("#update_merchant").click(function (e) {
 
 
   //get existing categories for a merchant
-function getUserCategories(id) {
+function getMerchantCategories(id) {
   $.ajax({
     type: "get",
-    url: `${api}/tags?user_id=${id}`,
+    url: `${api}/categories?merchant_id=${id}`,
     dataType: "json",
     success: function (res) {
       addAllCategories(res);
@@ -219,9 +219,9 @@ function getUserCategories(id) {
 
 //get all categories for an existing user
 function getCategories() {
-  let { success, userID } = getUserId();
+  let { success, merchantID } = getMerchantId();
   if (success) {
-    getUserCategories(userID);
+    getMerchantCategories(merchantID);
   }
 }
 
@@ -229,52 +229,26 @@ function getCategories() {
 function addAllCategories(tagObjects) {
   let categoryListNode = $("#categoryList");
   let taskTagsListnodes = $("#taskTags");
-  let firstAddTodoButton = $("#firstAddTodoButton")
 
   categoryListNode.empty();
   taskTagsListnodes.empty();
 
-  let isTagObjEmpty = tagObjects.length  === 0
-  if (isTagObjEmpty){
-    firstAddTodoButton.attr("disabled", true)
-    firstAddTodoButton.addClass("addtodo-disabled");
-  }
-  else{
-    firstAddTodoButton.attr("disabled", false)
-    firstAddTodoButton.removeClass("addtodo-disabled");
-  }
-  // console.log(isTagObjEmpty);
   tagObjects.forEach((tagObject) => {
-    // let color = tagObject.color;
-    let name = tagObject.title;
+    let name = tagObject.name;
     let id = tagObject.id;
-    let dateAndTime = tagObject.created_at
-
-    let newDateAndTime = new Date(dateAndTime).toLocaleString()
-
-    // tagNameToColor[name] = color;
-    tagIdToName[id] = name;
-    tagIdToDate[id] = newDateAndTime
-    //names have to be unique else it will override!! return the id
-
+    
     categoryListNode.append(
-      `<div class="p">` +
-        `<div class="circles selectedTag" id=${id}  style="background: ${color}">` +
-        "</div>" +
-        `<div class="div" id=${id}>${name}</div>` +
-
-        `<h2 class="ed" id=${id}>...</h2>` +
+      `<li id=${id}> ${name} </li>`
         
-        "</div>" +
 
-        `<div class="showInfoDelete showInfoDelete-${id}">
-          <p class="deleteTag" id=${id}> Delete tag </p>
-          <p class="TagInfo ${newDateAndTime}" id=${id}>Tag Info </p>
-        </div>` 
+        // `<div class="showInfoDelete showInfoDelete-${id}">
+        //   <p class="deleteTag" id=${id}> Delete tag </p>
+        //   <p class="TagInfo ${newDateAndTime}" id=${id}>Tag Info </p>
+        // </div>` 
 // <i class="fa fa-trash " id=${id} aria-hidden="true"></i> 
     );
 
-    taskTagsListnodes.append(`<option value=${id}> ${name} </option>`);
+    // taskTagsListnodes.append(`<option value=${id}> ${name} </option>`);
   });
 
   // return dateAndTime
@@ -285,21 +259,21 @@ function addNewCategory() {
   if (!$("#category").val()) {
     alert("Please add a category ");
   } else {
-    let { success, userID } = getUserId();
+    let { success, merchantID } = getMerchantId();
     if (success) {
       let submitObject = {
-        user_id: userID,
-        title: $("#category").val(),
+        merchant_id: merchantID,
+        name: $("#category").val(),
         // color: $("#color").val(),
       };
 
       $.ajax({
         type: "post",
-        url: `${api}/tags`,
+        url: `${api}/categories`,
         data: submitObject,
         dataType: "json",
         success: function (res) {
-          getUserCategories(userID);
+          getMerchantCategories(merchantID);
         },
         error: function (err) {
           alert(err.responseJSON.msg);
@@ -308,6 +282,13 @@ function addNewCategory() {
     }
     $("#category").val("");
   }
+}
+
+
+//get all tasks and categories
+function getCategoriesAndProducts() {
+  getCategories();
+  // getTasks();
 }
 
 //show delete and info menu for tags
@@ -328,11 +309,11 @@ $("#categoryList").on("click", ".deleteTag", function (e) {
     if (confirm("Do you want to delete this category?")){
       $.ajax({
         type: "delete",
-        url: `${api}/tags/${id}`,
+        url: `${api}/categories/${id}`,
         dataType: "json",
         success: function (response) {
           // alert(`deleted tag and its tasks`)
-          getTagsAndTasks();
+          getCategoriesAndProducts();
         },
       });
     }
@@ -359,4 +340,108 @@ function checkTagIfEmpty(tagID) {
     },
   });
   return tagIsEmpty
+}
+
+//get existing tasks for a user
+function getUserTasks(id) {
+  $.ajax({
+    type: "get",
+    url: `${api}/tasks?user_id=${id}`,
+    // data: "data",
+    dataType: "json",
+    success: function (response) {
+      // console.log(response);
+      addAllTasks(response);
+    },
+    error: function (err) {
+      alert(err);
+    },
+  });
+}
+
+//get tasks for an existing user
+function getTasks() {
+  let { success, userID } = getUserId();
+  if (success) {
+    getUserTasks(userID);
+  }
+}
+
+function getTasksForTag(tagID) {
+  $.ajax({
+    type: "get",
+    url: `${api}/tags/tasks?tag_id=${tagID}`,
+    // data: "data",
+    dataType: "json",
+    success: function (response) {
+      // console.log(response);
+      response.forEach((task) => {
+        task.tag = tagIdToName[tagID];
+      });
+      addAllTasks(response);
+    },
+    error: function (err) {
+      alert(err);
+    },
+  });
+}
+//when retrieving tasks for tags, the task has no tag name and tag id
+
+//selected tags tasks
+$("#categoryList").on("click", ".selectedTag", function (e) {
+  e.preventDefault();
+  let id = e.target.id;
+  // console.log(id);
+  getTasksForTag(id);
+});
+
+//render all tasks
+function addAllTasks(tasksObjects) {
+  let taskListNode = $("#mainTasks");
+  taskListNode.empty();
+
+  let hiddenDoneTasks = $("#hiddenTasks").is(":checked");
+  // console.log(hiddenDoneTasks);
+
+  tasksObjects.forEach((tasksObject) => {
+    let title = tasksObject.title;
+    let description = tasksObject.content;
+    let checked = "";
+    let line = checked;
+    if (tasksObject.completed) {
+      checked = "checked";
+      line = "line";
+    }
+
+    if (tasksObject.completed && hiddenDoneTasks) {
+      return;
+    }
+
+    let id = tasksObject.id;
+    let color = tagNameToColor[tasksObject.tag];
+    // console.log(color);
+    taskIdToNameAndContent[id] = {
+      title: title,
+      content: description,
+    };
+
+    taskListNode.append(
+      `<div class="grid-items"> 
+                <div class="flex space-between">
+                    <h2 class = "${line}"> ${title} </h2>
+                    <h2 class="ed" id=${id}>...</h2>
+                </div>
+                <div class="showED showED-${id}">
+                        <p class="editTask" id=${id}>Edit</p>
+                        <p class="deleteTask" id=${id}>Delete</p>
+                </div>
+                <p class="desc ${line}"> ${description} </p>
+                <div class="small-circles circles" style="background: ${color}"></div>
+                <div class="checkbox">
+                    <input ${checked} id=${id} class="done-check" type="checkbox" name="done">
+                    <p>Done</p>
+                </div>
+            </div>`
+    );
+  });
 }
