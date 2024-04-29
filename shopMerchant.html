@@ -2,30 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="./styles.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <title>Admin Account Creation</title>
+    <title>Shop Women</title>
   </head>
-  <body>
+  <body id="body">
     <header>
       <nav class="flex">
         <ul class="ul1 flex">
-          <li>MEN</li>
+          <li>ALL CATEGORIES</li>
           <!-- <a href=""> -->
-          <li onclick="{showMenu()}">WOMEN</li>
+          <!-- <li onclick="{showMenu()}">WOMEN</li> -->
           <!-- </a> -->
-          <li>KIDS</li>
-          <li>SOCKS</li>
-          <li class="red">SALE</li>
+          <li>ALL PRODUCTS</li>
+          <!-- <li>SOCKS</li> -->
+          <li class="red"> ON SALE</li>
         </ul>
 
         <a href="./homepage.html" class="logo">
@@ -33,9 +32,11 @@
         </a>
 
         <ul class="ul2 flex">
-          <li>SUSTAINABILITY</li>
-          <li>RERUN+</li>
-          <li>STORES</li>
+          <a href="./updateAdmin.html">
+            <li>SETTINGS</li>
+          </a>
+          <li onclick={addCategory()}>Add Category+</li>
+                <li onclick={addTodo()}>Add Product+</li>
           <div class="flex nav-icons">
             <img src="./images/download (18).svg" alt="" />
             <img src="./images/download (17).svg" alt="" />
@@ -46,100 +47,79 @@
       </nav>
     </header>
 
-    <main class="accountCreation">
-     <h1>FOR ADMIN USERS ONLY</h1>
-      <div id="accountCreationBannerSection">
-        <div class="logIn">
-          <h3>LOGIN</h3>
-          <br /><br />
-          <div class="loginInput">
-            <label for="">EMAIL</label><br />
-            <input type="email" id="email"/><br />
 
-            <label for="">PASSWORD</label><br />
-            <input type="password" id="password"/><br />
+    
 
-            <button type="button" id="login_button">SIGN IN</button><br />
-            <p><a href="">FORGOT PASSWORD</a></p>
-          </div>
-        </div>
-        <div class="register">
-          <h3>CREATE AN ACCOUNT</h3>
-          <br />
-          <p>We never save credit card information.</p>
-          <br />
-          <p>
-            Registering makes checkout fast and easy and saves <br />
-            your order information in your account.
-          </p>
-          <br /><br />
-          <div class="registerInput">
-            <label for="">FIRST NAME</label><br />
-            <input type="text"  id="name"/> <br />
-
-            <label for="">LAST NAME</label><br />
-            <input type="text" id="last_name" />
-            <br />
-
-            <label for="">EMAIL*</label><br />
-            <input type="email" id="reg_email"/>
-            <br />
-
-            <label for="">PASSWORD*</label><br />
-            <input type="password" id="regPassword"/>
-            <br />
-
-            <label for="">CONFIRM PASSWORD*</label><br />
-            <input type="password" id="confirmPassword"/><br />
-
-            <input type="checkbox" name="" id="checkbox" />
-            <label for="">Email me with news and offers</label> <br />
-
-            <button type="button" id="register_button">REGISTER</button> <br />
-            <p>
-              By creating an account, you agree to our
-              <a href="">terms of use</a> and <a href="">Privacy Policy</a>
-            </p>
-            <h5>*Required fields</h5>
-          </div>
-        </div>
-      </div>
-
-      <div class="allBirdsApproroachsection">
-        <h2>The Allbirds Approach</h2>
-        <div class="birdsApproachtexts">
-          <div class="birdsApproachtext1">
-            <h4>Wear-All-Day Comfort</h4>
-            <p>
-              Lightweight, bouncy, and wildly comfortable, Allbirds shoes make
-              any outing feel effortless. Slip in, lace up, or slide them on and
-              enjoy the comfy support.
-            </p>
-            <a href="">Learn More</a>
+   <main id="fullPage" class="shop_main">
+      <div class="flex">
+        <aside>
+          
+          <div class="aside_one userCategories">
+            
+            <h2>CATEGORY LIST</h2>
+            <ul class="list" id="categoryList">
+              <li>Everyday Sneakers</li>
+              <li>Active Shoes</li>
+              <li>Water-Repellent Shoes</li>
+              <li>Flats</li>
+              <li>Slip-Ons</li>
+              <li>Hiking Shoes</li>
+              <li>High Tops</li>
+              <li>Sale Shoes</li>
+            </ul>
           </div>
 
-          <div class="birdsApproachtext2">
-            <h4>Sustainability in every step</h4>
-            <p>
-              From materials to transport, we’re working to reduce our carbon
-              footprint to near zero. Holding ourselves accountable and striving
-              for climate goals isn’t a 30-year goal—it’s now..
-            </p>
-            <a href="">Learn More</a>
-          </div>
+          
+        </aside>
 
-          <div class="birdsApproachtext3">
-            <h4>Materials From The Earth</h4>
-            <p>
-              We replace petroleum-based synthetics with natural alternatives
-              wherever we can. Like using wool, tree fiber, and sugar cane.
-              They’re soft, breathable, and better for the planet—win, win, win.
-            </p>
-            <a href="">Learn More</a>
-          </div>
-        </div>
+
+        <section class="main_section">
+
+            <div class="men flex">
+              <div class="women flex"> WOMEN</div> <div>MEN</div>
+            </div>
+
+          
+
+  
+        </section>
       </div>
     </main>
+
+    <div id="showaddtodo" class="big-div">
+      <div class="flex desc">
+          <button id="cancel" class="cancel">Cancel</button>
+          <button onclick={addNewTodo()} class="btn">Add ToDo</button>
+
+      </div>
+
+      <div class="flex form">
+          <label for="title">Product Name</label>
+          <input class="input" id="addnewtodo" type="text" placeholder="add a title ...">
+
+          <label for="description">Description</label>
+          <textarea class="input" id="description" name="description" id="description" cols="30" rows="10" placeholder="add a description ..."></textarea>
+
+          <label for="tags">Select the Product Category</label>
+          <select name="taskTags" id="taskTags">
+
+          </select>
+      </div>
+  </div>
+
+  <div id="showaddcategory" class="big-div">
+      <div class="flex desc">
+          <button id="cancell" class="cancel">Cancel</button>
+          <button onclick={addNewCategory()} class="btn">Add Category</button>
+
+      </div>
+
+      <div class="flex form">
+          <label for="title">Name of Category</label>
+          <input class="input" id="category" type="text" placeholder="add a category ...">
+
+      </div>
+  </div>
 
     <footer>
       <div>
@@ -233,10 +213,6 @@
       </div>
     </footer>
 
-
     <script src="./script.js"></script>
-
-    <script src="./main.js"></script>
-
   </body>
 </html>
