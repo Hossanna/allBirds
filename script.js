@@ -169,6 +169,35 @@ $("#update_merchant").click(function (e) {
   });
 });
 
+
+// Update Merchant Password
+
+function handleUpdateAdminPassword() {
+
+  let merchant = getMerchantId();
+
+  formObj = {
+    old_password: $("#oldPassword").val(),
+    new_password: $("#newPassword").val(),
+  };
+
+  $.ajax({
+    url: `${api}/merchants/${merchant.merchantID}/change-passwd`,
+    type: "PUT",
+    data: formObj,
+    success: function (res) {
+      console.log(res.id);
+      console.log(res);
+      $("#oldPassword").val("");
+      $("#newPassword").val("");
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+}
+
+
 //show add todo menu
 function addTodo() {
   $("#showaddtodo").show();
