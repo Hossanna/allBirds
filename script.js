@@ -452,9 +452,9 @@ function addAllProducts(productsObjects) {
       );
 
 
-      pageProductListNode.append(
-        `<li id=${id}> ${title} </li>` 
-      );
+      // pageProductListNode.append(
+      //   `<li id=${id}> ${title} </li>` 
+      // );
 
   });
 }
