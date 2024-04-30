@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Shop Women</title>
   </head>
-  <body id="body">
+  <body id="body" onload={getCategoriesAndProducts()}>
     <header>
       <nav class="flex">
         <ul class="ul1 flex">
@@ -131,15 +131,15 @@
           <div class="aside_one">
             <span>Home /</span> <br />
             <h2>Women's Shoes</h2>
-            <ul>
-              <li>Everyday Sneakers</li>
+            <ul id="pageCategoryList">
+              <!-- <li>Everyday Sneakers</li>
               <li>Active Shoes</li>
               <li>Water-Repellent Shoes</li>
               <li>Flats</li>
               <li>Slip-Ons</li>
               <li>Hiking Shoes</li>
               <li>High Tops</li>
-              <li>Sale Shoes</li>
+              <li>Sale Shoes</li> -->
             </ul>
           </div>
 
@@ -262,7 +262,7 @@
             <div>MEN</div>
           </div>
 
-          <div class="flex">
+          <div class="flex" id="pageProductList">
             <div class="product_div">
               <img class="img" src="./images/1.avif" alt="" />
               <h4>Women's Tree Dasher</h4>

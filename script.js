@@ -4,6 +4,9 @@ let body = $("#body")
 let productBody = $("#product_body")
 let api = "http://ecommerce.reworkstaging.name.ng/v2"
 let merchantID = "merchantID";
+const singleMerchantID  = "6628cdeaf7192e0c5d70043e"
+let tagIdToName = {};
+
 
 
 function showMenu(){
@@ -217,7 +220,7 @@ function getMerchantCategories(id) {
   });
 }
 
-//get all categories for an existing user
+//get all categories for an existing merchant
 function getCategories() {
   let { success, merchantID } = getMerchantId();
   if (success) {
@@ -228,30 +231,44 @@ function getCategories() {
 //render all categories
 function addAllCategories(tagObjects) {
   let categoryListNode = $("#categoryList");
+  let pageCategoryListNode = $("#pageCategoryList");
   let taskTagsListnodes = $("#taskTags");
 
+  // let isTagObjEmpty = tagObjects.length  === 0
+
+
+  pageCategoryListNode.empty()
   categoryListNode.empty();
   taskTagsListnodes.empty();
 
   tagObjects.forEach((tagObject) => {
     let name = tagObject.name;
     let id = tagObject.id;
-    
-    categoryListNode.append(
-      `<li id=${id}> ${name} </li>`
-        
+    let dateAndTime = tagObject.created_at
 
-        // `<div class="showInfoDelete showInfoDelete-${id}">
-        //   <p class="deleteTag" id=${id}> Delete tag </p>
-        //   <p class="TagInfo ${newDateAndTime}" id=${id}>Tag Info </p>
-        // </div>` 
-// <i class="fa fa-trash " id=${id} aria-hidden="true"></i> 
+    tagIdToName[id] = name;
+    let newDateAndTime = new Date(dateAndTime).toLocaleString()
+
+    categoryListNode.append(
+      `<tr ${id}> 
+          <td>${name}</td>
+          <td>${newDateAndTime}</td>
+          <td class="editTag">Edit</td>
+          <td class="deleteTag">Delete</td>
+
+      </tr>`        
     );
 
-    // taskTagsListnodes.append(`<option value=${id}> ${name} </option>`);
+    pageCategoryListNode.append(
+      `<li id=${id}> ${name} </li>` 
+    );
+
+    taskTagsListnodes.append(
+      `<option value=${id}> ${name} </option>`
+    );
+
   });
 
-  // return dateAndTime
 }
 
 //add new category
@@ -288,16 +305,10 @@ function addNewCategory() {
 //get all tasks and categories
 function getCategoriesAndProducts() {
   getCategories();
-  // getTasks();
+  getProducts();
 }
 
-//show delete and info menu for tags
-$("#categoryList").on("click", ".ed", function (e) {
-  e.preventDefault();
-  let id = e.target.id;
-  // console.log(id);
-  $(`.showInfoDelete-${id}`).toggle();
-});
+////////////
 
 //delete category
 $("#categoryList").on("click", ".deleteTag", function (e) {
@@ -342,16 +353,18 @@ function checkTagIfEmpty(tagID) {
   return tagIsEmpty
 }
 
-//get existing tasks for a user
-function getUserTasks(id) {
+
+
+//get existing products for a merchant
+function getMerchantProducts(id) {
   $.ajax({
     type: "get",
-    url: `${api}/tasks?user_id=${id}`,
+    url: `${api}/products?merchant_id=${id}`,
     // data: "data",
     dataType: "json",
     success: function (response) {
       // console.log(response);
-      addAllTasks(response);
+      addAllProducts(response);
     },
     error: function (err) {
       alert(err);
@@ -359,89 +372,161 @@ function getUserTasks(id) {
   });
 }
 
-//get tasks for an existing user
-function getTasks() {
-  let { success, userID } = getUserId();
+//get products for an existing merchant
+function getProducts() {
+  let { success, merchantID } = getMerchantId();
   if (success) {
-    getUserTasks(userID);
+    getMerchantProducts(merchantID);
   }
 }
 
-function getTasksForTag(tagID) {
+// get product for each category
+function getProductsForTag(tagID, merchantID) {
   $.ajax({
     type: "get",
-    url: `${api}/tags/tasks?tag_id=${tagID}`,
+    url: `${api}/products?merchant_id=${merchantID}&category_id=${tagID}`,
     // data: "data",
     dataType: "json",
     success: function (response) {
       // console.log(response);
-      response.forEach((task) => {
-        task.tag = tagIdToName[tagID];
+      response.forEach((product) => {
+        product.tag = tagIdToName[tagID];
       });
-      addAllTasks(response);
+      addAllProducts(response);
     },
     error: function (err) {
       alert(err);
     },
   });
 }
-//when retrieving tasks for tags, the task has no tag name and tag id
 
 //selected tags tasks
 $("#categoryList").on("click", ".selectedTag", function (e) {
   e.preventDefault();
   let id = e.target.id;
   // console.log(id);
-  getTasksForTag(id);
+  getProductsForTag(id);
 });
 
-//render all tasks
-function addAllTasks(tasksObjects) {
-  let taskListNode = $("#mainTasks");
-  taskListNode.empty();
+//render all products
+function addAllProducts(productsObjects) {
+  let productListNode = $("#productList");
+  let pageProductListNode = $("#pageProductList");
 
-  let hiddenDoneTasks = $("#hiddenTasks").is(":checked");
-  // console.log(hiddenDoneTasks);
+  
+  productListNode.empty();
+  pageProductListNode.empty();
 
-  tasksObjects.forEach((tasksObject) => {
-    let title = tasksObject.title;
-    let description = tasksObject.content;
-    let checked = "";
-    let line = checked;
-    if (tasksObject.completed) {
-      checked = "checked";
-      line = "line";
-    }
+  productsObjects.data.forEach((productsObject) => {
+    let title = productsObject.title;
+    let description = productsObject.descp;
+    let price = productsObject.price;
+    let brand = productsObject.brand;
+    let quantity = productsObject.quantity;
+    let currency = productsObject.currency;
+    let max = productsObject.max_qty;
+    let min = productsObject.min_qty;
+    let discount = productsObject.discount;
+    let discount_expiration = productsObject.discount_expiration;
+    let hasVariation = productsObject.has_variation;
+    let hasRefundPolicy = productsObject.has_refund_policy;
+    let hasShipment = productsObject.has_shipment;
+    let hasDiscount = productsObject.has_discount;
 
-    if (tasksObject.completed && hiddenDoneTasks) {
-      return;
-    }
+    let id = productsObject.id;
 
-    let id = tasksObject.id;
-    let color = tagNameToColor[tasksObject.tag];
-    // console.log(color);
-    taskIdToNameAndContent[id] = {
-      title: title,
-      content: description,
-    };
+    // taskIdToNameAndContent[id] = {
+    //   title: title,
+    //   descp: description,
+    // };
 
-    taskListNode.append(
-      `<div class="grid-items"> 
-                <div class="flex space-between">
-                    <h2 class = "${line}"> ${title} </h2>
-                    <h2 class="ed" id=${id}>...</h2>
-                </div>
-                <div class="showED showED-${id}">
-                        <p class="editTask" id=${id}>Edit</p>
-                        <p class="deleteTask" id=${id}>Delete</p>
-                </div>
-                <p class="desc ${line}"> ${description} </p>
-                <div class="small-circles circles" style="background: ${color}"></div>
-                <div class="checkbox">
-                    <input ${checked} id=${id} class="done-check" type="checkbox" name="done">
-                    <p>Done</p>
-                </div>
-            </div>`
-    );
+    productListNode.append(
+
+      `<tr ${id}> 
+      <td>${title}</td>
+      <td>${price}</td>
+      <td class="editTag">Edit</td>
+      <td class="deleteTag">Delete</td>
+
+      </tr>`        
+      );
+
+
+      pageProductListNode.append(
+        `<li id=${id}> ${title} </li>` 
+      );
+
   });
+}
+
+
+
+// post new product
+function addNewProduct() {
+  if (!$("#addnewtodo").val()) {
+    alert("Please add product details");
+  }  else {
+
+    let shipping_locations = $("#shipping_location").val()
+    let { success, merchantID } = getMerchantId();
+
+    if (success) {
+      let submitObject = {
+        category_id: $("#taskTags").val(),
+        image: ["data:image/jpeg;base64"],
+        title: $("#addnewtodo").val(),
+        descp: $("#description").val(),
+        price: $("#product_price").val(),
+        brand: $("#product_brand").val(),
+        quantity: $("#product_qty").val(),
+        currency: $("#currency").val(),
+        max_qty: $("#max_qty").val(),
+        min_qty: $("#min_qty").val(),
+        discount: $("#discount").val(),
+        discount_expiration: $("#discount_expiration").val(),
+        has_refund_policy: $("#refund_policy").val(),
+        has_discount: $("#has_discount").val(),
+        has_shipment: $("#has_shipment").val(),
+        has_variation: $("#has_variation").val(),
+        shipping_locations: [],
+        attrib: [{
+          type: "",
+          content: [
+            {
+              name: "",
+              value: ""
+            }
+          ]
+        }],
+
+        // category_id: tag_id,
+        merchant_id: getMerchantId()
+
+      };
+      
+      // console.log(submitObject);
+      console.log(shipping_locations);
+
+      $.ajax({
+        type: "post",
+        url: `${api}/products`,
+        data: submitObject,
+        dataType: "json",
+        success: function (res) {
+          getMerchantProducts(merchantID);
+          console.log(res);
+          // console.log(merchantID);
+          // console.log(category_id);
+          
+        },
+        error: function (err) {
+          alert(err.responseJSON.msg);
+          console.log(merchantID);
+          console.log(category_id);
+        },
+      });
+    }
+    // $("#addnewtodo").val("");
+    // $("#description").val("");
+  }
 }

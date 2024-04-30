@@ -899,11 +899,12 @@ footer a{
     border-radius: 20px;
     box-shadow: 0px 0px 15px 1px #80808080;
     margin: 7% 25%;
-    padding: 0% 5%;
+    padding: 0% 5% 2%;
     display: none;
     position: absolute;
     background-color: white;
     top: 0;
+    overflow-y: scroll;
 }
 .backgroundChange{
     background-color: #6b626226;
@@ -951,4 +952,8 @@ label{
     color: white;
     border: none;
     cursor: pointer;
+}
+
+table {
+    width: 100%;
 }
