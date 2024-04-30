@@ -1,73 +1,70 @@
-let cartpage = $("#cart_page")
-let fullPage = $("#fullpage")
-let body = $("#body")
-let productBody = $("#product_body")
-let api = "http://ecommerce.reworkstaging.name.ng/v2"
+let cartpage = $("#cart_page");
+let fullPage = $("#fullpage");
+let body = $("#body");
+let productBody = $("#product_body");
+let api = "http://ecommerce.reworkstaging.name.ng/v2";
 let merchantID = "merchantID";
 const singleMerchantID  = "6628cdeaf7192e0c5d70043e"
 let tagIdToName = {};
 
 
-
-function showMenu(){
-    let womenMenu = $("#dropdown-menu")
-    womenMenu.fadeToggle(200)
-    fullPage.toggleClass("dark-background");
+function showMenu() {
+  let womenMenu = $("#dropdown-menu");
+  womenMenu.fadeToggle(200);
+  fullPage.toggleClass("dark-background");
 }
 
-function showProduct(){
-    window.location.href = "./product.html"
+function showProduct() {
+  window.location.href = "./product.html";
 }
 
 function showCartPage() {
-    cartpage.fadeIn(300)
-    fullPage.addClass("dark-background");
-    body.addClass("fixed_position")
-    productBody.addClass("overflow")
+  cartpage.fadeIn(300);
+  fullPage.addClass("dark-background");
+  body.addClass("fixed_position");
+  productBody.addClass("overflow");
 }
 
-function closeCartPage(){
-    cartpage.fadeOut(300)
-    fullPage.removeClass("dark-background");
-    body.removeClass("fixed_position")
-    productBody.removeClass("overflow")
-
+function closeCartPage() {
+  cartpage.fadeOut(300);
+  fullPage.removeClass("dark-background");
+  body.removeClass("fixed_position");
+  productBody.removeClass("overflow");
 }
 
 //signup for merchant
 $("#register_button").click(function (e) {
-    e.preventDefault();
-  
-    let submitObject = {
-        first_name: $("#first_name").val(),
-        last_name: $("#last_name").val(),
-        email: $("#reg_email").val(),
-        password: $("#regPassword").val(),
-    };
-  
-    $.ajax({
-      type: "post",
-      url: `${api}/merchants`,
-      data: submitObject,
-      dataType: "json",
-      success: function (res) {
-        notYetSuccess(res, "Merchant Account created successfully");
-      },
-      error: function (err) {
-        alert(err.responseJSON.msg);
-      },
-    });
+  e.preventDefault();
 
-    $("#first_name").val(""),
-    $("#last_name").val(""),
-    $("#reg_email").val(""),
-    $("#regPassword").val("")
+  let submitObject = {
+    first_name: $("#first_name").val(),
+    last_name: $("#last_name").val(),
+    email: $("#reg_email").val(),
+    password: $("#regPassword").val(),
+  };
 
+  $.ajax({
+    type: "post",
+    url: `${api}/merchants`,
+    data: submitObject,
+    dataType: "json",
+    success: function (res) {
+      notYetSuccess(res, "Merchant Account created successfully");
+    },
+    error: function (err) {
+      alert(err.responseJSON.msg);
+    },
   });
 
+  $("#first_name").val(""),
+    $("#last_name").val(""),
+    $("#reg_email").val(""),
+    $("#regPassword").val("");
+});
 
 //login for merchant
 $("#login_button").click(function (e) {
+
     e.preventDefault();
   
     let submitObject = {
@@ -94,116 +91,134 @@ $("#login_button").click(function (e) {
       },
     });
 
+  });
     
-});
+
 
 function notYetSuccess(res, message) {
-    if (typeof res.code === "undefined" || res.code === 200) {
-      alert(message);
-      return {
-        success: true,
-        response: res,
-      };
-    } else {
-    //   alert(res.msg);
-      return {
-        success: false,
-        response: {},
-      };
-    }
-
-  }
-
-  function storeMerchantId(id) {
-    localStorage.setItem(merchantID, id);
-  }
-  
-  function clearMerchantId() {
-    localStorage.removeItem(merchantID);
-  }
-  
-  function getMerchantId() {
-    let foundId = localStorage.getItem(merchantID);
+  if (typeof res.code === "undefined" || res.code === 200) {
+    alert(message);
     return {
-      success: foundId !== null,
-      merchantID: foundId,
+      success: true,
+      response: res,
+    };
+  } else {
+    //   alert(res.msg);
+    return {
+      success: false,
+      response: {},
     };
   }
+}
 
-  //update merchant details
+function storeMerchantId(id) {
+  localStorage.setItem(merchantID, id);
+}
+
+function clearMerchantId() {
+  localStorage.removeItem(merchantID);
+}
+
+function getMerchantId() {
+  let foundId = localStorage.getItem(merchantID);
+  return {
+    success: foundId !== null,
+    merchantID: foundId,
+  };
+}
+
+//update merchant details
 $("#update_merchant").click(function (e) {
+  e.preventDefault();
+
+  let submitObject = {
+    first_name: $("#first_name").val(),
+    last_name: $("#last_name").val(),
+    email: $("#email").val(),
+    phone: $("#phone").val(),
+    store_name: $("#store_name").val(),
+    descp: $("#descp").val(),
+    icon: $("#icon").val(),
+    banner: $("#banner").val(),
+    state: $("#state").val(),
+    district: $("#district").val(),
+    social_media: {
+      x: $("#x").val(),
+      face_book: $("#fb").val(),
+      instagram: $("#ig").val(),
+    },
+    phones: $("#phones").val(),
+  };
+
+  let merchant = getMerchantId();
+
+  $.ajax({
+    type: "PUT",
+    url: `${api}/merchants/${merchant.merchantID}`,
+    data: submitObject,
+    dataType: "json",
+    success: function (response) {
+      notYetSuccess(response, "Account updated successfully");
+      console.log(response);
+      $("#onSuccess")
+        .append("h3" + "UPDATED ADMIN DETAILS" + "h3" + response.first_name)
+      $("#first-name").append(response.first_name);
+      $("#last-name").append(response.last_name);
+      $("#state").append(response.state);
+      $("#success_district").append(response.district);
+      $("#store-name").append(response.store_name);
+      $("#description").append(response.descp);
+      $("#success_phone").append(response.phones);
+
+    },
+    error: function (err) {
+      alert(err.responseJSON.msg);
+    },
+  });
+});
+
+
+// Update Merchant Password
+function handleUpdateAdminPassword() {
+
+  let merchant = getMerchantId();
+
+  formObj = {
+    old_password: $("#oldPassword").val(),
+    new_password: $("#newPassword").val(),
+  };
+
+  $.ajax({
+    url: `${api}/merchants/${merchant.merchantID}/change-passwd`,
+    type: "PUT",
+    data: formObj,
+    success: function (res) {
+      console.log(res.id);
+      console.log(res);
+      $("#oldPassword").val("");
+      $("#newPassword").val("");
+    },
+    error: function (err) {
+      console.log(err);
+    },
+  });
+}
+
+
+//show add todo menu
+function addTodo() {
+  $("#showaddtodo").show();
+  $("#cancel").click(function (e) {
     e.preventDefault();
-  
-    let submitObject = {
-        first_name: $("#first_name").val(),
-        last_name: $("#last_name").val(),
-        email: $("#email").val(),
-        phone: $("#phone").val(),
-        store_name: $("#store_name").val(),
-        descp: $("#descp").val(),
-        icon: $("#icon").val(),
-        banner: $("#banner").val(),
-        state: $("#state").val(),
-        district: $("#district").val(),
-        social_media: {
-            x: $("#x").val(),
-            face_book: $("#fb").val(),
-            instagram: $("#ig").val()
-            
-        },
-        phones: $("#phones").val(),
-    };
+    $("#showaddtodo").hide();
+    $("#entirepage").removeClass("backgroundChange");
 
-    let merchant = getMerchantId()
-
-  
-    $.ajax({
-      type: "PUT",
-      url: `${api}/merchants/${merchant.merchantID}`,
-      data: submitObject,
-      dataType: "json",
-      success: function (response) {
-        notYetSuccess(response, "Account updated successfully");
-        console.log(response);
-
-      },
-      error: function (err) {
-        alert(err.responseJSON.msg);
-      
-      },
-    });
+    $("#addnewtodo").val("");
+    $("#description").val("");
   });
 
-
-
-  
-//show add todo menu
-  function addTodo() {
-    $("#showaddtodo").show();
-    $("#cancel").click(function (e) {
-      e.preventDefault();
-      $("#showaddtodo").hide();
-      $("#entirepage").removeClass("backgroundChange");
-  
-      $("#addnewtodo").val("");
-      $("#description").val("");
-    });
-  
-    $("#entirepage").addClass("backgroundChange");
-  }
-  
-  //show add category menu
-  function addCategory() {
-    $("#showaddcategory").show();
-    $("#cancell").click(function (e) {
-      e.preventDefault();
-      $("#showaddcategory").hide();
-      $("#entirepage").removeClass("backgroundChange");
-    });
-  
-    $("#entirepage").addClass("backgroundChange");
-  }
-
+  $("#entirepage").addClass("backgroundChange");
+}
 
   //get existing categories for a merchant
 function getMerchantCategories(id) {
@@ -244,7 +259,7 @@ function addAllCategories(tagObjects) {
   tagObjects.forEach((tagObject) => {
     let name = tagObject.name;
     let id = tagObject.id;
-    let dateAndTime = tagObject.created_at
+    let dateAndTime = tagObject.created_at;
 
     tagIdToName[id] = name;
     let newDateAndTime = new Date(dateAndTime).toLocaleString()
@@ -308,6 +323,7 @@ function getCategoriesAndProducts() {
   getProducts();
 }
 
+
 ////////////
 
 //delete category
@@ -316,8 +332,8 @@ $("#categoryList").on("click", ".deleteTag", function (e) {
   let id = e.target.id;
   // console.log(e, id);
 
-  if (checkTagIfEmpty(id)){
-    if (confirm("Do you want to delete this category?")){
+  if (checkTagIfEmpty(id)) {
+    if (confirm("Do you want to delete this category?")) {
       $.ajax({
         type: "delete",
         url: `${api}/categories/${id}`,
@@ -328,15 +344,14 @@ $("#categoryList").on("click", ".deleteTag", function (e) {
         },
       });
     }
-  }
-  else{
-    alert("This category is not empty")
+  } else {
+    alert("This category is not empty");
   }
 });
 
 // check if tag is empty before deleting
 function checkTagIfEmpty(tagID) {
-  let tagIsEmpty = false
+  let tagIsEmpty = false;
   $.ajax({
     type: "get",
     url: `${api}/tags/tasks?tag_id=${tagID}`,
@@ -344,40 +359,13 @@ function checkTagIfEmpty(tagID) {
     async: false,
     dataType: "json",
     success: function (response) {
-      tagIsEmpty = response.length === 0
+      tagIsEmpty = response.length === 0;
     },
     error: function (err) {
       alert(err);
     },
   });
   return tagIsEmpty
-}
-
-
-
-//get existing products for a merchant
-function getMerchantProducts(id) {
-  $.ajax({
-    type: "get",
-    url: `${api}/products?merchant_id=${id}`,
-    // data: "data",
-    dataType: "json",
-    success: function (response) {
-      console.log(response);
-      addAllProducts(response);
-    },
-    error: function (err) {
-      alert(err);
-    },
-  });
-}
-
-//get products for an existing merchant
-function getProducts() {
-  let { success, merchantID } = getMerchantId();
-  if (success) {
-    getMerchantProducts(merchantID);
-  }
 }
 
 // get product for each category
@@ -407,6 +395,34 @@ $("#categoryList").on("click", ".selectedTag", function (e) {
   // console.log(id);
   getProductsForTag(id);
 });
+
+//////////////
+
+
+//get existing products for a merchant
+function getMerchantProducts(id) {
+  $.ajax({
+    type: "get",
+    url: `${api}/products?merchant_id=${id}`,
+    // data: "data",
+    dataType: "json",
+    success: function (response) {
+      console.log(response);
+      addAllProducts(response);
+    },
+    error: function (err) {
+      alert(err);
+    },
+  });
+}
+
+//get products for an existing merchant
+function getProducts() {
+  let { success, merchantID } = getMerchantId();
+  if (success) {
+    getMerchantProducts(merchantID);
+  }
+}
 
 //render all products
 function addAllProducts(productsObjects) {
@@ -458,8 +474,6 @@ function addAllProducts(productsObjects) {
 
   });
 }
-
-
 
 // post new product
 function addNewProduct() {
@@ -531,11 +545,6 @@ function addNewProduct() {
 }
 
 //handleImageUpload();
-
-
-// $(document).ready(function () {
-
-
   $("#uploadBtn").click(function () {
     var id = "234050273";
     var fileInput = $("#fileInput")[0].files;
@@ -566,4 +575,3 @@ function addNewProduct() {
   });
 
 
-// });
