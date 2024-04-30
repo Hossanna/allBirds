@@ -79,6 +79,8 @@ $("#login_button").click(function (e) {
         storeMerchantId(response.id);
         $("#email").val(""), $("#password").val("");
         window.location.href = "./shopMerchant.html";
+      } else if ((res.msg = "Invalid username or password")) {
+        alert("Wrong Email or password!");
       }
     },
     error: function (err) {
