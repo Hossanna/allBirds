@@ -363,7 +363,7 @@ function getMerchantProducts(id) {
     // data: "data",
     dataType: "json",
     success: function (response) {
-      // console.log(response);
+      console.log(response);
       addAllProducts(response);
     },
     error: function (err) {
@@ -473,7 +473,7 @@ function addNewProduct() {
     if (success) {
       let submitObject = {
         category_id: $("#taskTags").val(),
-        image: ["data:image/jpeg;base64"],
+        image: $("#fileInput").val(),
         title: $("#addnewtodo").val(),
         descp: $("#description").val(),
         price: $("#product_price").val(),
@@ -500,12 +500,12 @@ function addNewProduct() {
         }],
 
         // category_id: tag_id,
-        merchant_id: getMerchantId()
+        merchant_id: merchantID
 
       };
       
       // console.log(submitObject);
-      console.log(shipping_locations);
+      // console.log(shipping_locations);
 
       $.ajax({
         type: "post",
@@ -521,8 +521,7 @@ function addNewProduct() {
         },
         error: function (err) {
           alert(err.responseJSON.msg);
-          console.log(merchantID);
-          console.log(category_id);
+          
         },
       });
     }
@@ -530,3 +529,41 @@ function addNewProduct() {
     // $("#description").val("");
   }
 }
+
+//handleImageUpload();
+
+
+// $(document).ready(function () {
+
+
+  $("#uploadBtn").click(function () {
+    var id = "234050273";
+    var fileInput = $("#fileInput")[0].files;
+    var formData = new FormData();
+
+    formData.append("id", id);
+    //formData.append('image', fileInput);
+
+    for (var i = 0; i < fileInput.length; i++) {
+      formData.append("image", fileInput[i]);
+    }
+
+    $.ajax({
+      url: "http://bucket.reworkstaging.name.ng/resources",
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        $("#response").text(response);
+        console.log(response);
+      },
+
+      error: function () {
+        $("#response").text("Error uploading image.");
+      },
+    });
+  });
+
+
+// });
