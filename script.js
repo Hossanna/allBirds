@@ -6,6 +6,8 @@ let api = "http://ecommerce.reworkstaging.name.ng/v2";
 let merchantID = "merchantID";
 const singleMerchantID  = "6628cdeaf7192e0c5d70043e"
 let tagIdToName = {};
+let taskIdToNameAndContent = {};
+
 
 
 function showMenu() {
@@ -263,6 +265,7 @@ function addAllCategories(tagObjects) {
   let taskTagsListnodes = $("#taskTags");
 
   // let isTagObjEmpty = tagObjects.length  === 0
+  
 
 
   pageCategoryListNode.empty()
@@ -276,6 +279,10 @@ function addAllCategories(tagObjects) {
 
     tagIdToName[id] = name;
     let newDateAndTime = new Date(dateAndTime).toLocaleString()
+    taskIdToNameAndContent[id] = {
+      name: name,
+    };
+
 
     categoryListNode.append(
       `<tr ${id}> 
@@ -337,7 +344,46 @@ function getCategoriesAndProducts() {
 }
 
 
-////////////
+////////////////////
+
+//open edit todo menu
+$("#mainTasks").on("click", ".editCategory", function (e) {
+  let task = taskIdToNameAndContent[e.target.id];
+  $(".editTodoButton").attr("id", e.target.id);
+  $("#showeditodo").show();
+  $("#entirepage").addClass("backgroundChange");
+
+  $("#edittodo").val(`${task.title}`);
+  // $("#editdescription").val(`${task.content}`);
+
+  $("#canceledit").click(function (e) {
+    e.preventDefault();
+    $("#showeditodo").hide();
+    $("#entirepage").removeClass("backgroundChange");
+
+    $("#edittodo").val("");
+    // $("#editdescription").val("");
+  });
+});
+
+//edit categories
+function editTodo() {
+  let id = $(".editTodoButton").attr("id");
+  // console.log(id);
+  let submitObject = {
+    name: $("#edittodo").val(),
+    // content: $("#editdescription").val(),
+  };
+  $.ajax({
+    type: "put",
+    url: `${api}/categories/${id}`,
+    dataType: "json",
+    data: submitObject,
+    success: function (response) {
+      getCategories();
+    },
+  });
+}
 
 //delete category
 $("#categoryList").on("click", ".deleteTag", function (e) {
@@ -401,7 +447,7 @@ function getProductsForTag(tagID, merchantID) {
   });
 }
 
-//selected tags tasks
+// render selected category products
 $("#categoryList").on("click", ".selectedTag", function (e) {
   e.preventDefault();
   let id = e.target.id;
@@ -409,7 +455,7 @@ $("#categoryList").on("click", ".selectedTag", function (e) {
   getProductsForTag(id);
 });
 
-//////////////
+///////////////////
 
 
 //get existing products for a merchant
@@ -556,6 +602,14 @@ function addNewProduct() {
     // $("#description").val("");
   }
 }
+
+//log out
+$("#logout").click(function (e) {
+  e.preventDefault();
+  clearMerchantId();
+  window.location.href = "./index.html";
+});
+
 
 //handleImageUpload();
   $("#uploadBtn").click(function () {
