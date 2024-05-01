@@ -892,3 +892,68 @@ footer a{
     margin: 30% auto;
 
 }
+
+.big-div{
+    width: 50%;
+    height: 75vh;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 1px #80808080;
+    margin: 7% 25%;
+    padding: 0% 5% 2%;
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    overflow-y: scroll;
+}
+.backgroundChange{
+    background-color: #6b626226;
+    opacity: 0.9;
+}
+
+.desc{
+    justify-content: space-between;
+}
+.cancel, .cancel:hover{
+    border: none;
+    background: white;
+    color: #595959;
+    cursor: pointer;
+}
+
+.form{
+    flex-direction: column;
+}
+
+label{
+    font-size: 1.5em;
+    margin: 5% 0 2%;
+}
+.form .input{
+    border: none;
+    background: #8080800d;
+    border-radius: 10px;
+    padding: 3%;
+}
+
+.form input{
+    padding: 3% ;
+}
+
+.btn {
+    background: #595959;
+    padding: 2% 7%;
+    border-radius: 10px;
+    margin: 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}

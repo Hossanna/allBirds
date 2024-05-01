@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Shop Women</title>
   </head>
-  <body id="body">
+  <body id="body" onload={getCategoriesAndProducts()}>
     <header>
       <nav class="flex">
         <ul class="ul1 flex">
@@ -32,41 +32,49 @@
         </a>
 
         <ul class="ul2 flex">
-          <li>SUSTAINABILITY</li>
+          <li>SETTINGS</li>
           <li>RERUN+</li>
           <li>STORES</li>
           <div class="flex nav-icons">
             <img src="./images/download (18).svg" alt="" />
             <img src="./images/download (17).svg" alt="" />
             <img src="./images/download (13).svg" alt="" />
-            <img onclick={showCartPage()} src="./images/download (16).svg" alt="" />
+            <img
+              onclick="{showCartPage()}"
+              src="./images/download (16).svg"
+              alt=""
+            />
           </div>
         </ul>
       </nav>
     </header>
 
     <div class="cart_page" id="cart_page">
-
       <div class="flex one">
-          <div class="icon_div">
-              <img id="close" onclick={closeCartPage()} src="./images/xmark-solid.svg" alt="">
-          </div>
-  
-          <div class="div">
-              <img src="./images/download (16).svg" alt="">
-              <p>You're $75 away from free shipping!</p>
-          </div>
+        <div class="icon_div">
+          <img
+            id="close"
+            onclick="{closeCartPage()}"
+            src="./images/xmark-solid.svg"
+            alt=""
+          />
+        </div>
+
+        <div class="div">
+          <img src="./images/download (16).svg" alt="" />
+          <p>You're $75 away from free shipping!</p>
+        </div>
       </div>
 
       <div class="two flex">
-          <h3>Your Cart is Empty</h3>
-          <button>SHOP MEN'S</button>
-          <button>SHOP WOMEN'S</button>
-          <button>SHOP SOCKS</button>
-          <button>SHOP MEN'S SALE</button>
-          <button>SHOP WOMEN'S SALE</button>
+        <h3>Your Cart is Empty</h3>
+        <button>SHOP MEN'S</button>
+        <button>SHOP WOMEN'S</button>
+        <button>SHOP SOCKS</button>
+        <button>SHOP MEN'S SALE</button>
+        <button>SHOP WOMEN'S SALE</button>
       </div>
-  </div>
+    </div>
 
     <div class="dropdown-menu" id="dropdown-menu">
       <div class="flex">
@@ -123,15 +131,15 @@
           <div class="aside_one">
             <span>Home /</span> <br />
             <h2>Women's Shoes</h2>
-            <ul>
-              <li>Everyday Sneakers</li>
+            <ul id="pageCategoryList">
+              <!-- <li>Everyday Sneakers</li>
               <li>Active Shoes</li>
               <li>Water-Repellent Shoes</li>
               <li>Flats</li>
               <li>Slip-Ons</li>
               <li>Hiking Shoes</li>
               <li>High Tops</li>
-              <li>Sale Shoes</li>
+              <li>Sale Shoes</li> -->
             </ul>
           </div>
 
@@ -162,806 +170,804 @@
           <div class="aside_three">
             <h3>BEST FOR</h3>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Everyday</p>
+              <input type="checkbox" name="" id="" />
+              <p>Everyday</p>
             </div>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Warm Weather</p>
+              <input type="checkbox" name="" id="" />
+              <p>Warm Weather</p>
             </div>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Active</p>
+              <input type="checkbox" name="" id="" />
+              <p>Active</p>
             </div>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Cool Weather</p>
+              <input type="checkbox" name="" id="" />
+              <p>Cool Weather</p>
             </div>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Wet Weather</p>
+              <input type="checkbox" name="" id="" />
+              <p>Wet Weather</p>
             </div>
           </div>
-          
+
           <div class="aside_four">
             <h3>MATERIAL</h3>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Light & Breezy Tree</p>
+              <input type="checkbox" name="" id="" />
+              <p>Light & Breezy Tree</p>
             </div>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>Soft & Cozy Wool</p>
+              <input type="checkbox" name="" id="" />
+              <p>Soft & Cozy Wool</p>
             </div>
             <div class="flex">
-                <input type="checkbox" name="" id="">
-                <p>ActiCozy & Durable Cotton Blendve</p>
+              <input type="checkbox" name="" id="" />
+              <p>ActiCozy & Durable Cotton Blendve</p>
             </div>
           </div>
 
           <div class="aside_five">
             <h3>HUE</h3>
             <div class="flex">
-                <div class="color_circles black"></div>
-                <p>Black</p>
+              <div class="color_circles black"></div>
+              <p>Black</p>
             </div>
             <div class="flex">
-                <div class="color_circles beige"></div>
-                <p>Biege</p>
+              <div class="color_circles beige"></div>
+              <p>Biege</p>
             </div>
             <div class="flex">
-                <div class="color_circles green"></div>
-                <p>Green</p>
+              <div class="color_circles green"></div>
+              <p>Green</p>
             </div>
             <div class="flex">
-                <div class="color_circles purple"></div>
-                <p>Purple</p>
+              <div class="color_circles purple"></div>
+              <p>Purple</p>
             </div>
             <div class="flex">
-                <div class="color_circles white"></div>
-                <p>White</p>
+              <div class="color_circles white"></div>
+              <p>White</p>
             </div>
             <div class="flex">
-                <div class="color_circles orange"></div>
-                <p>Orange</p>
+              <div class="color_circles orange"></div>
+              <p>Orange</p>
             </div>
             <div class="flex">
-                <div class="color_circles blue"></div>
-                <p>Blue</p>
+              <div class="color_circles blue"></div>
+              <p>Blue</p>
             </div>
             <div class="flex">
-                <div class="color_circles brown"></div>
-                <p>Brown</p>
+              <div class="color_circles brown"></div>
+              <p>Brown</p>
             </div>
             <div class="flex">
-                <div class="color_circles grey"></div>
-                <p>Grey</p>
+              <div class="color_circles grey"></div>
+              <p>Grey</p>
             </div>
             <div class="flex">
-                <div class="color_circles red"></div>
-                <p>Red</p>
+              <div class="color_circles red"></div>
+              <p>Red</p>
             </div>
             <div class="flex">
-                <div class="color_circles pink"></div>
-                <p>Pink</p>
+              <div class="color_circles pink"></div>
+              <p>Pink</p>
             </div>
           </div>
         </aside>
 
-
         <section class="main_section">
+          <div class="men flex">
+            <div class="women flex">WOMEN</div>
+            <div>MEN</div>
+          </div>
 
-            <div class="men flex">
-              <div class="women flex"> WOMEN</div> <div>MEN</div>
-            </div>
-
-            <div class="flex">
-              <div class="product_div">
-                  <img class="img" src="./images/1.avif" alt="">
-                  <h4>Women's Tree Dasher</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/1.avif" alt="">
-                      <img class="tinyImg" src="./images/1.avif" alt="">
-                      <img class="tinyImg" src="./images/1.avif" alt="">
-                      <img class="tinyImg" src="./images/1.avif" alt="">
-                      <img class="tinyImg first" src="./images/1.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                </div>
+          <div class="flex" id="pageProductList">
+            <div class="product_div">
+              <img class="img" src="./images/1.avif" alt="" />
+              <h4>Women's Tree Dasher</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/1.avif" alt="" />
+                <img class="tinyImg" src="./images/1.avif" alt="" />
+                <img class="tinyImg" src="./images/1.avif" alt="" />
+                <img class="tinyImg" src="./images/1.avif" alt="" />
+                <img class="tinyImg first" src="./images/1.avif" alt="" />
               </div>
-              <div class="product_div" onclick={showProduct()}>
-                  <img class="img" src="./images/2.avif" alt="">
-                  <h4>Women's SuperLight Tree Runners</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/2.avif" alt="">
-                      <img class="tinyImg" src="./images/2.avif" alt="">
-                      <img class="tinyImg" src="./images/2.avif" alt="">
-                      <img class="tinyImg" src="./images/2.avif" alt="">
-                      <img class="tinyImg first" src="./images/2.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
                 </div>
-              </div>
-              <div class="product_div shop_flats special">                            
-                  <div class="">
-                    <h2>Flat Out Perfection</h2>
-                    <p>Ultra wearable, lightweight, and a cult favorite for a reason.</p>
-                    <button>Shop Flats</button>
-                  </div>
               </div>
             </div>
-            <!--  -->
-
-            <div class="flex">
-                <div class="product_div">
-                    <img class="img" src="./images/4.avif" alt="">
-                    <h4>Women's Tree Dasher</h4>
-                    <p>$100</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/4.avif" alt="">
-                        <img class="tinyImg" src="./images/4.avif" alt="">
-                        <img class="tinyImg" src="./images/4.avif" alt="">
-                        <img class="tinyImg" src="./images/4.avif" alt="">
-                        <img class="tinyImg first" src="./images/4.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                           <button>5</button>
-                          <button>5.5</button>
-                          <button>6</button>
-                          <button>6.5</button>
-                          <button>7</button>
-                          <button>7.5</button>
-                          <button>8</button>
-                          <button>8.5</button>
-                          <button>9</button>
-                          <button>9.5</button>
-                          <button>10</button>
-                          <button>10.5</button>
-                          <button>11</button>
-                      </div>
-                  </div>
-                </div>
-                <div class="product_div">
-                    <img class="img" src="./images/5.avif" alt="">
-                    <h4>Women's SuperLight Tree Runners</h4>
-                    <p>$100</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/5.avif" alt="">
-                        <img class="tinyImg" src="./images/5.avif" alt="">
-                        <img class="tinyImg" src="./images/5.avif" alt="">
-                        <img class="tinyImg" src="./images/5.avif" alt="">
-                        <img class="tinyImg first" src="./images/5.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                           <button>5</button>
-                          <button>5.5</button>
-                          <button>6</button>
-                          <button>6.5</button>
-                          <button>7</button>
-                          <button>7.5</button>
-                          <button>8</button>
-                          <button>8.5</button>
-                          <button>9</button>
-                          <button>9.5</button>
-                          <button>10</button>
-                          <button>10.5</button>
-                          <button>11</button>
-                      </div>
-                  </div>
-                </div>
-                <div class="product_div">
-                    <img class="img" src="./images/6.avif" alt="">
-                    <h4>Women's Tree Loungers</h4>
-                    <p>$100</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/6.avif" alt="">
-                        <img class="tinyImg" src="./images/6.avif" alt="">
-                        <img class="tinyImg" src="./images/6.avif" alt="">
-                        <img class="tinyImg" src="./images/6.avif" alt="">
-                        <img class="tinyImg first" src="./images/6.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                        <h4>Quick Add</h4>
-                        <div class="size_buttons product_size_buttons">
-                          <button>5</button>
-                          <button>5.5</button>
-                          <button>6</button>
-                          <button>6.5</button>
-                          <button>7</button>
-                          <button>7.5</button>
-                          <button>8</button>
-                          <button>8.5</button>
-                          <button>9</button>
-                          <button>9.5</button>
-                          <button>10</button>
-                          <button>10.5</button>
-                          <button>11</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex">
-              <div class="product_div">
-                  <img class="img" src="./images/7.avif" alt="">
-                  <h4>Women's SuperLight Trainers</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/7.avif" alt="">
-                      <img class="tinyImg" src="./images/7.avif" alt="">
-                      <img class="tinyImg" src="./images/7.avif" alt="">
-                      <img class="tinyImg" src="./images/7.avif" alt="">
-                      <img class="tinyImg first" src="./images/7.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                      <button>5</button>
-                      <button>5.5</button>
-                      <button>6</button>
-                      <button>6.5</button>
-                      <button>7</button>
-                      <button>7.5</button>
-                      <button>8</button>
-                      <button>8.5</button>
-                      <button>9</button>
-                      <button>9.5</button>
-                      <button>10</button>
-                      <button>10.5</button>
-                      <button>11</button>
-                    </div>
-                </div>
+            <div class="product_div" onclick="{showProduct()}">
+              <img class="img" src="./images/2.avif" alt="" />
+              <h4>Women's SuperLight Tree Runners</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/2.avif" alt="" />
+                <img class="tinyImg" src="./images/2.avif" alt="" />
+                <img class="tinyImg" src="./images/2.avif" alt="" />
+                <img class="tinyImg" src="./images/2.avif" alt="" />
+                <img class="tinyImg first" src="./images/2.avif" alt="" />
               </div>
-              <div class="product_div">
-                  <img class="img" src="./images/8.avif" alt="">
-                  <h4>Women's Tree Pipers</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/8.avif" alt="">
-                      <img class="tinyImg" src="./images/8.avif" alt="">
-                      <img class="tinyImg" src="./images/8.avif" alt="">
-                      <img class="tinyImg" src="./images/8.avif" alt="">
-                      <img class="tinyImg first" src="./images/8.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                      <button>5</button>
-                      <button>5.5</button>
-                      <button>6</button>
-                      <button>6.5</button>
-                      <button>7</button>
-                      <button>7.5</button>
-                      <button>8</button>
-                      <button>8.5</button>
-                      <button>9</button>
-                      <button>9.5</button>
-                      <button>10</button>
-                      <button>10.5</button>
-                      <button>11</button>
-                    </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
                 </div>
-              </div>
-              <div class="product_div">
-                  <img class="img" src="./images/9.avif" alt="">
-                  <h4>Women's Tree Skippers</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/9.avif" alt="">
-                      <img class="tinyImg" src="./images/9.avif" alt="">
-                      <img class="tinyImg" src="./images/9.avif" alt="">
-                      <img class="tinyImg" src="./images/9.avif" alt="">
-                      <img class="tinyImg first" src="./images/9.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                           <button>5</button>
-                          <button>5.5</button>
-                          <button>6</button>
-                          <button>6.5</button>
-                          <button>7</button>
-                          <button>7.5</button>
-                          <button>8</button>
-                          <button>8.5</button>
-                          <button>9</button>
-                          <button>9.5</button>
-                          <button>10</button>
-                          <button>10.5</button>
-                          <button>11</button>
-                      </div>
-                  </div>
               </div>
             </div>
-
-            <div class="flex">
-              <div class="product_div">
-                  <img class="img" src="./images/10.avif" alt="">
-                  <h4>Women's Tree Dasher</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/10.avif" alt="">
-                      <img class="tinyImg" src="./images/10.avif" alt="">
-                      <img class="tinyImg" src="./images/10.avif" alt="">
-                      <img class="tinyImg" src="./images/10.avif" alt="">
-                      <img class="tinyImg first" src="./images/10.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                         <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                </div>
-              </div>
-              <div class="product_div">
-                  <img class="img" src="./images/11.avif" alt="">
-                  <h4>Women's SuperLight Tree Runners</h4>
-                  <p>$100</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/11.avif" alt="">
-                      <img class="tinyImg" src="./images/11.avif" alt="">
-                      <img class="tinyImg" src="./images/11.avif" alt="">
-                      <img class="tinyImg" src="./images/11.avif" alt="">
-                      <img class="tinyImg first" src="./images/11.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                         <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                </div>
-              </div>
-              <div class="product_div breezy special">
-                  <!-- <img class="img" src="./images/12.avif" alt=""> -->
-                  
-                  <div class="">
-                    <h2>Keep It Breezy</h2>
-                    <p>Lace up the breathable Tree Runner</p>
-                    <div class="flex">
-                      <button> Shop Men</button>
-                      <button> Shop Women</button>
-
-                    </div>
-                  </div>
+            <div class="product_div shop_flats special">
+              <div class="">
+                <h2>Flat Out Perfection</h2>
+                <p>
+                  Ultra wearable, lightweight, and a cult favorite for a reason.
+                </p>
+                <button>Shop Flats</button>
               </div>
             </div>
+          </div>
+         
+
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/4.avif" alt="" />
+              <h4>Women's Tree Dasher</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/4.avif" alt="" />
+                <img class="tinyImg" src="./images/4.avif" alt="" />
+                <img class="tinyImg" src="./images/4.avif" alt="" />
+                <img class="tinyImg" src="./images/4.avif" alt="" />
+                <img class="tinyImg first" src="./images/4.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/5.avif" alt="" />
+              <h4>Women's SuperLight Tree Runners</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/5.avif" alt="" />
+                <img class="tinyImg" src="./images/5.avif" alt="" />
+                <img class="tinyImg" src="./images/5.avif" alt="" />
+                <img class="tinyImg" src="./images/5.avif" alt="" />
+                <img class="tinyImg first" src="./images/5.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/6.avif" alt="" />
+              <h4>Women's Tree Loungers</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/6.avif" alt="" />
+                <img class="tinyImg" src="./images/6.avif" alt="" />
+                <img class="tinyImg" src="./images/6.avif" alt="" />
+                <img class="tinyImg" src="./images/6.avif" alt="" />
+                <img class="tinyImg first" src="./images/6.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/7.avif" alt="" />
+              <h4>Women's SuperLight Trainers</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/7.avif" alt="" />
+                <img class="tinyImg" src="./images/7.avif" alt="" />
+                <img class="tinyImg" src="./images/7.avif" alt="" />
+                <img class="tinyImg" src="./images/7.avif" alt="" />
+                <img class="tinyImg first" src="./images/7.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/8.avif" alt="" />
+              <h4>Women's Tree Pipers</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/8.avif" alt="" />
+                <img class="tinyImg" src="./images/8.avif" alt="" />
+                <img class="tinyImg" src="./images/8.avif" alt="" />
+                <img class="tinyImg" src="./images/8.avif" alt="" />
+                <img class="tinyImg first" src="./images/8.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/9.avif" alt="" />
+              <h4>Women's Tree Skippers</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/9.avif" alt="" />
+                <img class="tinyImg" src="./images/9.avif" alt="" />
+                <img class="tinyImg" src="./images/9.avif" alt="" />
+                <img class="tinyImg" src="./images/9.avif" alt="" />
+                <img class="tinyImg first" src="./images/9.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/10.avif" alt="" />
+              <h4>Women's Tree Dasher</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/10.avif" alt="" />
+                <img class="tinyImg" src="./images/10.avif" alt="" />
+                <img class="tinyImg" src="./images/10.avif" alt="" />
+                <img class="tinyImg" src="./images/10.avif" alt="" />
+                <img class="tinyImg first" src="./images/10.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/11.avif" alt="" />
+              <h4>Women's SuperLight Tree Runners</h4>
+              <p>$100</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/11.avif" alt="" />
+                <img class="tinyImg" src="./images/11.avif" alt="" />
+                <img class="tinyImg" src="./images/11.avif" alt="" />
+                <img class="tinyImg" src="./images/11.avif" alt="" />
+                <img class="tinyImg first" src="./images/11.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div breezy special">
+              <!-- <img class="img" src="./images/12.avif" alt=""> -->
+
+              <div class="">
+                <h2>Keep It Breezy</h2>
+                <p>Lace up the breathable Tree Runner</p>
+                <div class="flex">
+                  <button>Shop Men</button>
+                  <button>Shop Women</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <!--  -->
 
-            <div class="flex">
-                <div class="product_div">
-                    <img class="img" src="./images/13.avif" alt="">
-                    <h4>Women's Wool Runners</h4>
-                    <p>$98</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/13.avif" alt="">
-                        <img class="tinyImg" src="./images/13.avif" alt="">
-                        <img class="tinyImg" src="./images/13.avif" alt="">
-                        <img class="tinyImg" src="./images/13.avif" alt="">
-                        <img class="tinyImg first" src="./images/13.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="product_div">
-                    <img class="img" src="./images/14.avif" alt="">
-                    <h4>Women's Tree Flyer 2</h4>
-                    <p>$160</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/14.avif" alt="">
-                        <img class="tinyImg" src="./images/14.avif" alt="">
-                        <img class="tinyImg" src="./images/14.avif" alt="">
-                        <img class="tinyImg" src="./images/14.avif" alt="">
-                        <img class="tinyImg first" src="./images/14.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="product_div">
-                    <img class="img" src="./images/15.avif" alt="">
-                    <h4>Women's Wool Loungers</h4>
-                    <p>$94</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/15.avif" alt="">
-                        <img class="tinyImg" src="./images/15.avif" alt="">
-                        <img class="tinyImg" src="./images/15.avif" alt="">
-                        <img class="tinyImg" src="./images/15.avif" alt="">
-                        <img class="tinyImg first" src="./images/15.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                        <h4>Quick Add</h4>
-                        <div class="size_buttons product_size_buttons">
-                          <button>5</button>
-                          <button>5.5</button>
-                          <button>6</button>
-                          <button>6.5</button>
-                          <button>7</button>
-                          <button>7.5</button>
-                          <button>8</button>
-                          <button>8.5</button>
-                          <button>9</button>
-                          <button>9.5</button>
-                          <button>10</button>
-                          <button>10.5</button>
-                          <button>11</button>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex">
-                <div class="product_div">
-                    <img class="img" src="./images/16.avif" alt="">
-                    <h4>Women's Couriers</h4>
-                    <p>$98</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/16.avif" alt="">
-                        <img class="tinyImg" src="./images/16.avif" alt="">
-                        <img class="tinyImg" src="./images/16.avif" alt="">
-                        <img class="tinyImg" src="./images/16.avif" alt="">
-                        <img class="tinyImg first" src="./images/16.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="product_div">
-                    <img class="img" src="./images/17.avif" alt="">
-                    <h4>Women's Trail Runners SWT</h4>
-                    <p>$140</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/17.avif" alt="">
-                        <img class="tinyImg" src="./images/17.avif" alt="">
-                        <img class="tinyImg" src="./images/17.avif" alt="">
-                        <img class="tinyImg" src="./images/17.avif" alt="">
-                        <img class="tinyImg first" src="./images/17.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="product_div">
-                    <img class="img" src="./images/18.avif" alt="">
-                    <h4>Women's Wool Runner Mizzles</h4>
-                    <p>$112</p>
-                    <div class="flex tinyImg_div">
-                        <img class="tinyImg first" src="./images/18.avif" alt="">
-                        <img class="tinyImg" src="./images/18.avif" alt="">
-                        <img class="tinyImg" src="./images/18.avif" alt="">
-                        <img class="tinyImg" src="./images/18.avif" alt="">
-                        <img class="tinyImg first" src="./images/18.avif" alt="">
-                    </div>
-                    <div class="quick_add">
-                        <h4>Quick Add</h4>
-                        <div class="size_buttons product_size_buttons">
-                          <button>5</button>
-                          <button>5.5</button>
-                          <button>6</button>
-                          <button>6.5</button>
-                          <button>7</button>
-                          <button>7.5</button>
-                          <button>8</button>
-                          <button>8.5</button>
-                          <button>9</button>
-                          <button>9.5</button>
-                          <button>10</button>
-                          <button>10.5</button>
-                          <button>11</button>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex">
-              <div class="product_div">
-                  <img class="img" src="./images/19.avif" alt="">
-                  <h4>Women's Wool Runner-up Mizzles</h4>
-                  <p>$130</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/19.avif" alt="">
-                      <img class="tinyImg" src="./images/19.avif" alt="">
-                      <img class="tinyImg" src="./images/19.avif" alt="">
-                      <img class="tinyImg" src="./images/19.avif" alt="">
-                      <img class="tinyImg first" src="./images/19.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                      <button>5</button>
-                      <button>5.5</button>
-                      <button>6</button>
-                      <button>6.5</button>
-                      <button>7</button>
-                      <button>7.5</button>
-                      <button>8</button>
-                      <button>8.5</button>
-                      <button>9</button>
-                      <button>9.5</button>
-                      <button>10</button>
-                      <button>10.5</button>
-                      <button>11</button>
-                  </div>
-                </div>
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/13.avif" alt="" />
+              <h4>Women's Wool Runners</h4>
+              <p>$98</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/13.avif" alt="" />
+                <img class="tinyImg" src="./images/13.avif" alt="" />
+                <img class="tinyImg" src="./images/13.avif" alt="" />
+                <img class="tinyImg" src="./images/13.avif" alt="" />
+                <img class="tinyImg first" src="./images/13.avif" alt="" />
               </div>
-              <div class="product_div">
-                  <img class="img" src="./images/20.avif" alt="">
-                  <h4>Women's SuperLight Wool Runners</h4>
-                  <p>$120</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/20.avif" alt="">
-                      <img class="tinyImg" src="./images/20.avif" alt="">
-                      <img class="tinyImg" src="./images/20.avif" alt="">
-                      <img class="tinyImg" src="./images/20.avif" alt="">
-                      <img class="tinyImg first" src="./images/20.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                      <button>5</button>
-                      <button>5.5</button>
-                      <button>6</button>
-                      <button>6.5</button>
-                      <button>7</button>
-                      <button>7.5</button>
-                      <button>8</button>
-                      <button>8.5</button>
-                      <button>9</button>
-                      <button>9.5</button>
-                      <button>10</button>
-                      <button>10.5</button>
-                      <button>11</button>
-                    </div>
-                  </div>
-              </div>
-              <div class="product_div">
-                  <img class="img" src="./images/21.avif" alt="">
-                  <h4>Women's Wool Dasher Mizzles</h4>
-                  <p>$145</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/21.avif" alt="">
-                      <img class="tinyImg" src="./images/21.avif" alt="">
-                      <img class="tinyImg" src="./images/21.avif" alt="">
-                      <img class="tinyImg" src="./images/21.avif" alt="">
-                      <img class="tinyImg first" src="./images/21.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                  </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
               </div>
             </div>
-
-            <div class="flex">
-              <div class="product_div">
-                  <img class="img" src="./images/22.avif" alt="">
-                  <h4>Women's Wool Breezers</h4>
-                  <p>$89</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/22.avif" alt="">
-                      <img class="tinyImg" src="./images/22.avif" alt="">
-                      <img class="tinyImg" src="./images/22.avif" alt="">
-                      <img class="tinyImg" src="./images/22.avif" alt="">
-                      <img class="tinyImg first" src="./images/22.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                      <button>5</button>
-                      <button>5.5</button>
-                      <button>6</button>
-                      <button>6.5</button>
-                      <button>7</button>
-                      <button>7.5</button>
-                      <button>8</button>
-                      <button>8.5</button>
-                      <button>9</button>
-                      <button>9.5</button>
-                      <button>10</button>
-                      <button>10.5</button>
-                      <button>11</button>
-                    </div>
-                  </div>
+            <div class="product_div">
+              <img class="img" src="./images/14.avif" alt="" />
+              <h4>Women's Tree Flyer 2</h4>
+              <p>$160</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/14.avif" alt="" />
+                <img class="tinyImg" src="./images/14.avif" alt="" />
+                <img class="tinyImg" src="./images/14.avif" alt="" />
+                <img class="tinyImg" src="./images/14.avif" alt="" />
+                <img class="tinyImg first" src="./images/14.avif" alt="" />
               </div>
-              <div class="product_div">
-                  <img class="img" src="./images/23.avif" alt="">
-                  <h4>Women's Wool Pipers</h4>
-                  <p>$110</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/23.avif" alt="">
-                      <img class="tinyImg" src="./images/23.avif" alt="">
-                      <img class="tinyImg" src="./images/23.avif" alt="">
-                      <img class="tinyImg" src="./images/23.avif" alt="">
-                      <img class="tinyImg first" src="./images/23.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                    <h4>Quick Add</h4>
-                    <div class="size_buttons product_size_buttons">
-                      <button>5</button>
-                      <button>5.5</button>
-                      <button>6</button>
-                      <button>6.5</button>
-                      <button>7</button>
-                      <button>7.5</button>
-                      <button>8</button>
-                      <button>8.5</button>
-                      <button>9</button>
-                      <button>9.5</button>
-                      <button>10</button>
-                      <button>10.5</button>
-                      <button>11</button>
-                  </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
                 </div>
               </div>
-              <div class="product_div">
-                  <img class="img" src="./images/24.avif" alt="">
-                  <h4>Women's Golf Dashers</h4>
-                  <p>$145</p>
-                  <div class="flex tinyImg_div">
-                      <img class="tinyImg first" src="./images/24.avif" alt="">
-                      <img class="tinyImg" src="./images/24.avif" alt="">
-                      <img class="tinyImg" src="./images/24.avif" alt="">
-                      <img class="tinyImg" src="./images/24.avif" alt="">
-                      <img class="tinyImg first" src="./images/24.avif" alt="">
-                  </div>
-                  <div class="quick_add">
-                      <h4>Quick Add</h4>
-                      <div class="size_buttons product_size_buttons">
-                        <button>5</button>
-                        <button>5.5</button>
-                        <button>6</button>
-                        <button>6.5</button>
-                        <button>7</button>
-                        <button>7.5</button>
-                        <button>8</button>
-                        <button>8.5</button>
-                        <button>9</button>
-                        <button>9.5</button>
-                        <button>10</button>
-                        <button>10.5</button>
-                        <button>11</button>
-                    </div>
-                  </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/15.avif" alt="" />
+              <h4>Women's Wool Loungers</h4>
+              <p>$94</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/15.avif" alt="" />
+                <img class="tinyImg" src="./images/15.avif" alt="" />
+                <img class="tinyImg" src="./images/15.avif" alt="" />
+                <img class="tinyImg" src="./images/15.avif" alt="" />
+                <img class="tinyImg first" src="./images/15.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
               </div>
             </div>
+          </div>
 
-  
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/16.avif" alt="" />
+              <h4>Women's Couriers</h4>
+              <p>$98</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/16.avif" alt="" />
+                <img class="tinyImg" src="./images/16.avif" alt="" />
+                <img class="tinyImg" src="./images/16.avif" alt="" />
+                <img class="tinyImg" src="./images/16.avif" alt="" />
+                <img class="tinyImg first" src="./images/16.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/17.avif" alt="" />
+              <h4>Women's Trail Runners SWT</h4>
+              <p>$140</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/17.avif" alt="" />
+                <img class="tinyImg" src="./images/17.avif" alt="" />
+                <img class="tinyImg" src="./images/17.avif" alt="" />
+                <img class="tinyImg" src="./images/17.avif" alt="" />
+                <img class="tinyImg first" src="./images/17.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/18.avif" alt="" />
+              <h4>Women's Wool Runner Mizzles</h4>
+              <p>$112</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/18.avif" alt="" />
+                <img class="tinyImg" src="./images/18.avif" alt="" />
+                <img class="tinyImg" src="./images/18.avif" alt="" />
+                <img class="tinyImg" src="./images/18.avif" alt="" />
+                <img class="tinyImg first" src="./images/18.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/19.avif" alt="" />
+              <h4>Women's Wool Runner-up Mizzles</h4>
+              <p>$130</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/19.avif" alt="" />
+                <img class="tinyImg" src="./images/19.avif" alt="" />
+                <img class="tinyImg" src="./images/19.avif" alt="" />
+                <img class="tinyImg" src="./images/19.avif" alt="" />
+                <img class="tinyImg first" src="./images/19.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/20.avif" alt="" />
+              <h4>Women's SuperLight Wool Runners</h4>
+              <p>$120</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/20.avif" alt="" />
+                <img class="tinyImg" src="./images/20.avif" alt="" />
+                <img class="tinyImg" src="./images/20.avif" alt="" />
+                <img class="tinyImg" src="./images/20.avif" alt="" />
+                <img class="tinyImg first" src="./images/20.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/21.avif" alt="" />
+              <h4>Women's Wool Dasher Mizzles</h4>
+              <p>$145</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/21.avif" alt="" />
+                <img class="tinyImg" src="./images/21.avif" alt="" />
+                <img class="tinyImg" src="./images/21.avif" alt="" />
+                <img class="tinyImg" src="./images/21.avif" alt="" />
+                <img class="tinyImg first" src="./images/21.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex">
+            <div class="product_div">
+              <img class="img" src="./images/22.avif" alt="" />
+              <h4>Women's Wool Breezers</h4>
+              <p>$89</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/22.avif" alt="" />
+                <img class="tinyImg" src="./images/22.avif" alt="" />
+                <img class="tinyImg" src="./images/22.avif" alt="" />
+                <img class="tinyImg" src="./images/22.avif" alt="" />
+                <img class="tinyImg first" src="./images/22.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/23.avif" alt="" />
+              <h4>Women's Wool Pipers</h4>
+              <p>$110</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/23.avif" alt="" />
+                <img class="tinyImg" src="./images/23.avif" alt="" />
+                <img class="tinyImg" src="./images/23.avif" alt="" />
+                <img class="tinyImg" src="./images/23.avif" alt="" />
+                <img class="tinyImg first" src="./images/23.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+            <div class="product_div">
+              <img class="img" src="./images/24.avif" alt="" />
+              <h4>Women's Golf Dashers</h4>
+              <p>$145</p>
+              <div class="flex tinyImg_div">
+                <img class="tinyImg first" src="./images/24.avif" alt="" />
+                <img class="tinyImg" src="./images/24.avif" alt="" />
+                <img class="tinyImg" src="./images/24.avif" alt="" />
+                <img class="tinyImg" src="./images/24.avif" alt="" />
+                <img class="tinyImg first" src="./images/24.avif" alt="" />
+              </div>
+              <div class="quick_add">
+                <h4>Quick Add</h4>
+                <div class="size_buttons product_size_buttons">
+                  <button>5</button>
+                  <button>5.5</button>
+                  <button>6</button>
+                  <button>6.5</button>
+                  <button>7</button>
+                  <button>7.5</button>
+                  <button>8</button>
+                  <button>8.5</button>
+                  <button>9</button>
+                  <button>9.5</button>
+                  <button>10</button>
+                  <button>10.5</button>
+                  <button>11</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>All Products</title>
+  </head>
+  <body id="body"  onload="getCategoriesAndProducts()">
+    <header>
+      <nav class="flex">
+        <ul class="ul1 flex">
+          <a href="./AllCategogies.html">
+            <li>ALL CATEGORIES</li>
+          </a>
+
+          <!-- <a href=""> -->
+          <!-- <li onclick="{showMenu()}">WOMEN</li> -->
+          <!-- </a> -->
+          <a href="./AllProducts.html">
+            <li>ALL PRODUCTS</li>
+          </a>
+
+          <!-- <li>SOCKS</li> -->
+          <li class="red"> ON SALE</li>
+        </ul>
+
+        <a href="./homepage.html" class="logo">
+          <img src="./images/logo_with_padding_(1).png" alt="" />
+        </a>
+
+        <ul class="ul2 flex">
+          <a href="./updateAdmin.html">
+            <li>SETTINGS</li>
+          </a>
+          <li onclick={addCategory()}>Add Category+</li>
+                <li onclick={addTodo()}>Add Product+</li>
+          <div class="flex nav-icons">
+            <img src="./images/download (18).svg" alt="" />
+            <img src="./images/download (17).svg" alt="" />
+            <img src="./images/download (13).svg" alt="" />
+            <img src="./images/download (16).svg" alt="" />
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+
+   <main id="fullPage" class="shop_main">
+    
+        <section class="main_section">
+
+            <!-- <div class="men flex">
+              <div class="women flex"> WOMEN</div> <div>MEN</div>
+            </div> -->
+            
+          <h2>PRODUCT LIST</h2>
+
+          <table border="1">
+            <thead>
+              <th>Name of Product</th>
+              <th>Price</th>
+              <!-- <th>Date Created</th> -->
+            </thead>
+            <tbody id="productList">
+              <tr>
+                <td></td>
+                <td></td>
+                <td>Edit</td>
+                <td>Delete</td>
+              </tr>
+            </tbody>
+          </table>
+
+  
+        </section>
+    </main>
+
+    <div id="showaddtodo" class="big-div">
+      <div class="flex desc">
+          <button id="cancel" class="cancel">Cancel</button>
+          <button onclick={addNewProduct()} class="btn">Add ToDo</button>
+
+      </div>
+
+      <div class="flex form">
+          <label for="title">Product Name</label>
+          <input class="input" id="addnewtodo" type="text" placeholder="add a title ...">
+
+          <label for="description">Description</label>
+          <input class="input" id="description" type="text" placeholder="add a description ..."/>
+
+          <label for="title">Price</label>
+          <input class="input" id="product_price" type="text" placeholder="price ...">
+
+          <label for="title">Brand </label>
+          <input class="input" id="brand" type="text" placeholder="add a title ...">
+
+  
+          <label for="title">Product Quantity</label>
+          <input class="input" id="product_qty" type="number" placeholder="add a title ...">
+
+          <label for="title">Currency</label>
+          <input class="input" id="currency" type="text" placeholder="add a title ...">
+
+          <label for="title">Min Quantity</label>
+          <input class="input" id="min_qty" type="text" placeholder="add a title ...">
+
+          <label for="title">Max Quantity</label>
+          <input class="input" id="max_qty" type="text" placeholder="add a title ...">
+
+          <label for="title">Discount </label>
+          <input class="input" id="discount" type="text" placeholder="add a title ...">
+
+          <label for="title">Discount Expiration</label>
+          <input class="input" id="discount_expiration" type="datetime-local" placeholder="add a title ...">
+
+          <label for="title">Refund policy </label>
+          <select name="" id="refund_policy">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+
+          <label for="title">Has discount </label>
+          <select name="" id="has_discount">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+
+          <label for="title">Has shipment </label>
+          <select name="" id="has_shipment">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+
+          <label for="title">Has variation </label>
+          <select name="" id="has_variation">
+            <option value="true">True</option>
+            <option value="false">False</option>
+          </select>
+
+          <label for="title">Shipping Locations </label>
+          <select name="" id="shipping_location" multiple multiselect>
+            <option value="all">All Countries</option>
+            <option value="canada">Canada</option>
+            <option value="nigeria">Nigeria</option>
+            <option value="ghana">Ghana</option>
+          </select>
+
+          <label for="tags">Select the Product Category</label>
+          <select name="taskTags" id="taskTags">
+
+          </select>
+
+          <input type="file" id="fileInput" multiple>
+          <button id="uploadBtn">Upload</button>
+          <div id="response"></div>
+          <div id="imageContainer"></div>
+
+          
+      </div>
+    </div>
+
+    <div id="showaddcategory" class="big-div">
+      <div class="flex desc">
+          <button id="cancell" class="cancel">Cancel</button>
+          <button onclick={addNewCategory()} class="btn">Add Category</button>
+
+      </div>
+
+      <div class="flex form">
+          <label for="title">Name of Category</label>
+          <input class="input" id="category" type="text" placeholder="add a category ...">
+
+      </div>
+  </div>
+
+    <footer>
+      <div>
+        <p>Enter your email to stay in touch!</p>
+        <input type="text" />
+        <button>SIGN UP</button>
+      </div>
+
+      <div class="flex">
+        <ul>
+          <li class="li">HELP</li>
+          <li>1-888-963-8944</li>
+          <li>1-814-251-9966 (Text)</li>
+          <li>help@allbirds.com</li>
+          <li>Returns/Exchanges</li>
+          <li>FAQ/Contact Us</li>
+          <li>Afterpay</li>
+        </ul>
+        <ul>
+          <li class="li">SHOP</li>
+          <li>Men's Shoes</li>
+          <li>Women's Shoes</li>
+          <li>Men's Apparel</li>
+          <li>Women's Apparel</li>
+          <li>Socks</li>
+          <li>Shoe Finder</li>
+          <li>Gift Cards</li>
+          <li>Refer a Friend</li>
+          <li>Download Our App</li>
+        </ul>
+        <ul>
+          <li class="li">COMPANY</li>
+          <li>Our Stores</li>
+          <li>Our Story</li>
+          <li>Our Materials</li>
+          <li>Sustainability</li>
+          <li>Investors</li>
+          <li>Shoe Care</li>
+          <li>Partnerships</li>
+          <li>Product Testing</li>
+          <li>Affiliates</li>
+          <li>Bulk Orders</li>
+          <li>Careers</li>
+          <li>Press</li>
+          <li>Allbirds Responsible Disclosure Program</li>
+          <li>California Transparency Act</li>
+          <li>Community Offers</li>
+          <li>The Perch</li>
+        </ul>
+      </div>
+      <div class="flex">
+        <div class="footer-onediv">
+          <h3>FOLLOW THE FLOCK</h3>
+          <p>
+            Exclusive offers, a heads up on new things, and sightings of
+            Allbirds in the wild. Oh, we have cute sheep, too. #allbirds
+          </p>
+          <div class="footer-logo">
+            <img src="./images/social-instagram.svg" alt="" />
+            <img src="./images/Tiktok-50x50.png" alt="" />
+            <img src="./images/logo.svg" alt="" />
+            <img src="./images/social-facebook.svg" alt="" />
+            <img src="./images/Youtube-50x50.png" alt="" />
+            <img src="./images/Pinterest-50x50.png" alt="" />
+          </div>
+        </div>
+        <div class="corp">
+          <img
+            src="https://cdn.allbirds.com/image/upload/f_auto,q_auto/cms/1X4EOQF1JJOjMbo48vDUzB/c249da5825f9ae39f1f53bdb90d65285/icon-b-corp.svg"
+            alt=""
+          />
+        </div>
+        <div class="flex footer-countries">
+          <img src="./images/flag-us.svg" alt="" />
+          <img src="./images/flag-ca.svg" alt="" />
+          <img src="./images/flag-nz.svg" alt="" />
+          <img src="./images/flag-au.svg" alt="" />
+          <img src="./images/flag-uk.svg" alt="" />
+          <img src="./images/flag-cn.svg" alt="" />
+          <img src="./images/method-draw-image.svg" alt="" />
+          <img src="./images/Japan-Flag.svg" alt="" />
+          <img src="./images/South-Korea-Flag.svg" alt="" />
+        </div>
+      </div>
+      <div class="footer-divtwo">
+        <p>
+          © 2024 Allbirds, Inc. All Rights Reserved. <a href="">Terms,</a>
+          <a href="">Privacy</a> & <a href="">Accessibility</a>
+        </p>
+        <a href="">Do Not Sell My Personal Information</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
