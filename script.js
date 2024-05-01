@@ -84,6 +84,8 @@ $("#login_button").click(function (e) {
           $("#email").val(""),
           $("#password").val("")
           window.location.href = "./MerchantDashboard.html";
+        } else if ((res.msg = "Invalid username or password")) {
+          alert("Wrong Email or password!");
         }
       },
       error: function (err) {
@@ -92,7 +94,6 @@ $("#login_button").click(function (e) {
     });
 
   });
-    
 
 
 function notYetSuccess(res, message) {
@@ -164,7 +165,7 @@ $("#update_merchant").click(function (e) {
         .append("h3" + "UPDATED ADMIN DETAILS" + "h3" + response.first_name)
       $("#first-name").append(response.first_name);
       $("#last-name").append(response.last_name);
-      $("#state").append(response.state);
+      // $("#state").append(response.state);
       $("#success_district").append(response.district);
       $("#store-name").append(response.store_name);
       $("#description").append(response.descp);
@@ -193,6 +194,7 @@ function handleUpdateAdminPassword() {
     type: "PUT",
     data: formObj,
     success: function (res) {
+      notYetSuccess(res, "Password updated successfully");
       console.log(res.id);
       console.log(res);
       $("#oldPassword").val("");
@@ -204,7 +206,6 @@ function handleUpdateAdminPassword() {
   });
 }
 
-
 //show add todo menu
 function addTodo() {
   $("#showaddtodo").show();
@@ -215,6 +216,18 @@ function addTodo() {
 
     $("#addnewtodo").val("");
     $("#description").val("");
+  });
+
+  $("#entirepage").addClass("backgroundChange");
+}
+
+//show add category menu
+function addCategory() {
+  $("#showaddcategory").show();
+  $("#cancell").click(function (e) {
+    e.preventDefault();
+    $("#showaddcategory").hide();
+    $("#entirepage").removeClass("backgroundChange");
   });
 
   $("#entirepage").addClass("backgroundChange");
