@@ -604,7 +604,14 @@ function addNewProduct() {
 }
 
 //log out
-$("#logout").click(function (e) {
+$("#logOut").click(function (e) {
+  e.preventDefault();
+  clearMerchantId();
+  window.location.href = "./index.html";
+});
+
+//log In
+$("#logIn").click(function (e) {
   e.preventDefault();
   clearMerchantId();
   window.location.href = "./index.html";
