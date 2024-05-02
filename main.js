@@ -1,5 +1,5 @@
-let api = `http://ecommerce.reworkstaging.name.ng/v2
-`;
+// let api = `http://ecommerce.reworkstaging.name.ng/v2
+// `;
 let userId;
 
 $(document).ready(function () {
@@ -138,6 +138,8 @@ function handleUserLogin() {
 
         localStorage.setItem("usersId", res.id);
         userId = localStorage.getItem("usersId");
+        localStorage.setItem("username", res.first_name);
+        userId = localStorage.getItem("username");
         alert("Successfully logged in!");
       } else if ((res.msg = "Invalid username or password")) {
         alert("Wrong Email or password!");
@@ -157,6 +159,15 @@ function getUserIdFromLocalStorage() {
 }
 userId = getUserIdFromLocalStorage();
 console.log(userId);
+
+// get user name from local storage
+function getUserNameFromLocalStorage() {
+  return localStorage.getItem("username");
+}
+userName = getUserNameFromLocalStorage();
+console.log(userName);
+
+  let firstLetter = userName[0];
 
 // Update a user Information
 
@@ -187,10 +198,6 @@ function handleUpdateUser() {
   });
 }
 
-// How do I make sure that the update also takes effect during login (Override the previous info)?
-
-// Getting just the first user id from the LS
-
 // Change User password
 
 function handleUpdateUserPassword() {
@@ -214,3 +221,10 @@ function handleUpdateUserPassword() {
     },
   });
 }
+
+function checkIfUserLoggedIn(){
+  if (firstLetter != null){
+    $("#user").html(firstLetter);
+  }
+}
+
