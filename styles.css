@@ -383,6 +383,26 @@ div.scroll_container::-webkit-scrollbar{
     margin-left: 0 !important;
 }
 
+
+.buttonsDiv{
+  z-index: 1;
+  text-align: right;
+}
+
+.buttonsDiv >button{
+  gap: 10px;
+}
+
+#logOut{
+  background-color: red;
+  border: none;
+}
+
+#logOut:hover{
+   background-color: white;
+   border:2px solid #4d5559;
+}
+
 footer{
     padding: 5% 5% 2%;
     color: #fff;

@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>MerchantDashboard</title>
   </head>
-  <body id="body"  onload="getCategoriesAndProducts()">
+  <body id="body" onload="getCategoriesAndProducts()">
     <header>
       <nav class="flex">
         <ul class="ul1 flex">
@@ -40,8 +40,8 @@
           <a href="./updateAdmin.html">
             <li>SETTINGS</li>
           </a>
-          <li onclick={addCategory()}>Add Category+</li>
-                <li onclick={addTodo()}>Add Product+</li>
+          <li onclick="{addCategory()}">Add Category+</li>
+          <li onclick="{addTodo()}">Add Product+</li>
           <div class="flex nav-icons">
             <img src="./images/download (18).svg" alt="" />
             <img src="./images/download (17).svg" alt="" />
@@ -52,46 +52,55 @@
       </nav>
     </header>
 
-
-   <main id="fullPage" class="shop_main">
-    
-        
-    </main>
+    <main id="fullPage" class="shop_main"></main>
 
     <div id="showaddtodo" class="big-div">
       <div class="flex desc">
-          <button id="cancel" class="cancel">Cancel</button>
-          <button onclick={addNewTodo()} class="btn">Add Product</button>
-
+        <button id="cancel" class="cancel">Cancel</button>
+        <button onclick="{addNewTodo()}" class="btn">Add Product</button>
       </div>
 
       <div class="flex form">
-          <label for="title">Product Name</label>
-          <input class="input" id="addnewtodo" type="text" placeholder="add a title ...">
+        <label for="title">Product Name</label>
+        <input
+          class="input"
+          id="addnewtodo"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="description">Description</label>
-          <textarea class="input" id="description" name="description" id="description" cols="30" rows="10" placeholder="add a description ..."></textarea>
+        <label for="description">Description</label>
+        <textarea
+          class="input"
+          id="description"
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          placeholder="add a description ..."
+        ></textarea>
 
-          <label for="tags">Select the Product Category</label>
-          <select name="taskTags" id="taskTags">
-
-          </select>
+        <label for="tags">Select the Product Category</label>
+        <select name="taskTags" id="taskTags"></select>
       </div>
-  </div>
+    </div>
 
-  <div id="showaddcategory" class="big-div">
+    <div id="showaddcategory" class="big-div">
       <div class="flex desc">
-          <button id="cancell" class="cancel">Cancel</button>
-          <button onclick={addNewCategory()} class="btn">Add Category</button>
-
+        <button id="cancell" class="cancel">Cancel</button>
+        <button onclick="{addNewCategory()}" class="btn">Add Category</button>
       </div>
 
       <div class="flex form">
-          <label for="title">Name of Category</label>
-          <input class="input" id="category" type="text" placeholder="add a category ...">
-
+        <label for="title">Name of Category</label>
+        <input
+          class="input"
+          id="category"
+          type="text"
+          placeholder="add a category ..."
+        />
       </div>
-  </div>
+    </div>
 
     <footer>
       <div>
@@ -182,6 +191,11 @@
           <a href="">Privacy</a> & <a href="">Accessibility</a>
         </p>
         <a href="">Do Not Sell My Personal Information</a>
+      </div>
+
+      <div class="buttonsDiv">
+        <button id="logIn">Log In</button>
+        <button id="logOut">Log Out</button>
       </div>
     </footer>
 
