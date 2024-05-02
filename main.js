@@ -227,4 +227,5 @@ function checkIfUserLoggedIn(){
     $("#user").html(firstLetter);
   }
 }
+$("#user").html(firstLetter);
 
