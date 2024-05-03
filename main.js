@@ -1,5 +1,5 @@
-// let api = `http://ecommerce.reworkstaging.name.ng/v2
-// `;
+let API = `http://ecommerce.reworkstaging.name.ng/v2
+`;
 let userId;
 
 $(document).ready(function () {
@@ -95,7 +95,7 @@ function handleUserSignup() {
   };
 
   $.ajax({
-    url: `${api}/users`,
+    url: `${API}/users`,
     type: "post",
     data: formObj,
     success: function (res) {
@@ -126,7 +126,7 @@ function handleUserLogin() {
   };
 
   $.ajax({
-    url: `${api}/users/login`,
+    url: `${API}/users/login`,
     type: "post",
     data: formObj,
     success: function (res) {
@@ -181,7 +181,7 @@ function handleUpdateUser() {
   };
 
   $.ajax({
-    url: `${api}/users/${userId}`,
+    url: `${API}/users/${userId}`,
     type: "put",
     data: formObj,
     success: function (res) {
@@ -207,7 +207,7 @@ function handleUpdateUserPassword() {
   };
 
   $.ajax({
-    url: `${api}/users/${userId}/change-passwd`,
+    url: `${API}/users/${userId}/change-passwd`,
     type: "put",
     data: formObj,
     success: function (res) {
