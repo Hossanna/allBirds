@@ -159,14 +159,14 @@ function getUserIdFromLocalStorage() {
   return localStorage.getItem("usersId");
 }
 userId = getUserIdFromLocalStorage();
-console.log(userId);
+// console.log(userId);
 
 // get user name from local storage
 function getUserNameFromLocalStorage() {
   return localStorage.getItem("username");
 }
 userName = getUserNameFromLocalStorage();
-console.log(userName);
+// console.log(userName);
 
 let firstLetter = userName[0];
 
@@ -239,11 +239,17 @@ function handleUpdateUserPassword() {
 $("#user").html(firstLetter);
 
 
-$("#productList").on("click", ".product_div", function (e) {
+$("#pageProductList").on("click", ".product_div", function (e) {
   e.preventDefault();
-  let productID = e.target.id;
-  return productID
+  let productID = e.currentTarget.id;
+  // console.log(e);
+  localStorage.setItem('productID', productID)
+  // sentProductID = localStorage.getItem('productID')
+  // console.log(productID);
+  // return sentProductID
+
 })
+// console.log(productID);
 
 //  Create products without variation in cart page
 
@@ -251,59 +257,60 @@ function handleCreateProductInCart() {
   formObj = {
     quantity: 2,
     user_id: userId,
-    product_id: productID,
-    has_variation: false,
+    product_id: localStorage.getItem('productID'),
+    has_variation: false
   };
 
   $.ajax({
     url: `${API}/carts`,
-    type: POST,
+    type: "POST",
     data:formObj,
     success: function(res){
       console.log(res);
-      alert(res)
+      // alert(res)
     },
     error: function(err){
       console.log(err);
-      alert(err);
+      // console.log(formObj);
+      // alert(err);
     }
   })
 }
 
 //  Create products with variation in cart page
 
-function handleCreateProductInCartWithVariation() {
-  formObj = {
-    user_id: userId,
-    product_id: "111",
-    has_variation: true,
-    variation: {
-      quantity: 3,
-      color_index: 0,
-      size_index: 1,
-    },
-  };
+// function handleCreateProductInCartWithVariation() {
+//   formObj = {
+//     user_id: userId,
+//     product_id: "111",
+//     has_variation: true,
+//     variation: {
+//       quantity: 3,
+//       color_index: 0,
+//       size_index: 1,
+//     },
+//   };
 
-  $.ajax({
-    url: `${API}/carts`,
-    type: POST,
-    data:formObj,
-    success: function(res){
-      console.log(res);
-      alert(res)
-    },
-    error: function(err){
-      console.log(err);
-      alert(err);
-    }
-  })
-}
+//   $.ajax({
+//     url: `${API}/carts`,
+//     type: POST,
+//     data:formObj,
+//     success: function(res){
+//       console.log(res);
+//       alert(res)
+//     },
+//     error: function(err){
+//       console.log(err);
+//       alert(err);
+//     }
+//   })
+// }
 
-$("#sizebtn").textContent("select a size");
+// $("#sizebtn").textContent("select a size");
 
-$("#size1").click(function(){
-  $("#size1").css("backgroundColor", "#786355");
-})
+// $("#size1").click(function(){
+//   $("#size1").css("backgroundColor", "#786355");
+// })
 
 //log out
 $("#logOut").click(function (e) {

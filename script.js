@@ -89,6 +89,7 @@ $("#login_button").click(function (e) {
         localStorage.setItem("merchantname", res.first_name);
         merchantName = localStorage.getItem("merchantname");
 
+        alert(response);
           $("#email").val(""),
           $("#password").val("")
           window.location.href = "./MerchantDashboard.html";
@@ -120,22 +121,23 @@ function notYetSuccess(res, message) {
   }
 }
 
-function storeMerchantId(id) {
-  localStorage.setItem(merchantID, id);
-}
-
 
 // get merchant name from local storage
 function getMerchantNameFromLocalStorage() {
   return localStorage.getItem("merchantname");
 }
 merchantName = getMerchantNameFromLocalStorage();
-console.log(merchantName);
+// console.log(merchantName);
 
 
-let firstLetter = merchantName[0];
+let merchantFirstLetter = merchantName[0];
 
-$("#merchant").html(firstLetter)
+$("#merchant").html(merchantFirstLetter)
+
+
+function storeMerchantId(id) {
+  localStorage.setItem(merchantID, id);
+}
 
 function clearMerchantId() {
   localStorage.removeItem(merchantID);
@@ -674,15 +676,15 @@ function addNewProduct() {
   }
 }
 
-//log out
-$("#logOut").click(function (e) {
+//log out button
+$("#merchantLogOut").click(function (e) {
   e.preventDefault();
   clearMerchantId();
-  window.location.href = "./index.html";
+  window.location.href = "./adminLogin.html";
 });
 
-//log In
-$("#logIn").click(function (e) {
+//log In button
+$("#merchantLogIn").click(function (e) {
   e.preventDefault();
   clearMerchantId();
   window.location.href = "./index.html";
@@ -746,29 +748,3 @@ $("#productList").on("click", ".deleteTag", function (e) {
     }
  
 });
-
-
-
-// //  Create products without variation in cart page
-// function handleCreateProductInCart() {
-//   formObj = {
-//     quantity: 2,
-//     user_id: userId,
-//     product_id: productID,
-//     has_variation: false,
-//   };
-
-//   $.ajax({
-//     url: `${API}/carts`,
-//     type: POST,
-//     data:formObj,
-//     success: function(res){
-//       console.log(res);
-//       alert(res)
-//     },
-//     error: function(err){
-//       console.log(err);
-//       alert(err);
-//     }
-//   })
-// }
