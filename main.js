@@ -1,5 +1,4 @@
-let API = `http://ecommerce.reworkstaging.name.ng/v2
-`;
+let API = `http://ecommerce.reworkstaging.name.ng/v2`;
 let userId;
 
 $(document).ready(function () {
@@ -239,13 +238,20 @@ function handleUpdateUserPassword() {
 
 $("#user").html(firstLetter);
 
+
+$("#productList").on("click", ".product_div", function (e) {
+  e.preventDefault();
+  let productID = e.target.id;
+  return productID
+})
+
 //  Create products without variation in cart page
 
 function handleCreateProductInCart() {
   formObj = {
     quantity: 2,
     user_id: userId,
-    product_id: "111",
+    product_id: productID,
     has_variation: false,
   };
 

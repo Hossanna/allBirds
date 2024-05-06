@@ -683,6 +683,7 @@ footer a {
 }
 .product_div .tinyImg {
   width: 15%;
+  height: fit-content;
   background-color: rgb(233 233 233 / 36%);
   border: none;
 }

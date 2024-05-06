@@ -484,7 +484,7 @@ function getMerchantProducts(id) {
     // data: "data",
     dataType: "json",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
       $("#next_page").attr("disabled", !response.has_nextpage) 
     
       $("#previous_page").attr("disabled", !response.has_prevpage) 
@@ -578,6 +578,24 @@ function addAllProducts(productsObjects) {
                 <img class="tinyImg" src="${images[0]}" alt="" />
                 <img class="tinyImg first" src="${images[0]}" alt="" />
               
+                <div class="quick_add">
+                  <h4 onclick={handleCreateProductInCart()}>Quick Add</h4>
+                  <div class="size_buttons product_size_buttons">
+                    <button>5</button>
+                    <button>5.5</button>
+                    <button>6</button>
+                    <button>6.5</button>
+                    <button>7</button>
+                    <button>7.5</button>
+                    <button>8</button>
+                    <button>8.5</button>
+                    <button>9</button>
+                    <button>9.5</button>
+                    <button>10</button>
+                    <button>10.5</button>
+                    <button>11</button>
+                  </div>
+                </div>
             </div>
 
         </div>`
@@ -728,3 +746,29 @@ $("#productList").on("click", ".deleteTag", function (e) {
     }
  
 });
+
+
+
+// //  Create products without variation in cart page
+// function handleCreateProductInCart() {
+//   formObj = {
+//     quantity: 2,
+//     user_id: userId,
+//     product_id: productID,
+//     has_variation: false,
+//   };
+
+//   $.ajax({
+//     url: `${API}/carts`,
+//     type: POST,
+//     data:formObj,
+//     success: function(res){
+//       console.log(res);
+//       alert(res)
+//     },
+//     error: function(err){
+//       console.log(err);
+//       alert(err);
+//     }
+//   })
+// }
