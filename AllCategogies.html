@@ -45,7 +45,7 @@
                 <li onclick={addTodo()}>Add Product+</li>
           <div class="flex nav-icons">
             <img src="./images/download (18).svg" alt="" />
-            <img src="./images/download (17).svg" alt="" />
+            <p id="merchant">type</p>
             <img src="./images/download (13).svg" alt="" />
             <img src="./images/download (16).svg" alt="" />
           </div>
@@ -53,35 +53,30 @@
       </nav>
     </header>
 
-
-   <main id="fullPage" class="shop_main">
-    
-        <section class="main_section">
-
-            <!-- <div class="men flex">
+    <main id="fullPage" class="shop_main">
+      <section class="main_section">
+        <!-- <div class="men flex">
               <div class="women flex"> WOMEN</div> <div>MEN</div>
             </div> -->
-            
-          <h2>CATEGORY LIST</h2>
 
-          <table border="1">
-            <thead>
-              <th>Name of Category</th>
-              <th>Date and Time Created</th>
-              <!-- <th>Date Created</th> -->
-            </thead>
-            <tbody id="categoryList">
-              <tr>
-                <td></td>
-                <td></td>
-                <td>Edit</td>
-                <td>Delete</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2>CATEGORY LIST</h2>
 
-  
-        </section>
+        <table border="1">
+          <thead>
+            <th>Name of Category</th>
+            <th>Date and Time Created</th>
+            <!-- <th>Date Created</th> -->
+          </thead>
+          <tbody id="categoryList">
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Edit</td>
+              <td>Delete</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <div id="showaddtodo" class="big-div">
@@ -92,76 +87,144 @@
       </div>
 
       <div class="flex form">
-          <label for="title">Product Name</label>
-          <input class="input" id="addnewtodo" type="text" placeholder="add a title ...">
+        <label for="title">Product Name</label>
+        <input
+          class="input"
+          id="addnewtodo"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="description">Description</label>
-          <input class="input" id="description" type="text" placeholder="add a description ..."/>
+        <label for="description">Description</label>
+        <input
+          class="input"
+          id="description"
+          type="text"
+          placeholder="add a description ..."
+        />
 
-          <label for="title">Price</label>
-          <input class="input" id="product_price" type="text" placeholder="price ...">
+        <label for="title">Price</label>
+        <input
+          class="input"
+          id="product_price"
+          type="text"
+          placeholder="price ..."
+        />
 
-          <label for="title">Brand </label>
-          <select name="product_brand" id="product_brand">
-            <option value="chanel">Chanel</option>
-            <option value="gucci">Gucci</option>
-            <option value="prada">Prada</option>
-          </select>
-  
-          <label for="title">Product Quantity</label>
-          <input class="input" id="product_qty" type="number" placeholder="add a title ...">
+        <label for="title">Brand </label>
+        <input
+          class="input"
+          id="brand"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Currency</label>
-          <input class="input" id="currency" type="text" placeholder="add a title ...">
+        <label for="title">Product Quantity</label>
+        <input
+          class="input"
+          id="product_qty"
+          type="number"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Min Quantity</label>
-          <input class="input" id="min_qty" type="text" placeholder="add a title ...">
+        <label for="title">Currency</label>
+        <input
+          class="input"
+          id="currency"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Max Quantity</label>
-          <input class="input" id="max_qty" type="text" placeholder="add a title ...">
+        <label for="title">Min Quantity</label>
+        <input
+          class="input"
+          id="min_qty"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Discount </label>
-          <input class="input" id="discount" type="text" placeholder="add a title ...">
+        <label for="title">Max Quantity</label>
+        <input
+          class="input"
+          id="max_qty"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Discount Expiration</label>
-          <input class="input" id="discount_expiration" type="text" placeholder="add a title ...">
+        <label for="title">Discount </label>
+        <input
+          class="input"
+          id="discount"
+          type="text"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Refund policy </label>
-          <input class="input" id="refund_policy" type="text" placeholder="add a title ...">
+        <label for="title">Discount Expiration</label>
+        <input
+          class="input"
+          id="discount_expiration"
+          type="datetime-local"
+          placeholder="add a title ..."
+        />
 
-          <label for="title">Has discount </label>
-          <input class="input" id="has_discount" type="text" placeholder="add a title ...">
+        <label for="title">Refund policy </label>
+        <select name="" id="refund_policy">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
 
-          <label for="title">Has shipment </label>
-          <input class="input" id="has_shipment" type="text" placeholder="add a title ...">
+        <label for="title">Has discount </label>
+        <select name="" id="has_discount">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
 
-          <label for="title">Has variation </label>
-          <input class="input" id="has_variation" type="text" placeholder="add a title ...">
+        <label for="title">Has shipment </label>
+        <select name="" id="has_shipment">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
 
-          <label for="title">Shipping Locations </label>
-          <input class="input" id="shipping_locations" type="text" placeholder="add a title ...">
+        <label for="title">Has variation </label>
+        <select name="" id="has_variation">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
 
+        <label for="title">Shipping Locations </label>
+        <select name="" id="shipping_location" multiple multiselect>
+          <option value="all">All Countries</option>
+          <option value="canada">Canada</option>
+          <option value="nigeria">Nigeria</option>
+          <option value="ghana">Ghana</option>
+        </select>
 
-          <label for="tags">Select the Product Category</label>
-          <select name="taskTags" id="taskTags">
+        <label for="tags">Select the Product Category</label>
+        <select name="taskTags" id="taskTags"></select>
 
-          </select>
+        <input type="file" id="fileInput" multiple />
+        <button id="uploadBtn">Upload</button>
+        <div id="response"></div>
+        <div id="imageContainer"></div>
       </div>
     </div>
 
     <div id="showaddcategory" class="big-div">
       <div class="flex desc">
-          <button id="cancell" class="cancel">Cancel</button>
-          <button onclick={addNewCategory()} class="btn">Add Category</button>
-
+        <button id="cancell" class="cancel">Cancel</button>
+        <button onclick="{addNewCategory()}" class="btn">Add Category</button>
       </div>
 
       <div class="flex form">
-          <label for="title">Name of Category</label>
-          <input class="input" id="category" type="text" placeholder="add a category ...">
-
+        <label for="title">Name of Category</label>
+        <input
+          class="input"
+          id="category"
+          type="text"
+          placeholder="add a category ..."
+        />
       </div>
-  </div>
+    </div>
 
     <footer>
       <div>
@@ -253,7 +316,7 @@
         </p>
         <a href="">Do Not Sell My Personal Information</a>
       </div>
-      
+
       <div class="buttonsDiv">
         <button id="logIn">Log In</button>
         <button id="logOut">Log Out</button>

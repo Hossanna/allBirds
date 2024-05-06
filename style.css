@@ -1161,6 +1161,15 @@ nav a, .white a{
   margin-bottom: 15px;
 }
 
+#merchant{
+  background-color: #786355;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 80px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 footer{
     padding: 5% 5% 2%;
     color: #fff;

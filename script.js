@@ -83,6 +83,10 @@ $("#login_button").click(function (e) {
         let { success, response } = notYetSuccess(res, "Login successful");
         if (success) {
           storeMerchantId(response.id);
+          
+        localStorage.setItem("merchantname", res.first_name);
+        merchantName = localStorage.getItem("merchantname");
+
           $("#email").val(""),
           $("#password").val("")
           window.location.href = "./MerchantDashboard.html";
@@ -117,6 +121,19 @@ function notYetSuccess(res, message) {
 function storeMerchantId(id) {
   localStorage.setItem(merchantID, id);
 }
+
+
+// get merchant name from local storage
+function getMerchantNameFromLocalStorage() {
+  return localStorage.getItem("merchantname");
+}
+merchantName = getMerchantNameFromLocalStorage();
+console.log(merchantName);
+
+
+let firstLetter = merchantName[0];
+
+$("#merchant").html(firstLetter)
 
 function clearMerchantId() {
   localStorage.removeItem(merchantID);
@@ -164,7 +181,6 @@ $("#update_merchant").click(function (e) {
       notYetSuccess(response, "Account updated successfully");
       console.log(response);
       $("#onSuccess")
-        .append("h3" + "UPDATED ADMIN DETAILS" + "h3" + response.first_name)
       $("#first-name").append(response.first_name);
       $("#last-name").append(response.last_name);
       // $("#state").append(response.state);
@@ -587,6 +603,7 @@ function addNewProduct() {
         dataType: "json",
         success: function (res) {
           getMerchantProducts(merchantID);
+          alert("product succesfully created");
           console.log(res);
           // console.log(merchantID);
           // console.log(category_id);
@@ -620,7 +637,7 @@ $("#logIn").click(function (e) {
 
 //handleImageUpload();
   $("#uploadBtn").click(function () {
-    var id = "234050273";
+    var id = "231050054";
     var fileInput = $("#fileInput")[0].files;
     var formData = new FormData();
 
@@ -640,6 +657,73 @@ $("#logIn").click(function (e) {
       success: function (response) {
         $("#response").text(response);
         console.log(response);
+
+        // Create product after image upload
+        var title = $("#addnewtodo").val();
+        var descp = $("#description").val();
+        var price = $("#product_price").val();
+        var brand = $("#brand").val();
+        var quantity = $("#product_qty").val();
+        //var images = $('#images').val();
+        var currency = $("#currency").val();
+        var min_qty = $("#min_qty").val();
+        var max_qty = $("#max_qty").val();
+        var discount = $("#discount").val();
+        var discount_expiration = $("#discount_expiration").val();
+        var has_refund_policy = $("#refund_policy").val();
+        var has_discount = $("#has_discount").val();
+        var has_shipment = $("#has_shipment").val();
+        var has_variation = $("#has_variation").val();
+        var shipping_locations = $("#shipping_location").val();
+        var attrib = [
+          {
+            type: "",
+            content: [
+              {
+                name: "",
+                value: "",
+              },
+            ],
+          },
+        ];
+        var category_id = $("#taskTags").val();
+
+        // Create product data object
+        var productData = {
+          title: title,
+          descp: descp,
+          price: price,
+          brand: brand,
+          quantity: quantity,
+          images: response,
+          currency: currency,
+          min_qty: min_qty,
+          max_qty: max_qty,
+          discount: discount,
+          discount_expiration: discount_expiration,
+          has_refund_policy: has_refund_policy,
+          has_discount: has_discount,
+          has_shipment: has_shipment,
+          has_variation: has_variation,
+          shipping_locations: shipping_locations,
+          attrib: attrib,
+          category_id: category_id,
+        };
+
+        // Create product
+        $.ajax({
+          url: `${api}/products`,
+          type: "POST",
+          data: productData,
+          success: function (productResponse) {
+            //console.log(productResponse);
+            // addNewProduct();
+            $("#productResponse").text("Product created successfully.");
+          },
+          error: function () {
+            $("#productResponse").text("Error creating product.");
+          },
+        });
       },
 
       error: function () {
@@ -647,5 +731,7 @@ $("#logIn").click(function (e) {
       },
     });
   });
+
+
 
 

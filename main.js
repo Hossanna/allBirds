@@ -138,8 +138,10 @@ function handleUserLogin() {
 
         localStorage.setItem("usersId", res.id);
         userId = localStorage.getItem("usersId");
+
         localStorage.setItem("username", res.first_name);
-        userId = localStorage.getItem("username");
+        userName = localStorage.getItem("username");
+
         alert("Successfully logged in!");
       } else if ((res.msg = "Invalid username or password")) {
         alert("Wrong Email or password!");
@@ -167,7 +169,20 @@ function getUserNameFromLocalStorage() {
 userName = getUserNameFromLocalStorage();
 console.log(userName);
 
-  let firstLetter = userName[0];
+let firstLetter = userName[0];
+
+function clearUserId() {
+  localStorage.removeItem(usersId);
+}
+
+function clearUserName() {
+  localStorage.removeItem(username);
+}
+
+function clearStorage() {
+  clearUserName();
+  clearUserId();
+}
 
 // Update a user Information
 
@@ -222,10 +237,71 @@ function handleUpdateUserPassword() {
   });
 }
 
-function checkIfUserLoggedIn(){
-  if (firstLetter != null){
-    $("#user").html(firstLetter);
-  }
-}
 $("#user").html(firstLetter);
 
+//  Create products without variation in cart page
+
+function handleCreateProductInCart() {
+  formObj = {
+    quantity: 2,
+    user_id: userId,
+    product_id: "111",
+    has_variation: false,
+  };
+
+  $.ajax({
+    url: `${API}/carts`,
+    type: POST,
+    data:formObj,
+    success: function(res){
+      console.log(res);
+      alert(res)
+    },
+    error: function(err){
+      console.log(err);
+      alert(err);
+    }
+  })
+}
+
+//  Create products with variation in cart page
+
+function handleCreateProductInCartWithVariation() {
+  formObj = {
+    user_id: userId,
+    product_id: "111",
+    has_variation: true,
+    variation: {
+      quantity: 3,
+      color_index: 0,
+      size_index: 1,
+    },
+  };
+
+  $.ajax({
+    url: `${API}/carts`,
+    type: POST,
+    data:formObj,
+    success: function(res){
+      console.log(res);
+      alert(res)
+    },
+    error: function(err){
+      console.log(err);
+      alert(err);
+    }
+  })
+}
+
+$("#sizebtn").textContent("select a size");
+
+$("#size1").click(function(){
+  $("#size1").css("backgroundColor", "#786355");
+})
+
+//log out
+$("#logOut").click(function (e) {
+  e.preventDefault();
+  clearStorage();
+  window.location.href = "./index.html";
+});
