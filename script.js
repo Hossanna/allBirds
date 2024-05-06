@@ -85,6 +85,10 @@ $("#login_button").click(function (e) {
         let { success, response } = notYetSuccess(res, "Login successful");
         if (success) {
           storeMerchantId(response.id);
+          
+        localStorage.setItem("merchantname", res.first_name);
+        merchantName = localStorage.getItem("merchantname");
+
           $("#email").val(""),
           $("#password").val("")
           window.location.href = "./MerchantDashboard.html";
@@ -119,6 +123,19 @@ function notYetSuccess(res, message) {
 function storeMerchantId(id) {
   localStorage.setItem(merchantID, id);
 }
+
+
+// get merchant name from local storage
+function getMerchantNameFromLocalStorage() {
+  return localStorage.getItem("merchantname");
+}
+merchantName = getMerchantNameFromLocalStorage();
+console.log(merchantName);
+
+
+let firstLetter = merchantName[0];
+
+$("#merchant").html(firstLetter)
 
 function clearMerchantId() {
   localStorage.removeItem(merchantID);
@@ -166,7 +183,6 @@ $("#update_merchant").click(function (e) {
       notYetSuccess(response, "Account updated successfully");
       console.log(response);
       $("#onSuccess")
-        .append("h3" + "UPDATED ADMIN DETAILS" + "h3" + response.first_name)
       $("#first-name").append(response.first_name);
       $("#last-name").append(response.last_name);
       // $("#state").append(response.state);
@@ -623,6 +639,7 @@ function addNewProduct() {
         dataType: "json",
         success: function (res) {
           getMerchantProducts(merchantID);
+          alert("product succesfully created");
           console.log(res);
           // console.log(merchantID);
           // console.log(category_id);
@@ -640,7 +657,14 @@ function addNewProduct() {
 }
 
 //log out
-$("#logout").click(function (e) {
+$("#logOut").click(function (e) {
+  e.preventDefault();
+  clearMerchantId();
+  window.location.href = "./index.html";
+});
+
+//log In
+$("#logIn").click(function (e) {
   e.preventDefault();
   clearMerchantId();
   window.location.href = "./index.html";

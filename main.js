@@ -1,4 +1,4 @@
-let api = `http://ecommerce.reworkstaging.name.ng/v2
+let API = `http://ecommerce.reworkstaging.name.ng/v2
 `;
 let userId;
 
@@ -95,7 +95,7 @@ function handleUserSignup() {
   };
 
   $.ajax({
-    url: `${api}/users`,
+    url: `${API}/users`,
     type: "post",
     data: formObj,
     success: function (res) {
@@ -126,7 +126,7 @@ function handleUserLogin() {
   };
 
   $.ajax({
-    url: `${api}/users/login`,
+    url: `${API}/users/login`,
     type: "post",
     data: formObj,
     success: function (res) {
@@ -138,6 +138,10 @@ function handleUserLogin() {
 
         localStorage.setItem("usersId", res.id);
         userId = localStorage.getItem("usersId");
+
+        localStorage.setItem("username", res.first_name);
+        userName = localStorage.getItem("username");
+
         alert("Successfully logged in!");
       } else if ((res.msg = "Invalid username or password")) {
         alert("Wrong Email or password!");
@@ -158,6 +162,28 @@ function getUserIdFromLocalStorage() {
 userId = getUserIdFromLocalStorage();
 console.log(userId);
 
+// get user name from local storage
+function getUserNameFromLocalStorage() {
+  return localStorage.getItem("username");
+}
+userName = getUserNameFromLocalStorage();
+console.log(userName);
+
+let firstLetter = userName[0];
+
+function clearUserId() {
+  localStorage.removeItem(usersId);
+}
+
+function clearUserName() {
+  localStorage.removeItem(username);
+}
+
+function clearStorage() {
+  clearUserName();
+  clearUserId();
+}
+
 // Update a user Information
 
 function handleUpdateUser() {
@@ -170,7 +196,7 @@ function handleUpdateUser() {
   };
 
   $.ajax({
-    url: `${api}/users/${userId}`,
+    url: `${API}/users/${userId}`,
     type: "put",
     data: formObj,
     success: function (res) {
@@ -187,10 +213,6 @@ function handleUpdateUser() {
   });
 }
 
-// How do I make sure that the update also takes effect during login (Override the previous info)?
-
-// Getting just the first user id from the LS
-
 // Change User password
 
 function handleUpdateUserPassword() {
@@ -200,7 +222,7 @@ function handleUpdateUserPassword() {
   };
 
   $.ajax({
-    url: `${api}/users/${userId}/change-passwd`,
+    url: `${API}/users/${userId}/change-passwd`,
     type: "put",
     data: formObj,
     success: function (res) {
@@ -214,3 +236,72 @@ function handleUpdateUserPassword() {
     },
   });
 }
+
+$("#user").html(firstLetter);
+
+//  Create products without variation in cart page
+
+function handleCreateProductInCart() {
+  formObj = {
+    quantity: 2,
+    user_id: userId,
+    product_id: "111",
+    has_variation: false,
+  };
+
+  $.ajax({
+    url: `${API}/carts`,
+    type: POST,
+    data:formObj,
+    success: function(res){
+      console.log(res);
+      alert(res)
+    },
+    error: function(err){
+      console.log(err);
+      alert(err);
+    }
+  })
+}
+
+//  Create products with variation in cart page
+
+function handleCreateProductInCartWithVariation() {
+  formObj = {
+    user_id: userId,
+    product_id: "111",
+    has_variation: true,
+    variation: {
+      quantity: 3,
+      color_index: 0,
+      size_index: 1,
+    },
+  };
+
+  $.ajax({
+    url: `${API}/carts`,
+    type: POST,
+    data:formObj,
+    success: function(res){
+      console.log(res);
+      alert(res)
+    },
+    error: function(err){
+      console.log(err);
+      alert(err);
+    }
+  })
+}
+
+$("#sizebtn").textContent("select a size");
+
+$("#size1").click(function(){
+  $("#size1").css("backgroundColor", "#786355");
+})
+
+//log out
+$("#logOut").click(function (e) {
+  e.preventDefault();
+  clearStorage();
+  window.location.href = "./index.html";
+});
