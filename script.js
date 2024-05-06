@@ -7,6 +7,8 @@ let merchantID = "merchantID";
 const singleMerchantID  = "6628cdeaf7192e0c5d70043e"
 let tagIdToName = {};
 let taskIdToNameAndContent = {};
+let offset = 0
+
 
 
 
@@ -462,11 +464,15 @@ $("#categoryList").on("click", ".selectedTag", function (e) {
 function getMerchantProducts(id) {
   $.ajax({
     type: "get",
-    url: `${api}/products?merchant_id=${id}`,
+    url: `${api}/products?merchant_id=${id}&offset=${offset}`,
     // data: "data",
     dataType: "json",
     success: function (response) {
       console.log(response);
+      $("#next_page").attr("disabled", !response.has_nextpage) 
+    
+      $("#previous_page").attr("disabled", !response.has_prevpage) 
+
       addAllProducts(response);
     },
     error: function (err) {
@@ -474,6 +480,20 @@ function getMerchantProducts(id) {
     },
   });
 }
+
+//increase offset for next page
+$("#next_page").click(function (e) { 
+  e.preventDefault();
+  offset += 10
+  getProducts()
+});
+
+//decrease offset for previous page
+$("#previous_page").click(function (e) { 
+  e.preventDefault();
+  offset -= 10
+  getProducts()
+});
 
 //get products for an existing merchant
 function getProducts() {
@@ -507,6 +527,7 @@ function addAllProducts(productsObjects) {
     let hasRefundPolicy = productsObject.has_refund_policy;
     let hasShipment = productsObject.has_shipment;
     let hasDiscount = productsObject.has_discount;
+    let images = productsObject.images
 
     let id = productsObject.id;
 
@@ -520,16 +541,31 @@ function addAllProducts(productsObjects) {
       `<tr ${id}> 
       <td>${title}</td>
       <td>${price}</td>
-      <td class="editTag">Edit</td>
-      <td class="deleteTag">Delete</td>
+      <td id="${id}" class="editTag">Edit</td>
+      <td id="${id}" class="deleteTag">Delete</td>
 
       </tr>`        
       );
 
 
-      // pageProductListNode.append(
-      //   `<li id=${id}> ${title} </li>` 
-      // );
+      pageProductListNode.append(
+        // `<p id=${id}> ${title} </p>` 
+        `<div id="${id}" class="product_div">
+            <img class="img" src="${images[0]}" alt="" />
+            <h4>${title}</h4>
+            <p>${currency}${price}</p>
+            <div class="flex tinyImg_div">
+
+                <img class="tinyImg first" src="${images[0]}" alt="" />
+                <img class="tinyImg" src="${images[0]}" alt="" />
+                <img class="tinyImg" src="${images[0]}" alt="" />
+                <img class="tinyImg" src="${images[0]}" alt="" />
+                <img class="tinyImg first" src="${images[0]}" alt="" />
+              
+            </div>
+
+        </div>`
+      );
 
   });
 }
@@ -546,7 +582,7 @@ function addNewProduct() {
     if (success) {
       let submitObject = {
         category_id: $("#taskTags").val(),
-        image: $("#fileInput").val(),
+        images: getImagesUrl("#fileInput"),
         title: $("#addnewtodo").val(),
         descp: $("#description").val(),
         price: $("#product_price").val(),
@@ -612,9 +648,9 @@ $("#logout").click(function (e) {
 
 
 //handleImageUpload();
-  $("#uploadBtn").click(function () {
+  function getImagesUrl (imageFieldId) {
     var id = "234050273";
-    var fileInput = $("#fileInput")[0].files;
+    var fileInput = $(imageFieldId)[0].files;
     var formData = new FormData();
 
     formData.append("id", id);
@@ -623,6 +659,9 @@ $("#logout").click(function (e) {
     for (var i = 0; i < fileInput.length; i++) {
       formData.append("image", fileInput[i]);
     }
+    // fileInput.map((x) => formData.append("image", x))
+
+    let urls = []
 
     $.ajax({
       url: "http://bucket.reworkstaging.name.ng/resources",
@@ -630,15 +669,38 @@ $("#logout").click(function (e) {
       data: formData,
       processData: false,
       contentType: false,
+      async: false,
       success: function (response) {
-        $("#response").text(response);
-        console.log(response);
+        urls = response.data.map((x) => x.url)
+        // $("#response").text(urls);
+        // console.log(response);
       },
 
       error: function () {
         $("#response").text("Error uploading image.");
       },
     });
-  });
 
+    console.log(urls);
+    return urls;
+  }
 
+//delete product
+$("#productList").on("click", ".deleteTag", function (e) {
+  e.preventDefault();
+  let id = e.target.id;
+  // console.log(e, id);
+
+    if (confirm("Do you want to delete this product?")) {
+      $.ajax({
+        type: "delete",
+        url: `${api}/products/${id}`,
+        dataType: "json",
+        success: function (response) {
+          // alert(`deleted tag and its tasks`)
+          getProducts();
+        },
+      });
+    }
+ 
+});
