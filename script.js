@@ -7,6 +7,8 @@ let merchantID = "merchantID";
 const singleMerchantID  = "6628cdeaf7192e0c5d70043e"
 let tagIdToName = {};
 let taskIdToNameAndContent = {};
+let offset = 0
+
 
 
 
@@ -87,6 +89,7 @@ $("#login_button").click(function (e) {
         localStorage.setItem("merchantname", res.first_name);
         merchantName = localStorage.getItem("merchantname");
 
+        alert(response);
           $("#email").val(""),
           $("#password").val("")
           window.location.href = "./MerchantDashboard.html";
@@ -118,22 +121,23 @@ function notYetSuccess(res, message) {
   }
 }
 
-function storeMerchantId(id) {
-  localStorage.setItem(merchantID, id);
-}
-
 
 // get merchant name from local storage
 function getMerchantNameFromLocalStorage() {
   return localStorage.getItem("merchantname");
 }
 merchantName = getMerchantNameFromLocalStorage();
-console.log(merchantName);
+// console.log(merchantName);
 
 
-let firstLetter = merchantName[0];
+let merchantFirstLetter = merchantName[0];
 
-$("#merchant").html(firstLetter)
+$("#merchant").html(merchantFirstLetter)
+
+
+function storeMerchantId(id) {
+  localStorage.setItem(merchantID, id);
+}
 
 function clearMerchantId() {
   localStorage.removeItem(merchantID);
@@ -478,11 +482,15 @@ $("#categoryList").on("click", ".selectedTag", function (e) {
 function getMerchantProducts(id) {
   $.ajax({
     type: "get",
-    url: `${api}/products?merchant_id=${id}`,
+    url: `${api}/products?merchant_id=${id}&offset=${offset}`,
     // data: "data",
     dataType: "json",
     success: function (response) {
-      console.log(response);
+      // console.log(response);
+      $("#next_page").attr("disabled", !response.has_nextpage) 
+    
+      $("#previous_page").attr("disabled", !response.has_prevpage) 
+
       addAllProducts(response);
     },
     error: function (err) {
@@ -490,6 +498,20 @@ function getMerchantProducts(id) {
     },
   });
 }
+
+//increase offset for next page
+$("#next_page").click(function (e) { 
+  e.preventDefault();
+  offset += 10
+  getProducts()
+});
+
+//decrease offset for previous page
+$("#previous_page").click(function (e) { 
+  e.preventDefault();
+  offset -= 10
+  getProducts()
+});
 
 //get products for an existing merchant
 function getProducts() {
@@ -523,6 +545,7 @@ function addAllProducts(productsObjects) {
     let hasRefundPolicy = productsObject.has_refund_policy;
     let hasShipment = productsObject.has_shipment;
     let hasDiscount = productsObject.has_discount;
+    let images = productsObject.images
 
     let id = productsObject.id;
 
@@ -536,16 +559,49 @@ function addAllProducts(productsObjects) {
       `<tr ${id}> 
       <td>${title}</td>
       <td>${price}</td>
-      <td class="editTag">Edit</td>
-      <td class="deleteTag">Delete</td>
+      <td id="${id}" class="editTag">Edit</td>
+      <td id="${id}" class="deleteTag">Delete</td>
 
       </tr>`        
       );
 
 
-      // pageProductListNode.append(
-      //   `<li id=${id}> ${title} </li>` 
-      // );
+      pageProductListNode.append(
+        // `<p id=${id}> ${title} </p>` 
+        `<div id="${id}" class="product_div">
+            <img class="img" src="${images[0]}" alt="" />
+            <h4>${title}</h4>
+            <p>${currency}${price}</p>
+            <div class="flex tinyImg_div">
+
+                <img class="tinyImg first" src="${images[0]}" alt="" />
+                <img class="tinyImg" src="${images[0]}" alt="" />
+                <img class="tinyImg" src="${images[0]}" alt="" />
+                <img class="tinyImg" src="${images[0]}" alt="" />
+                <img class="tinyImg first" src="${images[0]}" alt="" />
+              
+                <div class="quick_add">
+                  <h4 onclick={handleCreateProductInCart()}>Quick Add</h4>
+                  <div class="size_buttons product_size_buttons">
+                    <button>5</button>
+                    <button>5.5</button>
+                    <button>6</button>
+                    <button>6.5</button>
+                    <button>7</button>
+                    <button>7.5</button>
+                    <button>8</button>
+                    <button>8.5</button>
+                    <button>9</button>
+                    <button>9.5</button>
+                    <button>10</button>
+                    <button>10.5</button>
+                    <button>11</button>
+                  </div>
+                </div>
+            </div>
+
+        </div>`
+      );
 
   });
 }
@@ -562,7 +618,7 @@ function addNewProduct() {
     if (success) {
       let submitObject = {
         category_id: $("#taskTags").val(),
-        image: $("#fileInput").val(),
+        images: getImagesUrl("#fileInput"),
         title: $("#addnewtodo").val(),
         descp: $("#description").val(),
         price: $("#product_price").val(),
@@ -620,15 +676,15 @@ function addNewProduct() {
   }
 }
 
-//log out
-$("#logOut").click(function (e) {
+//log out button
+$("#merchantLogOut").click(function (e) {
   e.preventDefault();
   clearMerchantId();
-  window.location.href = "./index.html";
+  window.location.href = "./adminLogin.html";
 });
 
-//log In
-$("#logIn").click(function (e) {
+//log In button
+$("#merchantLogIn").click(function (e) {
   e.preventDefault();
   clearMerchantId();
   window.location.href = "./index.html";
@@ -636,9 +692,9 @@ $("#logIn").click(function (e) {
 
 
 //handleImageUpload();
-  $("#uploadBtn").click(function () {
-    var id = "231050054";
-    var fileInput = $("#fileInput")[0].files;
+  function getImagesUrl (imageFieldId) {
+    var id = "234050273";
+    var fileInput = $(imageFieldId)[0].files;
     var formData = new FormData();
 
     formData.append("id", id);
@@ -647,6 +703,9 @@ $("#logIn").click(function (e) {
     for (var i = 0; i < fileInput.length; i++) {
       formData.append("image", fileInput[i]);
     }
+    // fileInput.map((x) => formData.append("image", x))
+
+    let urls = []
 
     $.ajax({
       url: "http://bucket.reworkstaging.name.ng/resources",
@@ -654,84 +713,38 @@ $("#logIn").click(function (e) {
       data: formData,
       processData: false,
       contentType: false,
+      async: false,
       success: function (response) {
-        $("#response").text(response);
-        console.log(response);
-
-        // Create product after image upload
-        var title = $("#addnewtodo").val();
-        var descp = $("#description").val();
-        var price = $("#product_price").val();
-        var brand = $("#brand").val();
-        var quantity = $("#product_qty").val();
-        //var images = $('#images').val();
-        var currency = $("#currency").val();
-        var min_qty = $("#min_qty").val();
-        var max_qty = $("#max_qty").val();
-        var discount = $("#discount").val();
-        var discount_expiration = $("#discount_expiration").val();
-        var has_refund_policy = $("#refund_policy").val();
-        var has_discount = $("#has_discount").val();
-        var has_shipment = $("#has_shipment").val();
-        var has_variation = $("#has_variation").val();
-        var shipping_locations = $("#shipping_location").val();
-        var attrib = [
-          {
-            type: "",
-            content: [
-              {
-                name: "",
-                value: "",
-              },
-            ],
-          },
-        ];
-        var category_id = $("#taskTags").val();
-
-        // Create product data object
-        var productData = {
-          title: title,
-          descp: descp,
-          price: price,
-          brand: brand,
-          quantity: quantity,
-          images: response,
-          currency: currency,
-          min_qty: min_qty,
-          max_qty: max_qty,
-          discount: discount,
-          discount_expiration: discount_expiration,
-          has_refund_policy: has_refund_policy,
-          has_discount: has_discount,
-          has_shipment: has_shipment,
-          has_variation: has_variation,
-          shipping_locations: shipping_locations,
-          attrib: attrib,
-          category_id: category_id,
-        };
-
-        // Create product
-        $.ajax({
-          url: `${api}/products`,
-          type: "POST",
-          data: productData,
-          success: function (productResponse) {
-            //console.log(productResponse);
-            // addNewProduct();
-            $("#productResponse").text("Product created successfully.");
-          },
-          error: function () {
-            $("#productResponse").text("Error creating product.");
-          },
-        });
+        urls = response.data.map((x) => x.url)
+        // $("#response").text(urls);
+        // console.log(response);
       },
 
       error: function () {
         $("#response").text("Error uploading image.");
       },
     });
-  });
 
+    console.log(urls);
+    return urls;
+  }
 
+//delete product
+$("#productList").on("click", ".deleteTag", function (e) {
+  e.preventDefault();
+  let id = e.target.id;
+  // console.log(e, id);
 
-
+    if (confirm("Do you want to delete this product?")) {
+      $.ajax({
+        type: "delete",
+        url: `${api}/products/${id}`,
+        dataType: "json",
+        success: function (response) {
+          // alert(`deleted tag and its tasks`)
+          getProducts();
+        },
+      });
+    }
+ 
+});
