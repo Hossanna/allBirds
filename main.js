@@ -257,8 +257,13 @@ function handleCreateProductInCart() {
   formObj = {
     quantity: 2,
     user_id: userId,
-    product_id: localStorage.getItem('productID'),
-    has_variation: false
+    product_id: localStorage.getItem("productID"),
+    has_variation: true,
+    variation: {
+      quantity: 3,
+      color_index: 0,
+      size_index: 1,
+    },
   };
 
   $.ajax({
@@ -267,11 +272,12 @@ function handleCreateProductInCart() {
     data:formObj,
     success: function(res){
       console.log(res);
+      console.log(formObj);
       // alert(res)
     },
     error: function(err){
       console.log(err);
-      // console.log(formObj);
+      console.log(formObj);
       // alert(err);
     }
   })
